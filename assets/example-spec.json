@@ -1,0 +1,12 @@
+{
+  "title": "Multi-scale Prompt Fusion Network",
+  "subtitle": "Structure-first academic figure prototype",
+  "input": "Input image",
+  "stages": [
+    {"id": "encoder", "label": "Multi-scale encoder", "detail": "Hierarchical features", "role": "representation"},
+    {"id": "fusion", "label": "Prompt-guided fusion", "detail": "Cross-modal attention", "role": "proposed"},
+    {"id": "decoder", "label": "Task decoder", "detail": "Feature refinement", "role": "neutral"}
+  ],
+  "auxiliary": {"label": "Text prompt", "target": "fusion"},
+  "output": "Prediction map"
+}

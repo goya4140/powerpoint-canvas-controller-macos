@@ -1,0 +1,7 @@
+interface:
+  display_name: "Draw in PowerPoint"
+  short_description: "Create editable academic figures in PowerPoint"
+  default_prompt: "Use $draw-in-powerpoint to turn my method description into an editable academic figure in PowerPoint."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#2E8064"
