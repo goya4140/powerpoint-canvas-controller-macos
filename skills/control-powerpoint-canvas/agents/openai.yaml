@@ -1,0 +1,19 @@
+interface:
+  display_name: "Control PowerPoint Canvas"
+  short_description: "Draw and inspect editable slides live."
+  default_prompt: "Use $control-powerpoint-canvas to build this slide live with editable PowerPoint objects."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "powerpoint-live"
+      description: "Live editable PowerPoint canvas operations through COM."
+      transport: "stdio"
+    - type: "mcp"
+      value: "powerpoint-file-utils"
+      description: "PowerPoint inspection, validation, saving, and export."
+      transport: "stdio"
+
+policy:
+  allow_implicit_invocation: true
+

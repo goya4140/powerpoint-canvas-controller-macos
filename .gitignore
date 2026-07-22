@@ -1,0 +1,12 @@
+# Local integration-test artifacts
+test-output/
+
+# PowerPoint/Office temporary files
+~$*.pptx
+~$*.ppt
+*.tmp
+
+# Node and editor noise
+node_modules/
+.DS_Store
+.vscode/

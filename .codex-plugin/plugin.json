@@ -1,0 +1,36 @@
+{
+  "name": "powerpoint-canvas-controller",
+  "version": "1.0.0+codex.20260722115426",
+  "description": "Control a visible Microsoft PowerPoint canvas through PowerPoint's native COM object model, with editable shapes, paced drawing, inspection, saving, and export.",
+  "author": {
+    "name": "wangzian828"
+  },
+  "license": "MIT",
+  "keywords": [
+    "powerpoint",
+    "pptx",
+    "presentation",
+    "canvas",
+    "mcp",
+    "scientific-figure"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "PowerPoint Canvas Controller",
+    "shortDescription": "Draw and refine editable PowerPoint slides live through MCP.",
+    "longDescription": "Connects Codex directly to Microsoft PowerPoint's native COM object model. Shapes, text, pictures, grouped objects, connectors, updates, and deletions appear in the visible slide with adjustable pacing. It never controls the operating-system mouse or keyboard. It can also inspect slides, detect overflow and off-slide objects, save editable PPTX files, and export PNG, JPG, or PDF previews.",
+    "developerName": "wangzian828",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Recreate this figure live as editable PowerPoint objects.",
+      "Inspect and refine the current PowerPoint slide.",
+      "Build this presentation step by step at 100 ms intervals."
+    ],
+    "brandColor": "#D35230"
+  }
+}
