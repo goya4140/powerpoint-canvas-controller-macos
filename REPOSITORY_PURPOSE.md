@@ -1,5 +1,7 @@
 # draw-in-powerpoint
 
+> 面向使用者的项目入口、快速开始和视觉样例见 [`README.md`](README.md)；完整分阶段流程见 [`docs/DRAWING_WORKFLOW.md`](docs/DRAWING_WORKFLOW.md)。
+
 ## 仓库目的
 
 `draw-in-powerpoint` 是一个面向 Codex 的绘图 Skill，目标是让用户能够直接使用自然语言，在 PowerPoint 中创建、修改和复用论文插图。
@@ -11,6 +13,8 @@
 ## 核心目标
 
 该 Skill 希望将 Codex 的内容理解、代码生成和任务执行能力，与 PowerPoint 的原生绘图能力结合起来，使用户无需依赖 Figma、Illustrator 等专业设计工具，也能快速制作具有论文发表质量的科研插图。
+
+当前实现以“层级 1 语义骨架”为核心：先用可编辑的线条、图框、文字框、分组与语义箭头确认方法结构，再通过 `asset_slot` 将部分模块升级为层级 2 的图标表达或层级 3 的插画表达。层级升级不得在未经确认的情况下改变已经验证的方法图关系。
 
 生成结果应优先由 PowerPoint 原生对象组成，包括：
 

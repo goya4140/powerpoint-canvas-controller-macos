@@ -1,67 +1,75 @@
-# Interactive Figure Workflow
+# Interactive Level 1 Figure Workflow
 
 ## 1. Build the Figure Brief
 
 Capture only information that changes the drawing:
 
-- central message and intended reader;
+- one-sentence message and intended reader;
 - input, output, modules, and named contributions;
 - directed edges, branches, loops, skip connections, and hierarchy;
+- system boundaries, lanes, shared resources, and external components;
 - target single-column, double-column, full-page, or presentation size;
-- required notation, mathematical symbols, legends, and reference material;
-- delivery formats and whether an existing PPTX must be preserved.
+- required notation, delivery formats, and whether an existing PPTX must be preserved.
 
-Represent uncertainty explicitly. Do not silently turn a textual sequence into a causal edge or infer an unmentioned training branch.
+Represent uncertainty explicitly. Do not silently turn textual order into causality or invent an unmentioned training branch.
 
-## 2. Create a semantic graph
+## 2. Encode the semantic graph
 
-Use a compact task-local structure such as:
+Use the schema in `level-1-grammar.md`. Separate technical roles from eventual shapes and assets. Assign stable IDs before positioning nodes.
 
-```text
-image -> encoder -> fusion -> decoder -> prediction
-prompt ----------------^ 
-encoder -> {low, mid, high resolution features}
+Record upgrade hints with `asset_slot`, but do not add the assets during Level 1 generation.
+
+## 3. Validate before drawing
+
+Run:
+
+```bash
+node scripts/validate_level1_spec.mjs --spec <json>
 ```
 
-Record node roles separately from their eventual shapes. This allows technical corrections without redesigning the page.
+Resolve unknown node references, duplicate IDs, invalid cycles, excessive label length, and missing layout metadata before opening the drawing canvas.
 
-## 3. Select candidate layouts
+## 4. Generate structural alternatives
 
-Offer two or three meaningfully different structures:
+Choose two or three layouts from `layout-patterns.md`. Prefer candidates that answer different structural questions:
 
-- **Pipeline:** best for a dominant left-to-right transformation.
-- **Layered:** best for hierarchical or multi-resolution processing.
-- **Contribution-first:** enlarge the novel module and compress standard context.
-- **Swimlane:** separate training/inference or modalities.
-- **Overview + inset:** keep the main path simple and explain one dense module in a local inset.
+- pipeline versus swimlane;
+- pipeline versus contribution-first hierarchy;
+- hub-spoke versus loop-oriented flow.
 
-Do not present cosmetic variants as structural alternatives.
+Do not present cosmetic variants as alternatives.
 
-## 4. Confirm the wireframe
+Render-screen every candidate before showing it. Discard a layout if spatial order implies a technical sequence that is absent from the semantic graph, especially when a pipeline interleaves multiple independent sources or branches.
+
+## 5. Double check with the user
 
 Ask the user to confirm:
 
 - technical direction and reading order;
+- missing, merged, or incorrectly split modules;
 - primary contribution and relative emphasis;
-- whether to split or merge content;
-- which modules need internal detail;
-- intended paper width.
+- system boundaries and shared resources;
+- selected layout and intended paper width.
 
-Skip confirmation only when explicitly requested or when the task is a tiny local edit.
+Keep `selected_layout` absent until confirmation. If the user changes the method graph, regenerate all affected wireframes.
 
-## 5. Refine progressively
+## 6. Refine the confirmed Level 1 figure
 
 Add detail in this order:
 
 1. main containers and connectors;
-2. internal repeated components;
-3. labels and mathematical notation;
-4. semantic color;
-5. callouts, legends, and restrained emphasis;
-6. object grouping and stable naming.
+2. concise labels and notation;
+3. internal repeated primitives;
+4. restrained semantic color;
+5. callouts and legends only when necessary;
+6. object grouping, stable naming, and asset-slot metadata.
 
-Prefer one strong visual hierarchy over a collection of equally prominent boxes.
+Prefer one strong hierarchy over equally prominent boxes.
 
-## 6. Iterate incrementally
+## 7. Validate at paper size
 
-Resolve requested objects by stable names. Preserve position, color, and connectors outside the requested scope. If a change affects the global layout, explain the necessary propagation before rebuilding adjacent regions.
+Render the confirmed slide at full size and target paper width. Check connectors, text wrapping, whitespace, grayscale, object editability, and slide bounds. Fix the source script or semantic spec and rerender; do not patch only the preview image.
+
+## 8. Upgrade without structural drift
+
+For Level 2, replace declared `asset_slot` values with small reusable icons while preserving coordinates and connectors. For Level 3, retain the confirmed graph as a comparison layer and require user approval for any composition change caused by illustration scale.

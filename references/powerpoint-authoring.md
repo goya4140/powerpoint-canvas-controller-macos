@@ -24,6 +24,8 @@ group.multi-scale-features
 callout.proposed
 ```
 
+Use IDs from the Level 1 semantic graph. Add upgrade placeholders as `slot.<node-id>.<asset-slot>` and keep the corresponding module name stable when an icon later replaces or enters it.
+
 Use stable semantic names instead of coordinates or generated indices. Add a short numeric suffix only for genuinely repeated elements, such as `token.prompt.01`.
 
 ## Layers and connectors
@@ -45,3 +47,5 @@ Inspect before editing. Locate an object by stable name, render the affected sli
 ## Multi-page roles
 
 Use working pages for alternatives and components, but keep the `FINAL` or `EXPORT` page free of production commentary. Store reusable mini-elements on a dedicated `COMPONENTS` page or in `assets/component-library.pptx`.
+
+For Level 1 decks use `BRIEF`, `WIREFRAME-<LAYOUT>`, and `SELECTED-<LAYOUT>` roles. Do not create a selected page before the user confirms a layout unless the user explicitly requests a one-pass result.

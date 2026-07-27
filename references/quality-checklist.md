@@ -6,6 +6,8 @@
 - Reading order and arrow direction are unambiguous.
 - The claimed contribution receives appropriate visual emphasis.
 - Unknown relationships are disclosed rather than invented.
+- The delivered graph matches the user-confirmed wireframe, not an earlier candidate.
+- Every cycle is encoded as feedback, update, or optional behavior unless the method explicitly defines another cyclic relation.
 
 ## Visual quality
 
@@ -23,6 +25,16 @@
 - Important objects use stable semantic names.
 - Repeated components are grouped sensibly.
 - The final figure is not flattened into a bitmap.
+- Node, edge, and group object names derive from stable semantic IDs.
+- Every declared `asset_slot` remains traceable to exactly one node for later Level 2/3 replacement.
+
+## Level 1 gate
+
+- Two or three structurally distinct wireframes were shown unless the confirmation gate was explicitly skipped.
+- The selected layout is recorded in the semantic specification.
+- The figure remains understandable after removing all decorative or replacement assets.
+- The main reading direction, group boundaries, arrow semantics, and contribution emphasis are visually unambiguous.
+- The confirmed figure uses 5–12 primary modules unless a documented exception is necessary.
 
 ## Delivery
 
