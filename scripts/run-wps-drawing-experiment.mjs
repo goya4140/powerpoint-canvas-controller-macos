@@ -7,6 +7,7 @@ import os from "node:os";
 import path from "node:path";
 import { promisify } from "node:util";
 import { fileURLToPath } from "node:url";
+import AdmZip from "adm-zip";
 
 const execFileAsync = promisify(execFile);
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
@@ -77,6 +78,7 @@ await new Promise((resolve, reject) => {
   callbackServer.once("error", reject);
   callbackServer.listen(CALLBACK_PORT, "127.0.0.1", resolve);
 });
+callbackServer.unref();
 
 try {
   debugProcess = spawn("npm", ["run", "debug"], {
@@ -109,6 +111,9 @@ try {
   if (!result.ok) throw new Error(result.error || "WPS add-in reported a drawing failure.");
 
   await delay(1200);
+  await stopOpenedWpsProcesses(wpsPidsBefore);
+  await delay(500);
+  if (referenceMode) await normalizeRoundRectAdjustments(OUTPUT);
   const { stdout: slideXml } = await execFileAsync(
     "/usr/bin/unzip",
     ["-p", OUTPUT, "ppt/slides/slide1.xml"],
@@ -144,16 +149,15 @@ try {
     verified_shape_names: requiredNames,
   }, null, 2)}\n`);
 } finally {
+  callbackServer.closeAllConnections?.();
   callbackServer.close();
   if (debugProcess?.pid) {
     try { process.kill(-debugProcess.pid, "SIGTERM"); } catch {}
+    debugProcess.stdout?.destroy();
+    debugProcess.stderr?.destroy();
+    debugProcess.unref();
   }
-  const wpsPidsAfter = await listWpsPids();
-  for (const pid of wpsPidsAfter) {
-    if (!wpsPidsBefore.has(pid)) {
-      try { process.kill(pid, "SIGTERM"); } catch {}
-    }
-  }
+  await stopOpenedWpsProcesses(wpsPidsBefore);
   if (publishExisted) {
     await fs.mkdir(path.dirname(PUBLISH_XML), { recursive: true });
     await fs.writeFile(PUBLISH_XML, publishSnapshot);
@@ -161,6 +165,7 @@ try {
     await fs.unlink(PUBLISH_XML).catch(() => {});
   }
 }
+process.exit(0);
 
 function corsHeaders(request) {
   const origin = request.headers.origin;
@@ -198,4 +203,30 @@ async function listWpsPids() {
   } catch {
     return new Set();
   }
+}
+
+async function stopOpenedWpsProcesses(existingPids) {
+  const currentPids = await listWpsPids();
+  for (const pid of currentPids) {
+    if (!existingPids.has(pid)) {
+      try { process.kill(pid, "SIGTERM"); } catch {}
+    }
+  }
+}
+
+async function normalizeRoundRectAdjustments(filePath) {
+  const archive = new AdmZip(filePath);
+  const entryName = "ppt/slides/slide1.xml";
+  const entry = archive.getEntry(entryName);
+  if (!entry) throw new Error(`${entryName} is missing from the WPS output.`);
+  const original = entry.getData().toString("utf8");
+  const updated = original.replace(
+    /<a:prstGeom prst="roundRect"><a:avLst\/><\/a:prstGeom>/g,
+    '<a:prstGeom prst="roundRect"><a:avLst><a:gd name="adj" fmla="val 4000"/></a:avLst></a:prstGeom>',
+  );
+  if (updated === original) {
+    throw new Error("No default roundRect geometry was found to normalize.");
+  }
+  archive.updateFile(entryName, Buffer.from(updated, "utf8"));
+  archive.writeZip(filePath);
 }

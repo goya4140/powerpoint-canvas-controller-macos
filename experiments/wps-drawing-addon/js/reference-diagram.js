@@ -4,19 +4,21 @@
   const PREFIX = "wps_reference_";
   const C = {
     ink: rgb(10, 15, 25),
-    navy: rgb(21, 49, 91),
-    paleBlue: rgb(224, 232, 249),
-    panelBlue: rgb(235, 241, 252),
-    gray: rgb(230, 234, 241),
-    rose: rgb(238, 224, 228),
-    mint: rgb(229, 240, 231),
+    navy: rgb(25, 45, 84),
+    paleBlue: rgb(210, 217, 245),
+    panelBlue: rgb(222, 230, 241),
+    gray: rgb(214, 220, 229),
+    rose: rgb(227, 211, 214),
+    mint: rgb(227, 234, 226),
+    captionBlue: rgb(218, 227, 245),
     teal: rgb(27, 145, 139),
     red: rgb(245, 72, 85),
-    purple: rgb(176, 126, 210),
+    purple: rgb(170, 130, 191),
     purpleLight: rgb(231, 211, 244),
-    peach: rgb(250, 239, 232),
+    peach: rgb(243, 230, 221),
     orange: rgb(255, 122, 20),
     yellow: rgb(255, 194, 48),
+    green: rgb(104, 166, 36),
     white: rgb(255, 255, 255),
   };
 
@@ -31,7 +33,7 @@
 
     const slide = presentation.Slides.Item(1);
     const shapes = slide.Shapes;
-    preserveReferencePhotos(shapes);
+    const referenceImages = preserveReferencePhotos(shapes);
 
     addFlowConnectors(shapes);
     addStageHeaders(shapes);
@@ -39,6 +41,9 @@
     addStageTwo(shapes);
     addReasoningPanels(shapes);
     addBottomRewards(shapes);
+    for (const image of referenceImages) {
+      try { image.ZOrder(0); } catch {}
+    }
 
     presentation.Save();
     return {
@@ -78,27 +83,24 @@
   }
 
   function addStageHeaders(shapes) {
-    text(shapes, "stage1_title", 22, 9, 260, 29, "Stage1 SFT: Cold Start", 17, C.ink, true);
-    text(shapes, "stage2_title", 316, 9, 280, 29, "Stage2 GRPO:  Critical Thinking", 17, C.ink, true);
+    italic(text(shapes, "stage1_title", 22, 9, 260, 29, "Stage1 SFT: Cold Start", 19, C.ink, true));
+    italic(text(shapes, "stage2_title", 316, 9, 280, 29, "Stage2 GRPO:  Critical Thinking", 17, C.ink, true));
   }
 
   function addStageOne(shapes) {
     rect(shapes, "caption_box", 14, 43, 267, 93, C.white, C.ink, 1.7, true, 0);
-    text(shapes, "caption_label", 18, 47, 125, 22, "Caption Rewrite", 12.5, C.ink, true);
-    roundRect(shapes, "caption_fake_real", 21, 67, 116, 52, rgb(222, 231, 250), rgb(149, 173, 221), 1.2);
-    text(shapes, "caption_fake_real_text", 32, 77, 90, 36, "Fake / Real\nExplanation", 12.5, C.ink, false, "left");
+    italic(text(shapes, "caption_label", 18, 46, 125, 20, "Caption Rewrite", 12.2, C.ink, true));
+    roundRect(shapes, "caption_fake_real", 21, 67, 116, 52, C.captionBlue, rgb(149, 173, 221), 1.2);
+    text(shapes, "caption_fake_real_text", 32, 75, 90, 39, "Fake / Real\nExplanation", 14, C.ink, false, "left");
 
     roundRect(shapes, "caption_qna", 161, 49, 112, 35, C.gray, C.gray, 0.5);
-    text(shapes, "caption_qna_text", 173, 59, 89, 20, "Q&A Format", 13, C.ink, false);
+    text(shapes, "caption_qna_text", 173, 58, 89, 21, "Q&A Format", 13, C.ink, false);
     roundRect(shapes, "caption_multi", 161, 87, 112, 41, C.gray, C.gray, 0.5);
-    text(shapes, "caption_multi_text", 173, 92, 88, 32, "Multi-turn\nDialogue", 12.5, C.ink, false, "center");
-    text(shapes, "caption_cycle", 105, 58, 57, 61, "🔁\n🤖", 21, C.teal, false, "center");
-    text(shapes, "ar_loss_text", 78, 140, 86, 22, "AR Loss", 13.5, C.ink, true, "center");
+    text(shapes, "caption_multi_text", 173, 92, 88, 31, "Multi-turn\nDialogue", 13, C.ink, false, "center");
+    italic(text(shapes, "ar_loss_text", 78, 140, 86, 22, "AR Loss", 14.5, C.ink, true, "center"));
 
     modelBar(shapes, "left_llm", 14, 167, 267, "Large Language Model");
     tokenStrip(shapes, "left_tokens", 25, 215);
-    text(shapes, "left_fire", 4, 160, 30, 33, "🔥", 25, C.orange, false, "center");
-    text(shapes, "left_user_icon", 13, 236, 31, 34, "👤", 23, C.ink, false, "center");
 
     rect(shapes, "left_prompt_box", 14, 271, 139, 94, C.white, C.navy, 1.4);
     text(
@@ -116,13 +118,12 @@
     );
 
     roundRect(shapes, "left_encoder", 160, 244, 121, 32, C.white, C.navy, 1.6);
-    text(shapes, "left_encoder_text", 170, 251, 102, 20, "Vision Encoder", 12, C.ink, true, "center");
-    text(shapes, "left_encoder_fire", 151, 236, 27, 31, "🔥", 23, C.orange, false, "center");
+    italic(text(shapes, "left_encoder_text", 168, 250, 106, 21, "Vision Encoder", 13.5, C.ink, true, "center"));
   }
 
   function addStageTwo(shapes) {
     roundRect(shapes, "reward_box", 311, 42, 266, 44, C.peach, C.navy, 1.8);
-    text(
+    italic(text(
       shapes,
       "reward_box_text",
       329,
@@ -130,11 +131,11 @@
       232,
       22,
       "Reward Model and GRPO Process",
-      13,
+      14.5,
       C.ink,
       true,
       "center",
-    );
+    ));
 
     rect(shapes, "cot_outer", 326, 102, 243, 50, C.white, C.navy, 1.2, true, 7);
     cotChip(shapes, "cot1", 339, 108, "CoT₁");
@@ -144,8 +145,6 @@
 
     modelBar(shapes, "right_llm", 310, 167, 268, "Large Language Model");
     tokenStrip(shapes, "right_tokens", 320, 215);
-    text(shapes, "right_fire", 299, 160, 30, 33, "🔥", 25, C.orange, false, "center");
-    text(shapes, "right_user_icon", 306, 236, 31, 34, "👤", 23, C.ink, false, "center");
 
     rect(shapes, "right_prompt_box", 309, 269, 139, 96, C.white, C.navy, 1.4);
     text(
@@ -163,8 +162,7 @@
     );
 
     roundRect(shapes, "right_encoder", 454, 244, 121, 32, C.white, C.navy, 1.6);
-    text(shapes, "right_encoder_text", 463, 251, 104, 20, "Vision Encoder", 12, C.ink, true, "center");
-    text(shapes, "right_encoder_snow", 443, 236, 29, 31, "❄️", 22, C.teal, false, "center");
+    italic(text(shapes, "right_encoder_text", 461, 250, 108, 21, "Vision Encoder", 13.5, C.ink, true, "center"));
 
     chevron(shapes, "cot1_to_reasoning", 578, 86, 18, 31);
     chevron(shapes, "cot2_to_reasoning", 578, 128, 18, 31);
@@ -172,8 +170,7 @@
 
   function addReasoningPanels(shapes) {
     roundRect(shapes, "cot1_reasoning", 601, 37, 329, 181, C.white, C.navy, 1.7);
-    text(shapes, "cot1_emoji", 581, 27, 40, 42, "😊", 29, C.yellow, false, "center");
-    text(shapes, "cot1_heading", 615, 42, 225, 21, "CoT₁: reasoning and answer", 12.2, C.red, true);
+    italic(text(shapes, "cot1_heading", 615, 42, 225, 21, "CoT₁: reasoning and answer", 12.8, C.red, true));
     const cot1 =
       "- [Clue 1]: [Why fake]: The boy’s shirt has an illogical\n" +
       "pattern that seems to merge and distort. - [If real]: A\n" +
@@ -182,12 +179,13 @@
       "- [Clue 2]: - [Why fake]: The skin on the face is\n" +
       "unnaturally smooth and flawless. - [If real]: Human\n" +
       "skin would possess some degree of texture and subtle\n" +
-      "blemishes, even with makeup applied. - [Clue 3]: -\n" +
+      "blemishes, even with makeup applied.\n" +
+      "- [Clue 3]: -\n" +
       "[Why fake]: Background is excessively blurred,\n" +
       "foreground is excessively sharp. - [If real]: Real\n" +
       "photographs exhibit a progressive and nuanced\n" +
       "transition in the depth of field...";
-    const cot1Box = text(shapes, "cot1_body", 607, 58, 315, 154, cot1, 8.65, C.ink, false, "left");
+    const cot1Box = text(shapes, "cot1_body", 607, 58, 315, 154, cot1, 10.2, C.ink, false, "left");
     colorPhrases(cot1Box, [
       "shirt has an illogical\npattern",
       "skin on the face is\nunnaturally smooth and flawless",
@@ -196,8 +194,7 @@
     ], C.red);
 
     roundRect(shapes, "cot2_reasoning", 601, 225, 329, 154, C.white, C.navy, 1.7);
-    text(shapes, "cot2_emoji", 582, 214, 39, 42, "☹️", 29, C.yellow, false, "center");
-    text(shapes, "cot2_heading", 615, 231, 225, 21, "CoT₂: reasoning and answer", 12.2, C.teal, true);
+    italic(text(shapes, "cot2_heading", 615, 231, 225, 21, "CoT₂: reasoning and answer", 12.8, C.teal, true));
     const cot2 =
       "The first clue: - [Fake reason]: The girl’s hair appears\n" +
       "overly smooth. - [If real]: would capture the natural\n" +
@@ -209,7 +206,7 @@
       "- [If real]: Human skin would possess some degree of\n" +
       "texture and subtle blemishes, even with makeup\n" +
       "applied...";
-    const cot2Box = text(shapes, "cot2_body", 607, 247, 315, 126, cot2, 8.8, C.ink, false, "left");
+    const cot2Box = text(shapes, "cot2_body", 607, 247, 315, 126, cot2, 9.3, C.ink, false, "left");
     colorPhrases(cot2Box, [
       "girl’s hair appears\noverly smooth",
       "facial features of the subjects appear excessively\nsmooth",
@@ -219,14 +216,14 @@
 
   function addBottomRewards(shapes) {
     rect(shapes, "bottom_frame", 13, 390, 918, 138, C.panelBlue, C.navy, 1.6);
-    dashedTab(shapes, "bottom_acc_tab", 14, 377, 101, 24, "Racc & Rfmt");
-    dashedTab(shapes, "bottom_len_tab", 214, 377, 53, 24, "Rlen");
-    dashedTab(shapes, "bottom_logic_tab", 399, 377, 117, 24, "Rstruc & Rlogic");
+    dashedTab(shapes, "bottom_acc_tab", 14, 377, 101, "Racc & Rfmt");
+    dashedTab(shapes, "bottom_len_tab", 214, 377, 53, "Rlen");
+    dashedTab(shapes, "bottom_logic_tab", 399, 377, 117, "Rstruc & Rlogic");
 
     roundRect(shapes, "bottom_accuracy", 20, 405, 183, 117, C.white, C.ink, 1.5);
-    arrow(shapes, "bottom_left_book_in", 39, 493, 58, 493, C.purple, 3);
-    arrow(shapes, "bottom_left_book_out", 107, 493, 123, 493, C.purple, 3);
-    text(
+    chevron(shapes, "bottom_left_book_in", 30, 481, 19, 25);
+    chevron(shapes, "bottom_left_book_out", 106, 481, 19, 25);
+    const accuracyText = text(
       shapes,
       "bottom_accuracy_text",
       27,
@@ -239,12 +236,16 @@
       true,
       "left",
     );
-    text(shapes, "bottom_accuracy_book", 49, 478, 58, 39, "📖", 28, C.navy, false, "center");
-    text(shapes, "bottom_accuracy_scores", 125, 481, 68, 37, "R₁=2   ✓\nR₂=0   ⊗", 11.5, C.ink, true, "left");
+    colorPhrases(accuracyText, ["Fake", "Real"], C.red);
+    colorPhrases(accuracyText, ["- - - - - - - - - - - - - -"], C.purple);
+    const accuracyScores = text(shapes, "bottom_accuracy_scores", 125, 481, 68, 37, "R₁=2   ✓\nR₂=0   ⊗", 11.5, C.ink, true, "left");
+    colorPhrases(accuracyScores, ["✓"], C.green);
+    colorPhrases(accuracyScores, ["⊗"], C.red);
 
     roundRect(shapes, "bottom_length", 211, 405, 181, 117, C.white, C.ink, 1.5);
-    arrow(shapes, "bottom_middle_book", 238, 493, 257, 493, C.purple, 3);
-    text(
+    chevron(shapes, "bottom_middle_book_in", 233, 481, 19, 25);
+    chevron(shapes, "bottom_middle_book_out", 309, 481, 19, 25);
+    const lengthText = text(
       shapes,
       "bottom_length_text",
       218,
@@ -257,14 +258,15 @@
       true,
       "left",
     );
-    text(shapes, "bottom_length_book", 251, 478, 59, 39, "📖", 28, C.navy, false, "center");
+    colorPhrases(lengthText, ["Detection result Correct", "Detection result Incorrect"], C.red);
+    colorPhrases(lengthText, ["- - - - - - - - - - - - - -"], C.purple);
     text(shapes, "bottom_length_note", 310, 483, 78, 33, "CoT₁: shorter\nCoT₂: longer", 9.2, C.ink, true, "left");
 
     roundRect(shapes, "bottom_logic", 400, 405, 524, 117, C.white, C.ink, 1.5);
-    arrow(shapes, "bottom_logic_book", 718, 465, 738, 465, C.purple, 3);
-    arrow(shapes, "bottom_logic_robot", 787, 465, 807, 465, C.purple, 3);
+    chevron(shapes, "bottom_logic_book", 718, 451, 20, 26);
+    chevron(shapes, "bottom_logic_robot", 793, 451, 19, 26);
     text(shapes, "bottom_logic_cot1", 410, 409, 305, 16, "CoT₁ Reasoning:", 10.8, C.ink, true, "left");
-    text(
+    const logicCot1 = text(
       shapes,
       "bottom_logic_cot1_body",
       410,
@@ -277,9 +279,10 @@
       true,
       "left",
     );
+    colorPhrases(logicCot1, ["② Rigorous and exhibits strong internal consistency."], C.red);
     line(shapes, "bottom_logic_separator", 410, 463, 716, 463, C.purple, 1.5, false, true);
     text(shapes, "bottom_logic_cot2", 410, 469, 305, 16, "CoT₂ Reasoning:", 10.8, C.ink, true, "left");
-    text(
+    const logicCot2 = text(
       shapes,
       "bottom_logic_cot2_body",
       410,
@@ -292,17 +295,17 @@
       true,
       "left",
     );
-    text(shapes, "bottom_logic_book", 733, 415, 58, 38, "📖", 28, C.navy, false, "center");
-    text(shapes, "bottom_logic_robot", 746, 463, 53, 43, "🤖", 30, C.navy, false, "center");
+    colorPhrases(logicCot2, ["② Logic is inconsistent, and informational redundancy."], C.red);
     speechBubble(shapes, "critical_bubble", 807, 410, 108, 62);
-    text(shapes, "critical_text", 827, 423, 76, 35, "💡 Critical\nthinking", 10.8, C.ink, true, "left");
-    text(shapes, "bottom_logic_scores", 829, 474, 84, 40, "R₁=1.8  ✓\nR₂=0.3  ⊗", 11.4, C.ink, true, "left");
+    italic(text(shapes, "critical_text", 844, 423, 59, 35, "Critical\nthinking", 10.8, C.ink, true, "left"));
+    const logicScores = text(shapes, "bottom_logic_scores", 829, 474, 84, 40, "R₁=1.8  ✓\nR₂=0.3  ⊗", 11.4, C.ink, true, "left");
+    colorPhrases(logicScores, ["✓"], C.green);
+    colorPhrases(logicScores, ["⊗"], C.red);
   }
 
   function modelBar(shapes, name, x, y, width, label) {
     roundRect(shapes, name, x, y, width, 45, C.paleBlue, C.paleBlue, 0.5);
-    text(shapes, `${name}_text`, x + 47, y + 13, width - 80, 22, label, 13.5, C.ink, true, "center");
-    text(shapes, `${name}_robot`, x + width - 41, y + 5, 34, 36, "🤖", 25, C.navy, false, "center");
+    italic(text(shapes, `${name}_text`, x + 55, y + 11, width - 105, 25, label, 14.5, C.ink, true, "center"));
   }
 
   function tokenStrip(shapes, name, x, y) {
@@ -315,12 +318,12 @@
 
   function cotChip(shapes, name, x, y, label) {
     roundRect(shapes, name, x, y, 54, 38, C.white, C.teal, 2, true);
-    text(shapes, `${name}_text`, x + 5, y + 8, 44, 22, label, 12.5, C.ink, true, "center");
+    italic(text(shapes, `${name}_text`, x + 5, y + 8, 44, 22, label, 12.5, C.ink, true, "center"));
   }
 
   function dashedTab(shapes, name, x, y, width, label) {
     roundRect(shapes, name, x, y, width, 24, C.white, C.ink, 1.5, true);
-    text(shapes, `${name}_text`, x + 5, y + 5, width - 10, 16, label, 11.2, C.ink, true, "center");
+    italic(text(shapes, `${name}_text`, x + 5, y + 5, width - 10, 16, label, 11.2, C.ink, true, "center"));
   }
 
   function chevron(shapes, name, x, y, width, height) {
@@ -351,8 +354,8 @@
       if (type === 11 || type === 13) pictures.unshift(shape);
       else shape.Delete();
     }
-    if (pictures.length < 2) {
-      throw new Error(`参考底稿应包含两张嵌入图片，实际找到 ${pictures.length} 张。`);
+    if (pictures.length < 18) {
+      throw new Error(`参考底稿应包含 18 张嵌入图片，实际找到 ${pictures.length} 张。`);
     }
     pictures[0].Name = `${PREFIX}left_examples`;
     pictures[0].Left = 161;
@@ -364,6 +367,17 @@
     pictures[1].Top = 279;
     pictures[1].Width = 125;
     pictures[1].Height = 86;
+    for (const picture of pictures.slice(0, 2)) {
+      try {
+        picture.Shadow.Visible = -1;
+        picture.Shadow.Type = 14;
+        picture.Shadow.Blur = 3;
+        picture.Shadow.OffsetX = 1.5;
+        picture.Shadow.OffsetY = 1.5;
+        picture.Shadow.Transparency = 0.55;
+      } catch {}
+    }
+    return pictures;
   }
 
   function rect(shapes, name, x, y, width, height, fill, stroke, weight = 1, dashed = false, radius = 0) {
@@ -386,6 +400,9 @@
       if (dashed) {
         try { shape.Line.DashStyle = 4; } catch {}
       }
+    }
+    if (type === 5) {
+      try { shape.Adjustments.Item(1, 0.04); } catch {}
     }
     return shape;
   }
@@ -445,6 +462,11 @@
   function doubleArrow(shapes, name, x1, y1, x2, y2, color, weight = 1.8) {
     const shape = line(shapes, name, x1, y1, x2, y2, color, weight, true, false);
     shape.Line.BeginArrowheadStyle = 3;
+    return shape;
+  }
+
+  function italic(shape) {
+    try { shape.TextFrame.TextRange.Font.Italic = -1; } catch {}
     return shape;
   }
 

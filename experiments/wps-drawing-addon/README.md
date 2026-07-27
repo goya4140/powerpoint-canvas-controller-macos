@@ -44,4 +44,7 @@ npm run experiment:wps:reference
 
 It produces `test-output/wps/wps-reference-recreation.pptx`. The result contains editable boxes,
 text, dashed frames, arrows, reward panels, and reasoning callouts. The runner verifies the named
-objects in the saved PPTX and closes only the isolated WPS process it opened.
+objects in the saved PPTX and closes only the isolated WPS process it opened. Because the current
+macOS WPS build exposes rounded-rectangle adjustments but drops them while saving, the runner
+normalizes that native OOXML adjustment after WPS closes; the objects remain editable PowerPoint
+rounded rectangles.
