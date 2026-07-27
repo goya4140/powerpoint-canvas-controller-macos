@@ -32,3 +32,16 @@ The generated file is `test-output/wps/wps-native-drawing-test.pptx`.
 
 Automatic drawing is restricted to that exact test filename. The ribbon button is the only path that
 intentionally allows drawing into another active presentation.
+
+## Reference-diagram recreation
+
+The higher-density test reconstructs a user-supplied academic process diagram with native WPS
+objects while preserving two small embedded photo examples from its editable base deck:
+
+```bash
+npm run experiment:wps:reference
+```
+
+It produces `test-output/wps/wps-reference-recreation.pptx`. The result contains editable boxes,
+text, dashed frames, arrows, reward panels, and reasoning callouts. The runner verifies the named
+objects in the saved PPTX and closes only the isolated WPS process it opened.

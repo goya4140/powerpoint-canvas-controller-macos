@@ -12,8 +12,14 @@ const execFileAsync = promisify(execFile);
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const ADDON = path.join(ROOT, "experiments", "wps-drawing-addon");
 const OUTPUT_DIR = path.join(ROOT, "test-output", "wps");
-const OUTPUT = path.join(OUTPUT_DIR, "wps-native-drawing-test.pptx");
-const TEMPLATE = path.join(ROOT, "assets", "blank-16x9.pptx");
+const referenceMode = process.argv.includes("--reference");
+const OUTPUT = path.join(
+  OUTPUT_DIR,
+  referenceMode ? "wps-reference-recreation.pptx" : "wps-native-drawing-test.pptx",
+);
+const TEMPLATE = referenceMode
+  ? path.join(ADDON, "assets", "reference-recreation-base.pptx")
+  : path.join(ROOT, "assets", "blank-16x9.pptx");
 const WPS_APP = "/Applications/wpsoffice.app";
 const CALLBACK_PORT = 43129;
 const PUBLISH_XML = path.join(
@@ -43,6 +49,7 @@ try {
   publishExisted = true;
 } catch {}
 
+const wpsPidsBefore = await listWpsPids();
 let debugProcess;
 const messages = [];
 const callback = deferred();
@@ -107,14 +114,24 @@ try {
     ["-p", OUTPUT, "ppt/slides/slide1.xml"],
     { maxBuffer: 10 * 1024 * 1024 },
   );
-  const requiredNames = [
-    "wps_canvas_test_title",
-    "wps_canvas_test_input",
-    "wps_canvas_test_api",
-    "wps_canvas_test_output",
-    "wps_canvas_test_connector_input_api",
-    "wps_canvas_test_connector_api_output",
-  ];
+  const requiredNames = referenceMode
+    ? [
+        "wps_reference_stage1_title",
+        "wps_reference_stage2_title",
+        "wps_reference_caption_box",
+        "wps_reference_reward_box",
+        "wps_reference_cot1_reasoning",
+        "wps_reference_cot2_reasoning",
+        "wps_reference_bottom_logic",
+      ]
+    : [
+        "wps_canvas_test_title",
+        "wps_canvas_test_input",
+        "wps_canvas_test_api",
+        "wps_canvas_test_output",
+        "wps_canvas_test_connector_input_api",
+        "wps_canvas_test_connector_api_output",
+      ];
   const missing = requiredNames.filter((name) => !slideXml.includes(name));
   if (missing.length) throw new Error(`Saved PPTX is missing WPS-created shapes: ${missing.join(", ")}`);
 
@@ -130,6 +147,12 @@ try {
   callbackServer.close();
   if (debugProcess?.pid) {
     try { process.kill(-debugProcess.pid, "SIGTERM"); } catch {}
+  }
+  const wpsPidsAfter = await listWpsPids();
+  for (const pid of wpsPidsAfter) {
+    if (!wpsPidsBefore.has(pid)) {
+      try { process.kill(pid, "SIGTERM"); } catch {}
+    }
   }
   if (publishExisted) {
     await fs.mkdir(path.dirname(PUBLISH_XML), { recursive: true });
@@ -160,4 +183,19 @@ function deferred() {
 
 function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function listWpsPids() {
+  try {
+    const { stdout } = await execFileAsync("/usr/bin/pgrep", ["-x", "wpsoffice"]);
+    return new Set(
+      stdout
+        .trim()
+        .split(/\s+/)
+        .map(Number)
+        .filter(Number.isInteger),
+    );
+  } catch {
+    return new Set();
+  }
 }

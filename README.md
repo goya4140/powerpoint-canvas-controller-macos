@@ -99,10 +99,11 @@ cd experiments/wps-drawing-addon
 npm install
 cd ../..
 npm run experiment:wps
+npm run experiment:wps:reference
 ```
 
 The runner opens a separate WPS instance and only auto-draws into
-`wps-native-drawing-test.pptx`. See
+`wps-native-drawing-test.pptx` or `wps-reference-recreation.pptx`. See
 [`experiments/wps-drawing-addon/README.md`](experiments/wps-drawing-addon/README.md) for details.
 
 ## Repository layout

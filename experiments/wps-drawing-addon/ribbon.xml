@@ -10,6 +10,12 @@
             onAction="DrawWpsCanvasTest"
             size="large"
           />
+          <button
+            id="drawReferenceRecreation"
+            label="复刻论文图"
+            onAction="DrawWpsReferenceDiagram"
+            size="large"
+          />
         </group>
       </tab>
     </tabs>

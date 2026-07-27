@@ -15,11 +15,18 @@ function DrawWpsCanvasTest() {
   return drawCanvas(true);
 }
 
+function DrawWpsReferenceDiagram() {
+  return globalThis.drawWpsReferenceDiagram(true);
+}
+
 async function runAutomaticExperiment() {
   if (automaticFinished) return;
   automaticAttempt += 1;
   try {
-    const result = drawCanvas(false);
+    const presentationName = Application.ActivePresentation?.Name;
+    const result = presentationName === "wps-reference-recreation.pptx"
+      ? globalThis.drawWpsReferenceDiagram(false)
+      : drawCanvas(false);
     automaticFinished = true;
     await report({ ok: true, attempt: automaticAttempt, ...result });
   } catch (error) {
@@ -194,3 +201,4 @@ async function report(value) {
 
 globalThis.OnAddinLoad = OnAddinLoad;
 globalThis.DrawWpsCanvasTest = DrawWpsCanvasTest;
+globalThis.DrawWpsReferenceDiagram = DrawWpsReferenceDiagram;
