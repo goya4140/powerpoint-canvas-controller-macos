@@ -88,6 +88,23 @@ The protocol test starts the broker on isolated ports, simulates a PowerPoint ta
 the full command lifecycle: registration, polling, result delivery, error behavior, and static asset
 serving.
 
+### WPS for macOS experiment
+
+The `codex/wps-drawing-experiment` branch also contains an isolated WPS Presentation add-in proof of
+concept. It creates native editable text, rounded rectangles, and arrow connectors, saves the deck,
+and verifies the resulting PPTX package.
+
+```bash
+cd experiments/wps-drawing-addon
+npm install
+cd ../..
+npm run experiment:wps
+```
+
+The runner opens a separate WPS instance and only auto-draws into
+`wps-native-drawing-test.pptx`. See
+[`experiments/wps-drawing-addon/README.md`](experiments/wps-drawing-addon/README.md) for details.
+
 ## Repository layout
 
 ```text

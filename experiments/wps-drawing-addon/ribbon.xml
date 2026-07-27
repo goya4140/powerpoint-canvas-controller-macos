@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2006/01/customui" onLoad="OnAddinLoad">
+  <ribbon startFromScratch="false">
+    <tabs>
+      <tab id="wpsCanvasExperimentTab" label="Canvas 实验">
+        <group id="wpsCanvasExperimentGroup" label="WPS 原生绘图">
+          <button
+            id="drawCanvasExperiment"
+            label="绘制验证图"
+            onAction="DrawWpsCanvasTest"
+            size="large"
+          />
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>

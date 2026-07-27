@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "broker": "node ./scripts/macos-broker-server.mjs",
+    "experiment:wps": "node ./scripts/run-wps-drawing-experiment.mjs",
     "setup:macos": "node ./scripts/setup-macos.mjs",
     "self-test": "node ./scripts/self-test.mjs ./test-output",
     "test:protocol": "node --test ./tests/macos-broker.test.mjs",

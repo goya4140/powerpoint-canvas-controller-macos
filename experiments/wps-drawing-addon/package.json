@@ -1,0 +1,13 @@
+{
+  "name": "powerpoint-canvas-wps-drawing-experiment",
+  "version": "0.1.0",
+  "private": true,
+  "addonType": "wpp",
+  "scripts": {
+    "debug": "wpsjs debug"
+  },
+  "devDependencies": {
+    "wpsjs": "2.2.3",
+    "wpp-jsapi-declare": "latest"
+  }
+}

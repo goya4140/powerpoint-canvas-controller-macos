@@ -8,6 +8,7 @@ test-output/
 
 # Node and editor noise
 node_modules/
+experiments/wps-drawing-addon/.debugTemp/
 assets/*.inspect.ndjson
 .DS_Store
 .vscode/
