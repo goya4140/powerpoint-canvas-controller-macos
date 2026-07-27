@@ -24,7 +24,7 @@ const tools = [
   },
   {
     name: "powerpoint_file_validate",
-    description: "Detect text overflow and objects outside slide bounds using PowerPoint's own text metrics and page geometry.",
+    description: "Detect objects outside the supported 16:9 slide bounds. Text-overflow metrics are not exposed by the current PowerPoint JavaScript API.",
     inputSchema: { type: "object", properties: { ...presentationTarget, close_after: boolean("Close a file opened for validation; defaults to true.") }, additionalProperties: false },
   },
   {
@@ -81,8 +81,7 @@ async function handleTool(name, args) {
 serve({
   name: SERVER_NAME,
   version: SERVER_VERSION,
-  instructions: "Inspect, validate, save, and export PowerPoint files through Microsoft PowerPoint's native COM object model. Read-only inspection and validation close files without saving. Exported previews use PowerPoint's renderer.",
+  instructions: "Inspect, validate, save, and export PowerPoint files through the native bridge for the current platform: the PowerPoint JavaScript API on macOS or COM on Windows. Read-only inspection and validation do not modify files. Exported previews use PowerPoint's renderer.",
   tools,
   handleTool,
 });
-

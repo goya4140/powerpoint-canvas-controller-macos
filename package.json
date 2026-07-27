@@ -1,0 +1,24 @@
+{
+  "name": "powerpoint-canvas-controller-macos",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "broker": "node ./scripts/macos-broker-server.mjs",
+    "setup:macos": "node ./scripts/setup-macos.mjs",
+    "self-test": "node ./scripts/self-test.mjs ./test-output",
+    "test:protocol": "node --test ./tests/macos-broker.test.mjs",
+    "check": "node --check ./scripts/file-server.mjs && node --check ./scripts/live-server.mjs && node --check ./scripts/mcp-common.mjs && node --check ./scripts/macos-bridge.mjs && node --check ./scripts/macos-broker-server.mjs && node --check ./office-addin/taskpane.js && npm run check:office-api",
+    "check:office-api": "tsc --noEmit --allowJs --checkJs --skipLibCheck --strict false --noImplicitAny false --lib DOM,ES2022 --types office-js-preview --module ESNext --target ES2022 ./office-addin/taskpane.js",
+    "validate:addin": "office-addin-manifest validate ./office-addin/manifest.xml",
+    "sideload:macos": "office-addin-debugging start ./office-addin/manifest.xml",
+    "stop:macos": "office-addin-debugging stop ./office-addin/manifest.xml"
+  },
+  "devDependencies": {
+    "@types/office-js-preview": "^1.0.718",
+    "office-addin-debugging": "^6.1.2",
+    "office-addin-dev-certs": "^2.0.10",
+    "office-addin-manifest": "^2.1.6",
+    "typescript": "^7.0.2"
+  }
+}

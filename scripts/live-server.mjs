@@ -59,7 +59,7 @@ const lineStyle = {
 const tools = [
   {
     name: "powerpoint_live_launch",
-    description: "Launch or attach to visible Microsoft PowerPoint through its native COM object model. Optionally open a PPTX, or create a blank editable presentation when none is active.",
+    description: "Launch or attach to visible Microsoft PowerPoint through the platform-native bridge. Optionally open a PPTX, or create a blank editable presentation when none is active.",
     inputSchema: {
       type: "object",
       properties: {
@@ -195,7 +195,7 @@ const tools = [
   },
   {
     name: "powerpoint_live_draw_sequence",
-    description: "Execute a visible sequence of shape, text, line, connector, picture, update, delete, and wait operations. Each operation is a separate COM edit with a default 100 ms delay.",
+    description: "Execute a visible sequence of shape, text, line, connector, picture, update, delete, and wait operations. Each operation is a separate native PowerPoint edit with a default 100 ms delay.",
     inputSchema: {
       type: "object",
       required: ["operations"],
@@ -279,7 +279,7 @@ async function handleTool(name, args) {
 serve({
   name: SERVER_NAME,
   version: SERVER_VERSION,
-  instructions: "Control only Microsoft PowerPoint through its native COM object model. Use named editable objects and point coordinates. Prefer paced batches at 100 ms, inspect after each logical region, and render screenshots through PowerPoint for correction. Never use OS mouse or keyboard automation.",
+  instructions: "Control only Microsoft PowerPoint through the native bridge for the current platform: the PowerPoint JavaScript API on macOS or COM on Windows. Use named editable objects and point coordinates. Prefer paced batches at 100 ms, inspect after each logical region, and render screenshots through PowerPoint for correction. Never use OS mouse or keyboard automation.",
   tools,
   handleTool,
 });

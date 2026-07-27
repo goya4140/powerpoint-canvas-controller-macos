@@ -1,9 +1,9 @@
 {
-  "name": "powerpoint-canvas-controller",
-  "version": "1.0.0+codex.20260722115426",
-  "description": "Control a visible Microsoft PowerPoint canvas through PowerPoint's native COM object model, with editable shapes, paced drawing, inspection, saving, and export.",
+  "name": "powerpoint-canvas-controller-macos",
+  "version": "0.1.0+codex.20260727000100",
+  "description": "Control an editable Microsoft PowerPoint canvas on macOS through the native PowerPoint JavaScript API and a local MCP bridge.",
   "author": {
-    "name": "wangzian828"
+    "name": "goya4140 and contributors"
   },
   "license": "MIT",
   "keywords": [
@@ -17,17 +17,17 @@
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
-    "displayName": "PowerPoint Canvas Controller",
-    "shortDescription": "Draw and refine editable PowerPoint slides live through MCP.",
-    "longDescription": "Connects Codex directly to Microsoft PowerPoint's native COM object model. Shapes, text, pictures, grouped objects, connectors, updates, and deletions appear in the visible slide with adjustable pacing. It never controls the operating-system mouse or keyboard. It can also inspect slides, detect overflow and off-slide objects, save editable PPTX files, and export PNG, JPG, or PDF previews.",
-    "developerName": "wangzian828",
+    "displayName": "PowerPoint Canvas Controller for macOS",
+    "shortDescription": "Draw and inspect editable PowerPoint slides on macOS.",
+    "longDescription": "Connects Codex to the active desktop PowerPoint presentation on macOS through Microsoft's PowerPoint JavaScript API and a localhost-only MCP bridge. Shapes, text, pictures, grouped objects, managed connectors, updates, and deletions remain editable. It can inspect slides, validate off-slide geometry, save PPTX files, and export PNG or PDF previews without mouse or keyboard automation.",
+    "developerName": "goya4140 and contributors",
     "category": "Productivity",
     "capabilities": [
       "Interactive",
       "Write"
     ],
     "defaultPrompt": [
-      "Recreate this figure live as editable PowerPoint objects.",
+      "Recreate this figure live as editable PowerPoint objects on macOS.",
       "Inspect and refine the current PowerPoint slide.",
       "Build this presentation step by step at 100 ms intervals."
     ],

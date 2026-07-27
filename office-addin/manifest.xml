@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:type="TaskPaneApp">
+  <Id>8d647203-31a1-4a75-9342-23e57bf750b2</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>PowerPoint Canvas Controller Contributors</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="PowerPoint Canvas Bridge"/>
+  <Description DefaultValue="Connect Codex MCP tools to the native PowerPoint JavaScript canvas on macOS."/>
+  <IconUrl DefaultValue="https://localhost:43127/icon.png"/>
+  <SupportUrl DefaultValue="https://github.com/goya4140/powerpoint-canvas-controller-macos"/>
+  <AppDomains>
+    <AppDomain>https://localhost:43127</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Presentation"/>
+  </Hosts>
+  <Requirements>
+    <Sets DefaultMinVersion="1.4">
+      <Set Name="PowerPointApi" MinVersion="1.4"/>
+    </Sets>
+  </Requirements>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://localhost:43127/taskpane.html"/>
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+</OfficeApp>

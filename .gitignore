@@ -8,5 +8,6 @@ test-output/
 
 # Node and editor noise
 node_modules/
+assets/*.inspect.ndjson
 .DS_Store
 .vscode/

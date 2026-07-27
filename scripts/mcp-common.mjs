@@ -4,6 +4,7 @@ import { promises as fs } from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { runMacBridge } from "./macos-bridge.mjs";
 
 export const SUPPORTED_PROTOCOLS = new Set(["2024-11-05", "2025-03-26", "2025-06-18"]);
 export const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
@@ -32,6 +33,16 @@ export function mcpPayload(value, options = {}) {
 }
 
 export async function runBridge(action, args = {}, { timeoutMs = 120000 } = {}) {
+  if (process.platform === "darwin") {
+    return runMacBridge(action, args, { timeoutMs });
+  }
+  if (process.platform !== "win32") {
+    throw new Error(`Unsupported platform '${process.platform}'. This plugin currently supports Windows and macOS.`);
+  }
+  return runWindowsBridge(action, args, { timeoutMs });
+}
+
+async function runWindowsBridge(action, args = {}, { timeoutMs = 120000 } = {}) {
   const tempRoot = await fs.mkdtemp(path.join(os.tmpdir(), "ppt-canvas-mcp-"));
   const requestPath = path.join(tempRoot, "request.json");
   await fs.writeFile(requestPath, JSON.stringify({ action, args }), "utf8");

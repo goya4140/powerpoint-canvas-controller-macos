@@ -1,5 +1,7 @@
 # PowerPoint Canvas Tool Reference
 
+On macOS, the MCP surface matches the upstream Windows tool contract. Shapes, text boxes, lines, groups, updates, inspection, and exports run through the PowerPoint JavaScript API. Connectors are managed lines rather than COM-attached connectors; moves performed through MCP reroute them.
+
 ## Coordinates and colors
 
 - Coordinates and sizes use PowerPoint points (`72 pt = 1 inch`).
@@ -73,4 +75,3 @@ Example:
 - Inspection and validation open an explicitly named file read-only and close it by default.
 - Existing output files require `overwrite: true`.
 - Clearing a slide and closing a presentation require `confirm: true`.
-

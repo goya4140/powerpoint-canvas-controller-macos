@@ -67,7 +67,7 @@ try {
     operations: [
       { type: "text", name: "title", text: "PowerPoint 原生画布 API", x: 50, y: 35, width: 860, height: 50, font_name: "Microsoft YaHei", font_size: 28, bold: true, font_color: "#17345B", align: "center" },
       { type: "shape", name: "input", shape_type: "rounded", text: "Editable input", x: 90, y: 180, width: 210, height: 95, fill_color: "#EEF4FC", line_color: "#17345B", line_width: 2, font_size: 20, bold: true },
-      { type: "shape", name: "process", shape_type: "rounded", text: "Native COM process", x: 375, y: 180, width: 210, height: 95, fill_color: "#EBF8F6", line_color: "#23938D", line_width: 2, font_size: 20, bold: true },
+      { type: "shape", name: "process", shape_type: "rounded", text: "Native PowerPoint process", x: 375, y: 180, width: 210, height: 95, fill_color: "#EBF8F6", line_color: "#23938D", line_width: 2, font_size: 20, bold: true },
       { type: "shape", name: "output", shape_type: "rounded", text: "Editable output", x: 660, y: 180, width: 210, height: 95, fill_color: "#FFF1F2", line_color: "#FF4055", line_width: 2, font_size: 20, bold: true },
       { type: "connector", name: "input-to-process", source: "input", target: "process", connector_type: "straight", color: "#17345B", width: 2.5, end_arrow: "triangle" },
       { type: "connector", name: "process-to-output", source: "process", target: "output", connector_type: "straight", color: "#17345B", width: 2.5, end_arrow: "triangle" },
