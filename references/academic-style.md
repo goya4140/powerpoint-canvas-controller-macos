@@ -42,6 +42,8 @@ Suggested base palette:
 - Limit corner-radius variation.
 - Avoid crossing connectors. Reroute, reorder, or split the diagram when crossings remain ambiguous.
 - Use repeated geometry only for repeated semantics.
+- Treat semantic color as structure: neutral context, blue representation/model, green proposed module, orange auxiliary/tool signal, purple output, and red risk or rejection.
+- Keep Level 1 free of decorative icons. A later asset replacement must inherit the node's role and contrast behavior.
 
 ## Paper checks
 

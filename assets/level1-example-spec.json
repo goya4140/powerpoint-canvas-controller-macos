@@ -1,0 +1,33 @@
+{
+  "figure": {
+    "title": "Agent Skill Lifecycle",
+    "message": "The agent selects reusable skills, executes them, and stores evaluated experience for future tasks.",
+    "audience": "AI conference paper reader",
+    "target_width": "double-column",
+    "contribution_nodes": ["skill-selector", "skill-library"]
+  },
+  "nodes": [
+    {"id": "task", "label": "User Task", "type": "input", "role": "neutral", "lane": "Environment", "level": 0, "asset_slot": "person"},
+    {"id": "planner", "label": "Task Planner", "detail": "decompose goal", "type": "model", "role": "representation", "lane": "Agent Core", "level": 1, "asset_slot": "network"},
+    {"id": "skill-selector", "label": "Skill Selector", "detail": "match capability", "type": "decision", "role": "proposed", "lane": "Agent Core", "level": 2, "asset_slot": "robot"},
+    {"id": "skill-library", "label": "Skill Library", "detail": "reusable procedures", "type": "memory", "role": "proposed", "lane": "Memory", "level": 1, "asset_slot": "database"},
+    {"id": "executor", "label": "Skill Executor", "detail": "run actions", "type": "process", "role": "neutral", "lane": "Agent Core", "level": 3, "asset_slot": "gear"},
+    {"id": "environment", "label": "Environment", "type": "external", "role": "auxiliary", "lane": "Environment", "level": 4, "asset_slot": "environment"},
+    {"id": "evaluator", "label": "Evaluator", "detail": "score outcome", "type": "process", "role": "output", "lane": "Environment", "level": 3, "asset_slot": "scorecard"}
+  ],
+  "edges": [
+    {"id": "task-to-planner", "from": "task", "to": "planner", "type": "data"},
+    {"id": "planner-to-selector", "from": "planner", "to": "skill-selector", "type": "control"},
+    {"id": "library-to-selector", "from": "skill-library", "to": "skill-selector", "type": "data", "label": "skills"},
+    {"id": "selector-to-executor", "from": "skill-selector", "to": "executor", "type": "control"},
+    {"id": "executor-to-environment", "from": "executor", "to": "environment", "type": "data", "label": "actions"},
+    {"id": "environment-to-evaluator", "from": "environment", "to": "evaluator", "type": "data", "label": "outcome"},
+    {"id": "evaluator-to-library", "from": "evaluator", "to": "skill-library", "type": "update", "label": "verified experience"}
+  ],
+  "groups": [
+    {"id": "agent-core", "label": "Agent Core", "members": ["planner", "skill-selector", "executor"], "role": "neutral"}
+  ],
+  "layout_candidates": ["pipeline", "swimlane", "hub-spoke"],
+  "selected_layout": "swimlane",
+  "hub_node": "skill-selector"
+}
