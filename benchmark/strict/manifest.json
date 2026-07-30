@@ -7,6 +7,10 @@
     "iclr-mmicl-fig2.json",
     "acl-translico-fig2.json",
     "icml-early-exit-fig2.json",
-    "iclr-usf-fig4.json"
+    "iclr-usf-fig4.json",
+    "icml-fit-fig2.json",
+    "neurips-controlmllm-fig1.json",
+    "neurips-dot-fig2.json",
+    "cvpr-sned-fig1.json"
   ]
 }

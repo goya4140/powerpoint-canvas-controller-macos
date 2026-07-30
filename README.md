@@ -15,6 +15,10 @@
 | ACL 2024 · TransliCo Figure 2 | 96.30% | 86.28% | 50.41% | 100% | 87 | 0 | **PASS** |
 | ICML 2024 · Early Exiting Figure 2 | 95.36% | 83.42% | 59.06% | 100% | 73 | 0 | **PASS** |
 | ICLR 2024 · Unified Sampling Framework Figure 4 | 97.09% | 59.23% | 39.75% | 100% | 51 | 0 | **PASS** |
+| ICML 2024 · FiT Figure 2 | 97.82% | 87.60% | 65.95% | 100% | 43 | 0 | **PASS** |
+| NeurIPS 2024 · ControlMLLM Figure 1 | 94.93% | 86.57% | 56.94% | 100% | 61 | 0 | **PASS** |
+| NeurIPS 2024 · Diffusion of Thought Figure 2 | 94.61% | 55.10% | 29.55% | 100% | 113 | 0 | **PASS** |
+| CVPR 2024 · SNED Figure 1 | 89.61% | 45.22% | 36.76% | 100% | 417 | 0 | **PASS** |
 
 ![Skill-MoE Figure 1 参考图与复刻图](docs/strict-recreation/skillmoe-fig1/skillmoe-fig1-comparison.png)
 
@@ -76,6 +80,38 @@
 
 [叠加图](docs/strict-recreation/iclr-usf-fig4/iclr-usf-fig4-overlay.png) · [差异图](docs/strict-recreation/iclr-usf-fig4/iclr-usf-fig4-diff.png) · [报告](docs/strict-recreation/iclr-usf-fig4/report.json) · [PPTX](docs/strict-recreation/iclr-usf-fig4/editable.pptx)
 
+### ICML 2024 · FiT Figure 2
+
+![FiT Figure 2 参考图与复刻图](docs/strict-recreation/icml-fit-fig2/icml-fit-fig2-comparison.png)
+
+复刻逻辑：七个输入/处理中间态/输出图像作为独立局部资产；Resize、Center Crop、DiT/FiT、分辨率虚线框、箭头和两段底部括号均保持可编辑。
+
+[叠加图](docs/strict-recreation/icml-fit-fig2/icml-fit-fig2-overlay.png) · [差异图](docs/strict-recreation/icml-fit-fig2/icml-fit-fig2-diff.png) · [报告](docs/strict-recreation/icml-fit-fig2/report.json) · [PPTX](docs/strict-recreation/icml-fit-fig2/editable.pptx)
+
+### NeurIPS 2024 · ControlMLLM Figure 1
+
+![ControlMLLM Figure 1 参考图与复刻图](docs/strict-recreation/neurips-controlmllm-fig1/neurips-controlmllm-fig1-comparison.png)
+
+复刻逻辑：上下两个 inference 场景复用同尺寸 MLLM，保留 source prompt、四格视觉 prompt、局部图像/区域、问题框、冻结标记、方向箭头与验证勾；只把论文中的真实图片作为局部资产。
+
+[叠加图](docs/strict-recreation/neurips-controlmllm-fig1/neurips-controlmllm-fig1-overlay.png) · [差异图](docs/strict-recreation/neurips-controlmllm-fig1/neurips-controlmllm-fig1-diff.png) · [报告](docs/strict-recreation/neurips-controlmllm-fig1/report.json) · [PPTX](docs/strict-recreation/neurips-controlmllm-fig1/editable.pptx)
+
+### NeurIPS 2024 · Diffusion of Thought Figure 2
+
+![Diffusion of Thought Figure 2 参考图与复刻图](docs/strict-recreation/neurips-dot-fig2/neurips-dot-fig2-comparison.png)
+
+复刻逻辑：完整保留 problem-solving、Single-Pass、Multi-Pass 和 self-correction 四个区域；113 个对象覆盖源文本、rationale、token 状态、虚实空间、推理路径、训练轨迹和推理公式，不使用任何图片资产。
+
+[叠加图](docs/strict-recreation/neurips-dot-fig2/neurips-dot-fig2-overlay.png) · [差异图](docs/strict-recreation/neurips-dot-fig2/neurips-dot-fig2-diff.png) · [报告](docs/strict-recreation/neurips-dot-fig2/report.json) · [PPTX](docs/strict-recreation/neurips-dot-fig2/editable.pptx)
+
+### CVPR 2024 · SNED Figure 1
+
+![SNED Figure 1 参考图与复刻图](docs/strict-recreation/cvpr-sned-fig1/cvpr-sned-fig1-comparison.png)
+
+复刻逻辑：训练与输出图像栈作为六个局部资产；SuperNet、九个子网、全部分层节点和稠密连边、三条分辨率路径与三条输出箭头由 417 个 PowerPoint 对象重建。该图的较低像素相似度主要来自稠密边的逐像素位置差异，完整指标和阈值保留在机器报告中。
+
+[叠加图](docs/strict-recreation/cvpr-sned-fig1/cvpr-sned-fig1-overlay.png) · [差异图](docs/strict-recreation/cvpr-sned-fig1/cvpr-sned-fig1-diff.png) · [报告](docs/strict-recreation/cvpr-sned-fig1/report.json) · [PPTX](docs/strict-recreation/cvpr-sned-fig1/editable.pptx)
+
 ## 严格 1 → 1 门禁
 
 ```mermaid
@@ -115,7 +151,7 @@ npm run qa:strict
 
 | 阶段 | 输入 | 输出 | 状态 |
 |---|---|---|---|
-| **1 → 1：严格复刻** | 一张论文参考图 | 内容与版式一致的可编辑 PPTX | **当前唯一主线；6/10 顶会案例通过，另有 1 个校准样例** |
+| **1 → 1：严格复刻** | 一张论文参考图 | 内容与版式一致的可编辑 PPTX | **10/10 顶会案例通过，另有 1 个校准样例** |
 | **0.5 → 1：受控改写** | 参考图 + Method + 改写要求 | 表述相近、风格或排版不同的新图 | 未开始 |
 | **0 → 1：原创生成** | Method + 用户要求 | 一张或多张论文插图 | 未开始 |
 
@@ -158,6 +194,6 @@ npm run qa:strict
 - [x] 建立像素差、前景 IoU、边缘 IoU、关键文本和对象覆盖率门禁
 - [x] 禁止整页参考图铺底
 - [x] 完成严格 1 → 1 校准样例：Skill-MoE Figure 1
-- [x] 完成 6 张已发表顶会论文插图的严格复刻
-- [ ] 完成至少 10 张已发表顶会论文插图的严格复刻
-- [ ] 10/10 全部通过后再开始 0.5 → 1
+- [x] 完成 10 张已发表顶会论文插图的严格复刻
+- [x] 10/10 顶会案例全部通过统一门禁
+- [ ] 在用户确认 1 → 1 阶段质量后，再开始 0.5 → 1

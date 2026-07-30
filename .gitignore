@@ -9,3 +9,4 @@ output/
 research/
 docs/benchmark/recreated/*.layout.json
 docs/strict-recreation/**/*.inspect.ndjson
+docs/strict-recreation/**/assets/

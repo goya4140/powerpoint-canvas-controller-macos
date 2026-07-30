@@ -1,0 +1,36 @@
+{
+  "id": "cvpr-sned-fig1",
+  "paper": "SNED: Superposition Network Architecture Search for Efficient Video Diffusion Model",
+  "figure": "Figure 1",
+  "reference": "../../docs/benchmark/references/cvpr-sned-fig1.png",
+  "reference_crop": {
+    "left": 0.02,
+    "top": 0.02,
+    "right": 0.02,
+    "bottom": 0.24
+  },
+  "recreation": "../../docs/strict-recreation/cvpr-sned-fig1/editable.pptx",
+  "render_width": 1216,
+  "white_threshold": 0.97,
+  "edge_threshold": 0.08,
+  "expected_texts": [
+    "Training Data",
+    "Different Resolution",
+    "SuperNet",
+    "Dynamic Cost Sampling",
+    "Resolution A",
+    "Resolution B",
+    "Resolution C",
+    "Subnet with different model size",
+    "Output",
+    "SuperNet Training Process",
+    "Subnets with different size targeting different resolution options"
+  ],
+  "thresholds": {
+    "max_mae": 0.105,
+    "min_foreground_iou": 0.45,
+    "min_edge_iou": 0.36,
+    "min_text_coverage": 1.0,
+    "min_object_count": 400
+  }
+}

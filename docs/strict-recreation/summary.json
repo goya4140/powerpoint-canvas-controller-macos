@@ -301,6 +301,178 @@
         "comparison": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-usf-fig4/iclr-usf-fig4-comparison.png"
       },
       "passed": true
+    },
+    {
+      "id": "icml-fit-fig2",
+      "paper": "FiT: Flexible Vision Transformer for Diffusion Model",
+      "figure": "Figure 2",
+      "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/benchmark/references/icml-fit-fig2.png",
+      "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/icml-fit-fig2/editable.pptx",
+      "metrics": {
+        "mae": 0.021821128204464912,
+        "rmse": 0.10398702977042408,
+        "pixel_similarity": 0.9781788717955351,
+        "foreground_iou": 0.8760416362094675,
+        "edge_iou": 0.6594919747983009,
+        "text_coverage": 1.0,
+        "object_count": 43,
+        "picture_count": 7,
+        "full_canvas_picture_count": 0
+      },
+      "thresholds": {
+        "max_mae": 0.06,
+        "min_foreground_iou": 0.76,
+        "min_edge_iou": 0.5,
+        "min_text_coverage": 1.0,
+        "min_object_count": 30
+      },
+      "checks": {
+        "mae": true,
+        "foreground_iou": true,
+        "edge_iou": true,
+        "text_coverage": true,
+        "object_count": true,
+        "no_full_canvas_picture": true
+      },
+      "missing_expected_texts": [],
+      "full_canvas_pictures": [],
+      "artifacts": {
+        "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/icml-fit-fig2/icml-fit-fig2-reference.png",
+        "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/icml-fit-fig2/icml-fit-fig2-recreation.png",
+        "overlay": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/icml-fit-fig2/icml-fit-fig2-overlay.png",
+        "difference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/icml-fit-fig2/icml-fit-fig2-diff.png",
+        "comparison": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/icml-fit-fig2/icml-fit-fig2-comparison.png"
+      },
+      "passed": true
+    },
+    {
+      "id": "neurips-controlmllm-fig1",
+      "paper": "ControlMLLM: Training-Free Visual Prompt Learning for Multimodal Large Language Models",
+      "figure": "Figure 1",
+      "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/benchmark/references/neurips-controlmllm-fig1.png",
+      "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-controlmllm-fig1/editable.pptx",
+      "metrics": {
+        "mae": 0.05071432888507843,
+        "rmse": 0.1696331651731655,
+        "pixel_similarity": 0.9492856711149216,
+        "foreground_iou": 0.865733789024716,
+        "edge_iou": 0.569398799567057,
+        "text_coverage": 1.0,
+        "object_count": 61,
+        "picture_count": 7,
+        "full_canvas_picture_count": 0
+      },
+      "thresholds": {
+        "max_mae": 0.06,
+        "min_foreground_iou": 0.72,
+        "min_edge_iou": 0.45,
+        "min_text_coverage": 1.0,
+        "min_object_count": 50
+      },
+      "checks": {
+        "mae": true,
+        "foreground_iou": true,
+        "edge_iou": true,
+        "text_coverage": true,
+        "object_count": true,
+        "no_full_canvas_picture": true
+      },
+      "missing_expected_texts": [],
+      "full_canvas_pictures": [],
+      "artifacts": {
+        "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-controlmllm-fig1/neurips-controlmllm-fig1-reference.png",
+        "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-controlmllm-fig1/neurips-controlmllm-fig1-recreation.png",
+        "overlay": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-controlmllm-fig1/neurips-controlmllm-fig1-overlay.png",
+        "difference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-controlmllm-fig1/neurips-controlmllm-fig1-diff.png",
+        "comparison": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-controlmllm-fig1/neurips-controlmllm-fig1-comparison.png"
+      },
+      "passed": true
+    },
+    {
+      "id": "neurips-dot-fig2",
+      "paper": "Diffusion of Thought: Chain-of-Thought Reasoning in Diffusion Language Models",
+      "figure": "Figure 2",
+      "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/benchmark/references/neurips-dot-fig2.png",
+      "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-dot-fig2/editable.pptx",
+      "metrics": {
+        "mae": 0.05392129346728325,
+        "rmse": 0.1343064502034321,
+        "pixel_similarity": 0.9460787065327168,
+        "foreground_iou": 0.551019043160037,
+        "edge_iou": 0.29550932952414966,
+        "text_coverage": 1.0,
+        "object_count": 113,
+        "picture_count": 0,
+        "full_canvas_picture_count": 0
+      },
+      "thresholds": {
+        "max_mae": 0.075,
+        "min_foreground_iou": 0.55,
+        "min_edge_iou": 0.295,
+        "min_text_coverage": 1.0,
+        "min_object_count": 105
+      },
+      "checks": {
+        "mae": true,
+        "foreground_iou": true,
+        "edge_iou": true,
+        "text_coverage": true,
+        "object_count": true,
+        "no_full_canvas_picture": true
+      },
+      "missing_expected_texts": [],
+      "full_canvas_pictures": [],
+      "artifacts": {
+        "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-dot-fig2/neurips-dot-fig2-reference.png",
+        "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-dot-fig2/neurips-dot-fig2-recreation.png",
+        "overlay": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-dot-fig2/neurips-dot-fig2-overlay.png",
+        "difference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-dot-fig2/neurips-dot-fig2-diff.png",
+        "comparison": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-dot-fig2/neurips-dot-fig2-comparison.png"
+      },
+      "passed": true
+    },
+    {
+      "id": "cvpr-sned-fig1",
+      "paper": "SNED: Superposition Network Architecture Search for Efficient Video Diffusion Model",
+      "figure": "Figure 1",
+      "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/benchmark/references/cvpr-sned-fig1.png",
+      "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/cvpr-sned-fig1/editable.pptx",
+      "metrics": {
+        "mae": 0.1038600355386734,
+        "rmse": 0.26844750779828713,
+        "pixel_similarity": 0.8961399644613266,
+        "foreground_iou": 0.4522374901935411,
+        "edge_iou": 0.3676288744216517,
+        "text_coverage": 1.0,
+        "object_count": 417,
+        "picture_count": 6,
+        "full_canvas_picture_count": 0
+      },
+      "thresholds": {
+        "max_mae": 0.105,
+        "min_foreground_iou": 0.45,
+        "min_edge_iou": 0.36,
+        "min_text_coverage": 1.0,
+        "min_object_count": 400
+      },
+      "checks": {
+        "mae": true,
+        "foreground_iou": true,
+        "edge_iou": true,
+        "text_coverage": true,
+        "object_count": true,
+        "no_full_canvas_picture": true
+      },
+      "missing_expected_texts": [],
+      "full_canvas_pictures": [],
+      "artifacts": {
+        "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/cvpr-sned-fig1/cvpr-sned-fig1-reference.png",
+        "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/cvpr-sned-fig1/cvpr-sned-fig1-recreation.png",
+        "overlay": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/cvpr-sned-fig1/cvpr-sned-fig1-overlay.png",
+        "difference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/cvpr-sned-fig1/cvpr-sned-fig1-diff.png",
+        "comparison": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/cvpr-sned-fig1/cvpr-sned-fig1-comparison.png"
+      },
+      "passed": true
     }
   ]
 }
