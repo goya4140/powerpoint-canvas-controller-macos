@@ -2,9 +2,9 @@
 
 ## Goal
 
-Recreate a supplied academic figure as editable PowerPoint objects while preserving its observable visual structure and technical reading order.
+Recreate a supplied academic figure as editable PowerPoint objects while preserving every visible label, panel, module, repeated motif, connector, relative coordinate, and color role.
 
-The target is structural and stylistic fidelity, not pixel-level copying of protected photographs, illustrations, or textures.
+The target is measurable visual fidelity. Semantic equivalence is insufficient: do not rewrite text, omit details, normalize the layout, or replace distinctive objects with generic placeholders and still call the result a recreation.
 
 ## Decomposition order
 
@@ -17,9 +17,9 @@ Analyze the reference in this order:
 5. **Repeated motifs**: tokens, layers, network nodes, image stacks, blocks, or examples.
 6. **Typography**: title hierarchy, label sizes, weight, alignment, and line breaks.
 7. **Visual tokens**: fills, strokes, dash patterns, corner radius, and semantic color roles.
-8. **Detail budget**: preserve details that define the silhouette or technical meaning; simplify incidental pixels.
+8. **Complete detail inventory**: enumerate every visible object before authoring; no visible object may be removed merely because it looks incidental.
 
-Do not start by tracing every small object. Match the global silhouette first.
+Match the global silhouette first, then continue until the complete inventory is represented.
 
 ## Scene format
 
@@ -196,8 +196,9 @@ Use for a small editable node-edge topology. Node coordinates are normalized ins
 7. Validate the manifest.
 8. Generate PPTX, PNG, layout JSON, and comparison PNG.
 9. Inspect every recreation at full size.
-10. Run layout and overflow checks.
-11. Revise the spec rather than applying untracked edits to the output deck.
+10. Generate a 50% overlay and amplified difference image.
+11. Run pixel, foreground, edge, text, object-count, anti-underlay, layout, and overflow checks.
+12. Revise tracked source inputs and regenerate.
 
 ## Fidelity rubric
 
@@ -208,11 +209,21 @@ Review each case on five axes:
 | Topology | Are the same regions, modules, branches, and feedback paths present? |
 | Geometry | Are major sizes, alignments, whitespace, and silhouettes comparable? |
 | Style | Are palette, stroke, corner, and type hierarchy similar? |
-| Detail | Are repeated motifs and distinguishing small structures represented? |
+| Detail | Are all visible motifs and distinguishing small structures represented? |
 | Editability | Are important modules independent native objects with stable names? |
 
-Topology and geometry are blocking. Style and detail are iterative. Editability is mandatory.
+Every axis is blocking. A case may not be labeled 1 → 1 while any visible content has been deliberately omitted or rewritten.
+
+## Automated acceptance
+
+Strict cases live in `benchmark/strict/`. Run:
+
+```bash
+npm run qa:strict
+```
+
+The gate renders the reference and PPTX at the same size, computes pixel MAE, foreground IoU and edge IoU, extracts required text and object counts from OOXML, rejects any picture covering at least 80% of the slide, and writes comparison, overlay, difference, and JSON report artifacts.
 
 ## Copyright boundary
 
-Reference images are evaluation inputs, not reusable assets. Do not copy protected photos, characters, icons, or illustrations into the recreation. Replace them with neutral editable placeholders when the visual role can be preserved without copying the asset itself.
+Reference images are evaluation inputs, not an allowed full-slide background. For photographs, characters, icons, or illustrations whose rights do not permit redistribution, keep the case private or obtain a permitted asset; a neutral placeholder is allowed only in a semantic sketch and must never be counted as a strict 1 → 1 pass.

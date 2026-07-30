@@ -5,6 +5,7 @@
     "validate:level1": "node scripts/validate_level1_spec.mjs --spec assets/level1-example-spec.json",
     "validate:reference": "node scripts/validate_reference_scene.mjs --manifest benchmark/manifest.json",
     "build:reference": "node scripts/create_reference_recreation.mjs --manifest benchmark/manifest.json",
-    "check:reference": "node scripts/check_layout.mjs --layout-dir docs/benchmark/recreated"
+    "check:reference": "node scripts/check_layout.mjs --layout-dir docs/benchmark/recreated",
+    "qa:strict": "python3 scripts/strict_recreation_qa.py --manifest benchmark/strict/manifest.json"
   }
 }

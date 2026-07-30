@@ -5,9 +5,9 @@ description: Recreate academic paper figures from reference images as editable P
 
 # Recreate Academic Figures in PowerPoint
 
-Prioritize the repository's current 1 → 1 goal: given one reference figure, reconstruct its observable structure and visual language as editable PowerPoint objects.
+Prioritize the repository's current strict 1 → 1 goal: given one reference figure, reconstruct all visible content, coordinates, typography, colors, and connections as editable PowerPoint objects.
 
-Do not treat the reference as a flat background to trace. Create an explicit scene specification that can be validated, revised, regenerated, and compared.
+Do not treat the reference as a flat background to trace. Do not rewrite, omit, normalize, simplify, or substitute visible content. Create an explicit inventory/specification that can be validated, revised, regenerated, and compared.
 
 ## Route the task
 
@@ -63,9 +63,9 @@ For Method-only semantic figures, also read:
    node scripts/create_reference_recreation.mjs --manifest <manifest.json>
    ```
 
-9. Inspect every recreation and every comparison at full size.
-10. Run `scripts/check_layout.mjs` and the presentation overflow checker.
-11. Revise the Scene Spec and regenerate. Do not apply untracked manual edits to the generated deck.
+9. Inspect every recreation, comparison, overlay, and difference image at full size.
+10. Run strict pixel, foreground, edge, text, object-count, anti-underlay, layout, and overflow checks.
+11. Revise tracked source inputs and regenerate. A semantic sketch may not be reported as a 1 → 1 pass.
 
 ## Fidelity priorities
 
@@ -77,7 +77,7 @@ Resolve mismatches in this order:
 4. wrong color and typography hierarchy;
 5. missing repeated motifs or small details.
 
-Topology and geometry are blocking. Style and detail are iterative.
+Every priority is blocking for strict 1 → 1.
 
 ## Editability requirements
 
@@ -87,32 +87,30 @@ Topology and geometry are blocking. Style and detail are iterative.
 - Keep labels above connectors.
 - Use native repeated shapes for tokens, blocks, layers, and network nodes.
 - Never flatten the full reconstruction into a bitmap.
-- Do not copy protected photographs, characters, icons, or illustrations; replace them with neutral editable placeholders that preserve layout and semantic role.
+- A neutral placeholder makes the result a semantic sketch; it cannot pass strict 1 → 1.
 
 ## Benchmark support
 
-The bundled benchmark is defined by:
+The strict benchmark is defined by:
 
-- `benchmark/manifest.json`
-- `benchmark/cases/*.json`
-- `docs/benchmark/references/`
+- `benchmark/strict/manifest.json`
+- `benchmark/strict/*.json`
+- `docs/strict-recreation/`
 
 Default commands:
 
 ```bash
-npm run validate:reference
-npm run build:reference
-npm run check:reference
+npm run qa:strict
 ```
 
-The generated benchmark deliverables are:
+The generated strict deliverables are:
 
-- `docs/benchmark/reference-recreation-benchmark.pptx`
-- `docs/benchmark/recreated/*.png`
-- `docs/benchmark/recreated/*.layout.json`
-- `docs/benchmark/comparisons/*.png`
-- `docs/benchmark/sources.csv`
+- reference and recreation PNGs;
+- a side-by-side comparison;
+- a 50% overlay;
+- an amplified difference image;
+- a JSON machine report.
 
 ## Deliver
 
-Return the editable PPTX, the rendered recreation, and the reference/recreation comparison. Identify the reference source, reconstruction logic, known simplifications, and any protected raster assets that were intentionally replaced with neutral editable placeholders.
+Return the editable PPTX, rendered recreation, comparison, overlay, difference image, and machine report. Identify the source and reconstruction logic. Any known simplification makes the case a semantic sketch rather than a strict 1 → 1 pass.

@@ -1,6 +1,8 @@
-# Reference recreation benchmark
+# Semantic-sketch archive (not strict 1 → 1)
 
-This directory contains the source-controlled inputs for the 1 → 1 academic-figure recreation benchmark.
+The cases in `cases/` are retained as examples of semantic decomposition. They rewrite, omit, and normalize visible content, so they do **not** count as 1 → 1 recreations.
+
+Strict accepted cases live in `strict/` and must pass `npm run qa:strict`.
 
 - `manifest.json` defines the ordered benchmark set.
 - `cases/*.json` contains one editable scene specification per reference figure.
@@ -14,6 +16,6 @@ npm run build:reference
 npm run check:reference
 ```
 
-Every case must include a published-paper URL, Figure number, reference crop, reconstruction rationale, 1200 × 600 canvas, and stable element names.
+Every legacy sketch includes a published-paper URL, Figure number, reference crop, reconstruction rationale, 1200 × 600 canvas, and stable element names.
 
-The benchmark currently covers 10 figures from ICLR, NeurIPS, ACL, ICML, CVPR, and EMNLP 2024.
+The archive contains 10 semantic sketches from ICLR, NeurIPS, ACL, ICML, CVPR, and EMNLP 2024. They remain excluded from the strict pass count until independently rebuilt and accepted by the strict gate.
