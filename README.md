@@ -11,6 +11,10 @@
 | Skill-MoE Figure 1 | 98.72% | 83.94% | 73.11% | 100% | 193 | 0 | **PASS** |
 | ACL 2024 · OBSD Figure 2 | 94.69% | 93.42% | 56.59% | 100% | 34 | 0 | **PASS** |
 | EMNLP 2024 · PROF Figure 1 | 94.12% | 89.51% | 39.58% | 100% | 37 | 0 | **PASS** |
+| ICLR 2024 · MMICL Figure 2 | 96.66% | 83.27% | 46.29% | 100% | 92 | 0 | **PASS** |
+| ACL 2024 · TransliCo Figure 2 | 96.30% | 86.28% | 50.41% | 100% | 87 | 0 | **PASS** |
+| ICML 2024 · Early Exiting Figure 2 | 95.36% | 83.42% | 59.06% | 100% | 73 | 0 | **PASS** |
+| ICLR 2024 · Unified Sampling Framework Figure 4 | 97.09% | 59.23% | 39.75% | 100% | 51 | 0 | **PASS** |
 
 ![Skill-MoE Figure 1 参考图与复刻图](docs/strict-recreation/skillmoe-fig1/skillmoe-fig1-comparison.png)
 
@@ -39,6 +43,38 @@
 复刻逻辑：逐一保留七个模块、五条前向箭头和红色反馈回路；论文公式与模型标识作为局部图像资产，模块背景、标题、模型框、箭头和反馈标签保持独立可编辑。
 
 [叠加图](docs/strict-recreation/emnlp-prof-fig1/emnlp-prof-fig1-overlay.png) · [差异图](docs/strict-recreation/emnlp-prof-fig1/emnlp-prof-fig1-diff.png) · [报告](docs/strict-recreation/emnlp-prof-fig1/report.json) · [PPTX](docs/strict-recreation/emnlp-prof-fig1/editable.pptx)
+
+### ICLR 2024 · MMICL Figure 2
+
+![MMICL Figure 2 参考图与复刻图](docs/strict-recreation/iclr-mmicl-fig2/iclr-mmicl-fig2-comparison.png)
+
+复刻逻辑：保留三个并排子图、三组 LLM 主模块、VPG/Img 层级、逐 token 上行箭头以及 MMICL 的 Image Declaration 虚线分组；所有 92 个对象均独立保留。
+
+[叠加图](docs/strict-recreation/iclr-mmicl-fig2/iclr-mmicl-fig2-overlay.png) · [差异图](docs/strict-recreation/iclr-mmicl-fig2/iclr-mmicl-fig2-diff.png) · [报告](docs/strict-recreation/iclr-mmicl-fig2/report.json) · [PPTX](docs/strict-recreation/iclr-mmicl-fig2/editable.pptx)
+
+### ACL 2024 · TransliCo Figure 2
+
+![TransliCo Figure 2 参考图与复刻图](docs/strict-recreation/acl-translico-fig2/acl-translico-fig2-comparison.png)
+
+复刻逻辑：上下两条 Transformer 分支保持原坐标；原文、转写、random mask、逐 token 箭头、mean pooling、序列表征和双向对比关系完整复刻。
+
+[叠加图](docs/strict-recreation/acl-translico-fig2/acl-translico-fig2-overlay.png) · [差异图](docs/strict-recreation/acl-translico-fig2/acl-translico-fig2-diff.png) · [报告](docs/strict-recreation/acl-translico-fig2/report.json) · [PPTX](docs/strict-recreation/acl-translico-fig2/editable.pptx)
+
+### ICML 2024 · Early Exiting Figure 2
+
+![Early Exiting Figure 2 参考图与复刻图](docs/strict-recreation/icml-early-exit-fig2/icml-early-exit-fig2-comparison.png)
+
+复刻逻辑：逐塔保留逐渐加深的 block、Decoder 退出点、外侧 skip path、噪声输入与最终输出；论文公式作为局部研究资产嵌入，不使用整图铺底。
+
+[叠加图](docs/strict-recreation/icml-early-exit-fig2/icml-early-exit-fig2-overlay.png) · [差异图](docs/strict-recreation/icml-early-exit-fig2/icml-early-exit-fig2-diff.png) · [报告](docs/strict-recreation/icml-early-exit-fig2/report.json) · [PPTX](docs/strict-recreation/icml-early-exit-fig2/editable.pptx)
+
+### ICLR 2024 · Unified Sampling Framework Figure 4
+
+![Unified Sampling Framework Figure 4 参考图与复刻图](docs/strict-recreation/iclr-usf-fig4/iclr-usf-fig4-comparison.png)
+
+复刻逻辑：按原始环形顺序复刻 Search Space、Sampled Schedules、评估集和 Predictor，并保留每个 schedule 节点、评分行、四条空心粗箭头与四段橙色步骤说明。
+
+[叠加图](docs/strict-recreation/iclr-usf-fig4/iclr-usf-fig4-overlay.png) · [差异图](docs/strict-recreation/iclr-usf-fig4/iclr-usf-fig4-diff.png) · [报告](docs/strict-recreation/iclr-usf-fig4/report.json) · [PPTX](docs/strict-recreation/iclr-usf-fig4/editable.pptx)
 
 ## 严格 1 → 1 门禁
 
@@ -71,13 +107,15 @@ flowchart LR
 npm run qa:strict
 ```
 
+使用 `npm run build:strict` 可从生成脚本重新构建当前全部顶会 PPTX，再运行统一门禁。
+
 严格案例清单位于 [`benchmark/strict/manifest.json`](benchmark/strict/manifest.json)，每个案例的真值、PPTX、关键文本和阈值在 `benchmark/strict/*.json` 中声明。
 
 ## 三阶段路线
 
 | 阶段 | 输入 | 输出 | 状态 |
 |---|---|---|---|
-| **1 → 1：严格复刻** | 一张论文参考图 | 内容与版式一致的可编辑 PPTX | **当前唯一主线；2/10 顶会案例通过，另有 1 个校准样例** |
+| **1 → 1：严格复刻** | 一张论文参考图 | 内容与版式一致的可编辑 PPTX | **当前唯一主线；6/10 顶会案例通过，另有 1 个校准样例** |
 | **0.5 → 1：受控改写** | 参考图 + Method + 改写要求 | 表述相近、风格或排版不同的新图 | 未开始 |
 | **0 → 1：原创生成** | Method + 用户要求 | 一张或多张论文插图 | 未开始 |
 
@@ -120,6 +158,6 @@ npm run qa:strict
 - [x] 建立像素差、前景 IoU、边缘 IoU、关键文本和对象覆盖率门禁
 - [x] 禁止整页参考图铺底
 - [x] 完成严格 1 → 1 校准样例：Skill-MoE Figure 1
-- [x] 完成 2 张已发表顶会论文插图的严格复刻
+- [x] 完成 6 张已发表顶会论文插图的严格复刻
 - [ ] 完成至少 10 张已发表顶会论文插图的严格复刻
 - [ ] 10/10 全部通过后再开始 0.5 → 1

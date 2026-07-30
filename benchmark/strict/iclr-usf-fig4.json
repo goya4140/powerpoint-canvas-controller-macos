@@ -1,0 +1,35 @@
+{
+  "id": "iclr-usf-fig4",
+  "paper": "A Unified Sampling Framework for Solver Searching of Diffusion Probabilistic Models",
+  "figure": "Figure 4",
+  "reference": "../../docs/benchmark/references/iclr-usf-fig4.png",
+  "reference_crop": {
+    "left": 0.02,
+    "top": 0.07,
+    "right": 0.02,
+    "bottom": 0.09
+  },
+  "recreation": "../../docs/strict-recreation/iclr-usf-fig4/editable.pptx",
+  "render_width": 977,
+  "white_threshold": 0.97,
+  "edge_threshold": 0.08,
+  "expected_texts": [
+    "Dataset of Evaluated schedules",
+    "Score",
+    "Sampled Schedules",
+    "Search Space",
+    "Predictor",
+    "Sample a subset of schedules through evolutionary search",
+    "Evaluate the true performance of sampled schedules",
+    "Train the predictor with all evaluated schedules",
+    "Use the trained predictor to guide the evolutionary search",
+    "Solver Schedules"
+  ],
+  "thresholds": {
+    "max_mae": 0.07,
+    "min_foreground_iou": 0.58,
+    "min_edge_iou": 0.38,
+    "min_text_coverage": 1.0,
+    "min_object_count": 50
+  }
+}

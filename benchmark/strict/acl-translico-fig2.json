@@ -1,0 +1,38 @@
+{
+  "id": "acl-translico-fig2",
+  "paper": "TransliCo: A Contrastive Learning Framework to Address the Script Barrier in Multilingual Pretrained Language Models",
+  "figure": "Figure 2",
+  "reference": "../../docs/benchmark/references/acl-translico-fig2.png",
+  "reference_crop": {
+    "left": 0.02,
+    "top": 0.02,
+    "right": 0.02,
+    "bottom": 0.20
+  },
+  "recreation": "../../docs/strict-recreation/acl-translico-fig2/editable.pptx",
+  "render_width": 1116,
+  "white_threshold": 0.97,
+  "edge_threshold": 0.08,
+  "expected_texts": [
+    "Fine-tuning Objectives",
+    "Masked Language Modeling (MLM)",
+    "Transliteration Contrastive Modeling (TCM)",
+    "Transformer",
+    "8th layer output",
+    "original sentence",
+    "random mask",
+    "mean pooling",
+    "sequence representation",
+    "Masked Language Modeling",
+    "Transliteration Contrastive Modeling",
+    "transliterate",
+    "transliteration"
+  ],
+  "thresholds": {
+    "max_mae": 0.055,
+    "min_foreground_iou": 0.72,
+    "min_edge_iou": 0.42,
+    "min_text_coverage": 1.0,
+    "min_object_count": 70
+  }
+}

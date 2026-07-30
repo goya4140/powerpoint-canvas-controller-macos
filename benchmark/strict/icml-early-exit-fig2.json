@@ -1,0 +1,30 @@
+{
+  "id": "icml-early-exit-fig2",
+  "paper": "A Simple Early Exiting Framework for Accelerated Sampling in Diffusion Models",
+  "figure": "Figure 2",
+  "reference": "../../docs/benchmark/references/icml-early-exit-fig2.png",
+  "reference_crop": {
+    "left": 0.0,
+    "top": 0.08,
+    "right": 0.0,
+    "bottom": 0.27
+  },
+  "recreation": "../../docs/strict-recreation/icml-early-exit-fig2/editable.pptx",
+  "render_width": 583,
+  "white_threshold": 0.97,
+  "edge_threshold": 0.08,
+  "expected_texts": [
+    "Block 1",
+    "Block 2",
+    "Block 3",
+    "Block 4",
+    "Decoder"
+  ],
+  "thresholds": {
+    "max_mae": 0.065,
+    "min_foreground_iou": 0.70,
+    "min_edge_iou": 0.40,
+    "min_text_coverage": 1.0,
+    "min_object_count": 65
+  }
+}

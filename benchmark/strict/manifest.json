@@ -3,6 +3,10 @@
   "cases": [
     "skillmoe-fig1.json",
     "acl-obsd-fig2.json",
-    "emnlp-prof-fig1.json"
+    "emnlp-prof-fig1.json",
+    "iclr-mmicl-fig2.json",
+    "acl-translico-fig2.json",
+    "icml-early-exit-fig2.json",
+    "iclr-usf-fig4.json"
   ]
 }

@@ -129,6 +129,178 @@
         "comparison": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/emnlp-prof-fig1/emnlp-prof-fig1-comparison.png"
       },
       "passed": true
+    },
+    {
+      "id": "iclr-mmicl-fig2",
+      "paper": "MMICL: Empowering Vision-language Model with Multi-Modal In-Context Learning",
+      "figure": "Figure 2",
+      "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/benchmark/references/iclr-mmicl-fig2.png",
+      "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-mmicl-fig2/editable.pptx",
+      "metrics": {
+        "mae": 0.0334349051117897,
+        "rmse": 0.11536583433341241,
+        "pixel_similarity": 0.9665650948882103,
+        "foreground_iou": 0.8326510358516314,
+        "edge_iou": 0.46292280395414986,
+        "text_coverage": 1.0,
+        "object_count": 92,
+        "picture_count": 0,
+        "full_canvas_picture_count": 0
+      },
+      "thresholds": {
+        "max_mae": 0.065,
+        "min_foreground_iou": 0.7,
+        "min_edge_iou": 0.4,
+        "min_text_coverage": 1.0,
+        "min_object_count": 75
+      },
+      "checks": {
+        "mae": true,
+        "foreground_iou": true,
+        "edge_iou": true,
+        "text_coverage": true,
+        "object_count": true,
+        "no_full_canvas_picture": true
+      },
+      "missing_expected_texts": [],
+      "full_canvas_pictures": [],
+      "artifacts": {
+        "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-mmicl-fig2/iclr-mmicl-fig2-reference.png",
+        "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-mmicl-fig2/iclr-mmicl-fig2-recreation.png",
+        "overlay": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-mmicl-fig2/iclr-mmicl-fig2-overlay.png",
+        "difference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-mmicl-fig2/iclr-mmicl-fig2-diff.png",
+        "comparison": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-mmicl-fig2/iclr-mmicl-fig2-comparison.png"
+      },
+      "passed": true
+    },
+    {
+      "id": "acl-translico-fig2",
+      "paper": "TransliCo: A Contrastive Learning Framework to Address the Script Barrier in Multilingual Pretrained Language Models",
+      "figure": "Figure 2",
+      "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/benchmark/references/acl-translico-fig2.png",
+      "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/acl-translico-fig2/editable.pptx",
+      "metrics": {
+        "mae": 0.03699285164475441,
+        "rmse": 0.14826950806574013,
+        "pixel_similarity": 0.9630071483552456,
+        "foreground_iou": 0.8627691681237873,
+        "edge_iou": 0.5040648520764958,
+        "text_coverage": 1.0,
+        "object_count": 87,
+        "picture_count": 0,
+        "full_canvas_picture_count": 0
+      },
+      "thresholds": {
+        "max_mae": 0.055,
+        "min_foreground_iou": 0.72,
+        "min_edge_iou": 0.42,
+        "min_text_coverage": 1.0,
+        "min_object_count": 70
+      },
+      "checks": {
+        "mae": true,
+        "foreground_iou": true,
+        "edge_iou": true,
+        "text_coverage": true,
+        "object_count": true,
+        "no_full_canvas_picture": true
+      },
+      "missing_expected_texts": [],
+      "full_canvas_pictures": [],
+      "artifacts": {
+        "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/acl-translico-fig2/acl-translico-fig2-reference.png",
+        "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/acl-translico-fig2/acl-translico-fig2-recreation.png",
+        "overlay": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/acl-translico-fig2/acl-translico-fig2-overlay.png",
+        "difference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/acl-translico-fig2/acl-translico-fig2-diff.png",
+        "comparison": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/acl-translico-fig2/acl-translico-fig2-comparison.png"
+      },
+      "passed": true
+    },
+    {
+      "id": "icml-early-exit-fig2",
+      "paper": "A Simple Early Exiting Framework for Accelerated Sampling in Diffusion Models",
+      "figure": "Figure 2",
+      "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/benchmark/references/icml-early-exit-fig2.png",
+      "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/icml-early-exit-fig2/editable.pptx",
+      "metrics": {
+        "mae": 0.046386342495679855,
+        "rmse": 0.1582927861862762,
+        "pixel_similarity": 0.9536136575043201,
+        "foreground_iou": 0.834159709791373,
+        "edge_iou": 0.5906076533870414,
+        "text_coverage": 1.0,
+        "object_count": 73,
+        "picture_count": 1,
+        "full_canvas_picture_count": 0
+      },
+      "thresholds": {
+        "max_mae": 0.065,
+        "min_foreground_iou": 0.7,
+        "min_edge_iou": 0.4,
+        "min_text_coverage": 1.0,
+        "min_object_count": 65
+      },
+      "checks": {
+        "mae": true,
+        "foreground_iou": true,
+        "edge_iou": true,
+        "text_coverage": true,
+        "object_count": true,
+        "no_full_canvas_picture": true
+      },
+      "missing_expected_texts": [],
+      "full_canvas_pictures": [],
+      "artifacts": {
+        "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/icml-early-exit-fig2/icml-early-exit-fig2-reference.png",
+        "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/icml-early-exit-fig2/icml-early-exit-fig2-recreation.png",
+        "overlay": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/icml-early-exit-fig2/icml-early-exit-fig2-overlay.png",
+        "difference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/icml-early-exit-fig2/icml-early-exit-fig2-diff.png",
+        "comparison": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/icml-early-exit-fig2/icml-early-exit-fig2-comparison.png"
+      },
+      "passed": true
+    },
+    {
+      "id": "iclr-usf-fig4",
+      "paper": "A Unified Sampling Framework for Solver Searching of Diffusion Probabilistic Models",
+      "figure": "Figure 4",
+      "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/benchmark/references/iclr-usf-fig4.png",
+      "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-usf-fig4/editable.pptx",
+      "metrics": {
+        "mae": 0.029077475890517235,
+        "rmse": 0.12155694587860794,
+        "pixel_similarity": 0.9709225241094828,
+        "foreground_iou": 0.5922802131957681,
+        "edge_iou": 0.39753267237494366,
+        "text_coverage": 1.0,
+        "object_count": 51,
+        "picture_count": 0,
+        "full_canvas_picture_count": 0
+      },
+      "thresholds": {
+        "max_mae": 0.07,
+        "min_foreground_iou": 0.58,
+        "min_edge_iou": 0.38,
+        "min_text_coverage": 1.0,
+        "min_object_count": 50
+      },
+      "checks": {
+        "mae": true,
+        "foreground_iou": true,
+        "edge_iou": true,
+        "text_coverage": true,
+        "object_count": true,
+        "no_full_canvas_picture": true
+      },
+      "missing_expected_texts": [],
+      "full_canvas_pictures": [],
+      "artifacts": {
+        "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-usf-fig4/iclr-usf-fig4-reference.png",
+        "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-usf-fig4/iclr-usf-fig4-recreation.png",
+        "overlay": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-usf-fig4/iclr-usf-fig4-overlay.png",
+        "difference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-usf-fig4/iclr-usf-fig4-diff.png",
+        "comparison": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-usf-fig4/iclr-usf-fig4-comparison.png"
+      },
+      "passed": true
     }
   ]
 }

@@ -8,6 +8,11 @@
     "check:reference": "node scripts/check_layout.mjs --layout-dir docs/benchmark/recreated",
     "build:obsd-strict": "node scripts/create_obsd_fig2_strict.mjs",
     "build:prof-strict": "node scripts/create_prof_fig1_strict.mjs",
+    "build:mmicl-strict": "node scripts/create_mmicl_fig2_strict.mjs",
+    "build:translico-strict": "node scripts/create_translico_fig2_strict.mjs",
+    "build:early-exit-strict": "node scripts/create_early_exit_fig2_strict.mjs",
+    "build:usf-strict": "node scripts/create_usf_fig4_strict.mjs",
+    "build:strict": "npm run build:obsd-strict && npm run build:prof-strict && npm run build:mmicl-strict && npm run build:translico-strict && npm run build:early-exit-strict && npm run build:usf-strict",
     "qa:strict": "python3 scripts/strict_recreation_qa.py --manifest benchmark/strict/manifest.json"
   }
 }

@@ -366,6 +366,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--manifest", default="benchmark/strict/manifest.json")
     parser.add_argument("--out", default="docs/strict-recreation")
+    parser.add_argument("--case", help="Run one case id without overwriting the full summary.")
     parser.add_argument("--artifact-renderer", default=os.environ.get("ARTIFACT_RENDERER"))
     parser.add_argument("--soffice", default=os.environ.get("SOFFICE"))
     parser.add_argument("--pdftoppm", default=os.environ.get("PDFTOPPM"))
@@ -382,7 +383,16 @@ def main() -> int:
 
     reports = []
     passed = True
-    for relative in manifest["cases"]:
+    case_files = manifest["cases"]
+    if args.case:
+        case_files = [
+            relative
+            for relative in case_files
+            if Path(relative).stem == args.case
+        ]
+        if not case_files:
+            raise RuntimeError(f"Case not found in manifest: {args.case}")
+    for relative in case_files:
         report, case_passed = evaluate_case(
             (manifest_path.parent / relative).resolve(),
             out_root,
@@ -400,12 +410,13 @@ def main() -> int:
             f"text={metrics['text_coverage']:.3f}, objects={metrics['object_count']}"
         )
 
-    summary = {"passed": passed, "cases": reports}
-    out_root.mkdir(parents=True, exist_ok=True)
-    (out_root / "summary.json").write_text(
-        json.dumps(summary, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
+    if not args.case:
+        summary = {"passed": passed, "cases": reports}
+        out_root.mkdir(parents=True, exist_ok=True)
+        (out_root / "summary.json").write_text(
+            json.dumps(summary, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
     return 0 if passed else 1
 
 

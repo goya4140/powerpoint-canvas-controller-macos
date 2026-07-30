@@ -1,0 +1,34 @@
+{
+  "id": "iclr-mmicl-fig2",
+  "paper": "MMICL: Empowering Vision-language Model with Multi-Modal In-Context Learning",
+  "figure": "Figure 2",
+  "reference": "../../docs/benchmark/references/iclr-mmicl-fig2.png",
+  "reference_crop": {
+    "left": 0.02,
+    "top": 0.12,
+    "right": 0.02,
+    "bottom": 0.23
+  },
+  "recreation": "../../docs/strict-recreation/iclr-mmicl-fig2/editable.pptx",
+  "render_width": 979,
+  "white_threshold": 0.97,
+  "edge_threshold": 0.08,
+  "expected_texts": [
+    "LLM",
+    "embed",
+    "Text",
+    "VPG",
+    "Img",
+    "Image Declaration",
+    "VLMs Focused on a single image",
+    "VLMs with few-shot ability",
+    "MMICL"
+  ],
+  "thresholds": {
+    "max_mae": 0.065,
+    "min_foreground_iou": 0.70,
+    "min_edge_iou": 0.40,
+    "min_text_coverage": 1.0,
+    "min_object_count": 75
+  }
+}
