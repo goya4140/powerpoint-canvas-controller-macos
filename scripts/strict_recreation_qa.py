@@ -262,12 +262,20 @@ def evaluate_case(
     recreation_path = (base / spec["recreation"]).resolve()
     width = int(spec.get("render_width", 1350))
     thresholds = spec["thresholds"]
+    crop = {
+        "left": 0.0,
+        "top": 0.0,
+        "right": 0.0,
+        "bottom": 0.0,
+        **spec.get("reference_crop", {}),
+    }
 
     with tempfile.TemporaryDirectory(prefix="strict-recreation-qa-") as temp:
         temp_dir = Path(temp)
         reference_png = temp_dir / "reference.png"
         recreation_png = temp_dir / "recreation.png"
-        render_reference(reference_path, reference_png, width, pdftoppm)
+        full_reference_width = round(width / max(0.01, 1 - crop["left"] - crop["right"]))
+        render_reference(reference_path, reference_png, full_reference_width, pdftoppm)
         render_pptx(
             recreation_path,
             recreation_png,
@@ -278,6 +286,16 @@ def evaluate_case(
         )
         reference = white_rgb(reference_png)
         recreation = white_rgb(recreation_png)
+        if any(crop.values()):
+            box = (
+                round(reference.width * crop["left"]),
+                round(reference.height * crop["top"]),
+                round(reference.width * (1 - crop["right"])),
+                round(reference.height * (1 - crop["bottom"])),
+            )
+            reference = reference.crop(box)
+            reference_height = max(1, round(width * reference.height / reference.width))
+            reference = reference.resize((width, reference_height), Image.Resampling.LANCZOS)
         if recreation.size != reference.size:
             recreation = recreation.resize(reference.size, Image.Resampling.LANCZOS)
 

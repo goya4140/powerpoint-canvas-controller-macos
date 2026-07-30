@@ -1,6 +1,8 @@
 {
   "name": "Strict 1-to-1 recreation gate",
   "cases": [
-    "skillmoe-fig1.json"
+    "skillmoe-fig1.json",
+    "acl-obsd-fig2.json",
+    "emnlp-prof-fig1.json"
   ]
 }

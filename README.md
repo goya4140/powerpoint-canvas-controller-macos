@@ -9,18 +9,36 @@
 | 案例 | 像素相似度 | 前景 IoU | 边缘 IoU | 文本覆盖率 | PPT 对象数 | 整页图片铺底 | 结果 |
 |---|---:|---:|---:|---:|---:|---:|---|
 | Skill-MoE Figure 1 | 98.72% | 83.94% | 73.11% | 100% | 193 | 0 | **PASS** |
+| ACL 2024 · OBSD Figure 2 | 94.69% | 93.42% | 56.59% | 100% | 34 | 0 | **PASS** |
+| EMNLP 2024 · PROF Figure 1 | 94.12% | 89.51% | 39.58% | 100% | 37 | 0 | **PASS** |
 
 ![Skill-MoE Figure 1 参考图与复刻图](docs/strict-recreation/skillmoe-fig1/skillmoe-fig1-comparison.png)
 
 [查看透明叠加图](docs/strict-recreation/skillmoe-fig1/skillmoe-fig1-overlay.png) · [查看差异热图](docs/strict-recreation/skillmoe-fig1/skillmoe-fig1-diff.png) · [查看完整机器报告](docs/strict-recreation/skillmoe-fig1/report.json) · [下载可编辑 PPTX](SkillMoE_Fig2_corrected_editable.pptx)
 
-### 复刻逻辑
+### Skill-MoE Figure 1 · 校准样例
 
 1. 以 `SkillMoE_Fig1.pdf` 的 540 × 540 pt 页面为唯一真值，不重写任何可见文字。
 2. 保留三段虚线分区、四条 rollout、五个 expert、三组 skill library、右侧五项演化操作和底部十柱结果图。
 3. 机器人、圆形状态、箭头、卡片、括号、图例、坐标轴和柱体分别保留为独立对象；当前 PPTX 第一页包含 193 个对象。
 4. 用与参考图相同的正方形画布渲染到 1350 × 1350 px，再计算全图像素差、前景交并比和边缘交并比。
 5. 从 PPTX 的 OOXML 中提取文字与对象，要求 37 个关键文本全部出现，同时拒绝覆盖画布 80% 以上的单张图片。
+
+### ACL 2024 · OBSD Figure 2
+
+![OBSD Figure 2 参考图与复刻图](docs/strict-recreation/acl-obsd-fig2/acl-obsd-fig2-comparison.png)
+
+复刻逻辑：保持左右两阶段的原始尺寸和颜色；输入、初始输出、参考字形与最终输出作为局部研究资产，其余标题、面板、扩散梯形、箭头和标签均为独立 PowerPoint 对象。
+
+[叠加图](docs/strict-recreation/acl-obsd-fig2/acl-obsd-fig2-overlay.png) · [差异图](docs/strict-recreation/acl-obsd-fig2/acl-obsd-fig2-diff.png) · [报告](docs/strict-recreation/acl-obsd-fig2/report.json) · [PPTX](docs/strict-recreation/acl-obsd-fig2/editable.pptx)
+
+### EMNLP 2024 · PROF Figure 1
+
+![PROF Figure 1 参考图与复刻图](docs/strict-recreation/emnlp-prof-fig1/emnlp-prof-fig1-comparison.png)
+
+复刻逻辑：逐一保留七个模块、五条前向箭头和红色反馈回路；论文公式与模型标识作为局部图像资产，模块背景、标题、模型框、箭头和反馈标签保持独立可编辑。
+
+[叠加图](docs/strict-recreation/emnlp-prof-fig1/emnlp-prof-fig1-overlay.png) · [差异图](docs/strict-recreation/emnlp-prof-fig1/emnlp-prof-fig1-diff.png) · [报告](docs/strict-recreation/emnlp-prof-fig1/report.json) · [PPTX](docs/strict-recreation/emnlp-prof-fig1/editable.pptx)
 
 ## 严格 1 → 1 门禁
 
@@ -59,11 +77,11 @@ npm run qa:strict
 
 | 阶段 | 输入 | 输出 | 状态 |
 |---|---|---|---|
-| **1 → 1：严格复刻** | 一张论文参考图 | 内容与版式一致的可编辑 PPTX | **当前唯一主线；1/10 通过** |
+| **1 → 1：严格复刻** | 一张论文参考图 | 内容与版式一致的可编辑 PPTX | **当前唯一主线；2/10 顶会案例通过，另有 1 个校准样例** |
 | **0.5 → 1：受控改写** | 参考图 + Method + 改写要求 | 表述相近、风格或排版不同的新图 | 未开始 |
 | **0 → 1：原创生成** | Method + 用户要求 | 一张或多张论文插图 | 未开始 |
 
-只有严格复刻累计至少 10 张已发表顶会论文插图并全部通过门禁后，仓库才进入 0.5 → 1。
+只有严格复刻累计至少 10 张已发表顶会论文插图并全部通过门禁后，仓库才进入 0.5 → 1。Skill-MoE 校准样例不占这 10 张名额。
 
 ## 关于旧 benchmark
 
@@ -101,6 +119,7 @@ npm run qa:strict
 - [x] 撤销“语义相似即可视为复刻”的旧验收口径
 - [x] 建立像素差、前景 IoU、边缘 IoU、关键文本和对象覆盖率门禁
 - [x] 禁止整页参考图铺底
-- [x] 完成首张严格 1 → 1 样例：Skill-MoE Figure 1
+- [x] 完成严格 1 → 1 校准样例：Skill-MoE Figure 1
+- [x] 完成 2 张已发表顶会论文插图的严格复刻
 - [ ] 完成至少 10 张已发表顶会论文插图的严格复刻
 - [ ] 10/10 全部通过后再开始 0.5 → 1

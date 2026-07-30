@@ -6,6 +6,8 @@
     "validate:reference": "node scripts/validate_reference_scene.mjs --manifest benchmark/manifest.json",
     "build:reference": "node scripts/create_reference_recreation.mjs --manifest benchmark/manifest.json",
     "check:reference": "node scripts/check_layout.mjs --layout-dir docs/benchmark/recreated",
+    "build:obsd-strict": "node scripts/create_obsd_fig2_strict.mjs",
+    "build:prof-strict": "node scripts/create_prof_fig1_strict.mjs",
     "qa:strict": "python3 scripts/strict_recreation_qa.py --manifest benchmark/strict/manifest.json"
   }
 }
