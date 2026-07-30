@@ -1,4 +1,4 @@
 interface:
-  display_name: "Level 1 Academic Figure Builder"
-  short_description: "Build editable structure-first academic figures"
-  default_prompt: "Use $draw-in-powerpoint to turn my method description into two or three editable Level 1 PowerPoint wireframes for review."
+  display_name: "Academic Figure Recreator"
+  short_description: "Recreate reference paper figures as editable PowerPoint"
+  default_prompt: "Use $draw-in-powerpoint to decompose this reference paper figure, recreate its structure and visual language with editable PowerPoint objects, and show a reference/recreation comparison."

@@ -1,4 +1,10 @@
 {
   "private": true,
-  "type": "module"
+  "type": "module",
+  "scripts": {
+    "validate:level1": "node scripts/validate_level1_spec.mjs --spec assets/level1-example-spec.json",
+    "validate:reference": "node scripts/validate_reference_scene.mjs --manifest benchmark/manifest.json",
+    "build:reference": "node scripts/create_reference_recreation.mjs --manifest benchmark/manifest.json",
+    "check:reference": "node scripts/check_layout.mjs --layout-dir docs/benchmark/recreated"
+  }
 }

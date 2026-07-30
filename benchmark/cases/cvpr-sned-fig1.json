@@ -1,0 +1,44 @@
+{
+  "id": "cvpr-sned-fig1",
+  "venue": "CVPR",
+  "year": 2024,
+  "paper_title": "SNED: Superposition Network Architecture Search for Efficient Video Diffusion Model",
+  "figure": "Figure 1",
+  "paper_url": "https://openaccess.thecvf.com/content/CVPR2024/html/Li_SNED_Superposition_Network_Architecture_Search_for_Efficient_Video_Diffusion_Model_CVPR_2024_paper.html",
+  "reference": "../../docs/benchmark/references/cvpr-sned-fig1.png",
+  "reference_crop": { "left": 0.02, "top": 0.02, "right": 0.02, "bottom": 0.24 },
+  "reconstruction_logic": "The supernet-to-subnet topology is preserved with one dense shared graph, three resolution-specific sparse graphs, and matched training/output image stacks.",
+  "canvas": { "width": 1200, "height": 600 },
+  "background": "#FFFFFF",
+  "elements": [
+    { "type": "text", "name": "title.sned", "x": 280, "y": 22, "w": 640, "h": 38, "text": "SNED Framework", "fontSize": 25, "bold": true },
+    { "type": "text", "name": "label.training-data", "x": 35, "y": 78, "w": 150, "h": 48, "text": "Training\nData", "fontSize": 19, "bold": true },
+    { "type": "stack", "name": "images.training", "geometry": "rect", "x": 35, "y": 155, "w": 120, "h": 84, "count": 3, "dx": 0, "dy": 105, "fills": ["#B5D2E6", "#D5E5B5", "#E4C7B7"], "stroke": "#6B7280", "labels": ["256²", "512²", "768²"], "fontSize": 16, "bold": true },
+    { "type": "shape", "name": "group.supernet", "geometry": "roundRect", "x": 215, "y": 105, "w": 260, "h": 380, "fill": "#F9FAFB", "stroke": "#6B7280", "radius": 20 },
+    { "type": "text", "name": "label.supernet", "x": 245, "y": 120, "w": 200, "h": 34, "text": "SuperNet", "fontSize": 23, "bold": true },
+    { "type": "network", "name": "network.supernet", "x": 245, "y": 175, "w": 200, "h": 250, "nodeRadius": 8, "nodeFills": ["#4C78A8", "#F2C94C", "#5BB46C", "#E96B62"], "nodes": [
+      { "id": "a1", "x": 0.05, "y": 0.15 }, { "id": "a2", "x": 0.05, "y": 0.50 }, { "id": "a3", "x": 0.05, "y": 0.85 },
+      { "id": "b1", "x": 0.35, "y": 0.08 }, { "id": "b2", "x": 0.35, "y": 0.32 }, { "id": "b3", "x": 0.35, "y": 0.58 }, { "id": "b4", "x": 0.35, "y": 0.88 },
+      { "id": "c1", "x": 0.68, "y": 0.12 }, { "id": "c2", "x": 0.68, "y": 0.40 }, { "id": "c3", "x": 0.68, "y": 0.72 }, { "id": "c4", "x": 0.68, "y": 0.92 },
+      { "id": "d1", "x": 0.95, "y": 0.25 }, { "id": "d2", "x": 0.95, "y": 0.55 }, { "id": "d3", "x": 0.95, "y": 0.82 }
+    ], "edges": [["a1","b1"],["a1","b2"],["a2","b2"],["a2","b3"],["a3","b3"],["a3","b4"],["b1","c1"],["b1","c2"],["b2","c2"],["b2","c3"],["b3","c2"],["b3","c3"],["b4","c3"],["b4","c4"],["c1","d1"],["c2","d1"],["c2","d2"],["c3","d2"],["c3","d3"],["c4","d3"]] },
+    { "type": "text", "name": "label.dynamic", "x": 235, "y": 444, "w": 220, "h": 25, "text": "Dynamic Cost Sampling", "fontSize": 17, "bold": true },
+    { "type": "shape", "name": "group.subnets", "geometry": "roundRect", "x": 530, "y": 105, "w": 430, "h": 380, "fill": "#F9FAFB", "stroke": "#6B7280", "radius": 20 },
+    { "type": "text", "name": "label.subnets", "x": 585, "y": 120, "w": 320, "h": 34, "text": "Subnets target different resolutions", "fontSize": 20, "bold": true },
+    { "type": "network", "name": "network.subnet-a", "x": 555, "y": 180, "w": 110, "h": 225, "nodeRadius": 7, "nodeFills": ["#4C78A8", "#F2C94C", "#5BB46C"], "nodes": [
+      { "id":"a1","x":0.05,"y":0.15 }, { "id":"a2","x":0.05,"y":0.55 }, { "id":"b1","x":0.42,"y":0.1 }, { "id":"b2","x":0.42,"y":0.5 }, { "id":"b3","x":0.42,"y":0.85 }, { "id":"c1","x":0.92,"y":0.25 }, { "id":"c2","x":0.92,"y":0.75 }
+    ], "edges": [["a1","b1"],["a1","b2"],["a2","b2"],["a2","b3"],["b1","c1"],["b2","c1"],["b2","c2"],["b3","c2"]] },
+    { "type": "network", "name": "network.subnet-b", "x": 690, "y": 180, "w": 110, "h": 225, "nodeRadius": 7, "nodeFills": ["#4C78A8", "#F2C94C", "#5BB46C"], "nodes": [
+      { "id":"a1","x":0.05,"y":0.2 }, { "id":"a2","x":0.05,"y":0.75 }, { "id":"b1","x":0.42,"y":0.1 }, { "id":"b2","x":0.42,"y":0.48 }, { "id":"b3","x":0.42,"y":0.82 }, { "id":"c1","x":0.92,"y":0.2 }, { "id":"c2","x":0.92,"y":0.62 }
+    ], "edges": [["a1","b1"],["a1","b2"],["a2","b2"],["a2","b3"],["b1","c1"],["b2","c1"],["b2","c2"],["b3","c2"]] },
+    { "type": "network", "name": "network.subnet-c", "x": 825, "y": 180, "w": 110, "h": 225, "nodeRadius": 7, "nodeFills": ["#4C78A8", "#F2C94C", "#5BB46C"], "nodes": [
+      { "id":"a1","x":0.05,"y":0.12 }, { "id":"a2","x":0.05,"y":0.55 }, { "id":"b1","x":0.42,"y":0.2 }, { "id":"b2","x":0.42,"y":0.6 }, { "id":"c1","x":0.92,"y":0.25 }, { "id":"c2","x":0.92,"y":0.7 }
+    ], "edges": [["a1","b1"],["a1","b2"],["a2","b2"],["b1","c1"],["b2","c1"],["b2","c2"]] },
+    { "type": "text", "name": "label.resolutions", "x": 565, "y": 430, "w": 380, "h": 30, "text": "Resolution A      Resolution B      Resolution C", "fontSize": 15, "bold": true },
+    { "type": "text", "name": "label.output", "x": 1020, "y": 78, "w": 140, "h": 34, "text": "Output", "fontSize": 21, "bold": true },
+    { "type": "shape", "name": "group.output", "geometry": "roundRect", "x": 995, "y": 130, "w": 175, "h": 365, "fill": "none", "stroke": "#D1D5DB", "radius": 12 },
+    { "type": "stack", "name": "images.output", "geometry": "rect", "x": 1015, "y": 155, "w": 135, "h": 84, "count": 3, "dx": 0, "dy": 105, "fills": ["#B5D2E6", "#D5E5B5", "#E4C7B7"], "stroke": "#6B7280", "labels": ["256²", "512²", "768²"], "fontSize": 16, "bold": true },
+    { "type": "connector", "name": "arrow.training-to-supernet", "from": "group.supernet", "to": "group.subnets", "fromSide": "right", "toSide": "left", "kind": "straight", "label": "Resolution search", "labelX": 445, "labelY": 275, "labelW": 120 },
+    { "type": "connector", "name": "arrow.subnets-to-output", "from": "group.subnets", "to": "group.output", "fromSide": "right", "toSide": "left", "kind": "straight" }
+  ]
+}

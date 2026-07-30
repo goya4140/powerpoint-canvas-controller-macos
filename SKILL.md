@@ -1,64 +1,118 @@
 ---
 name: draw-in-powerpoint
-description: Build editable Level 1 academic method figures in PowerPoint from Method text, pseudocode, sketches, semantic graphs, or existing PPTX figures. Use when Codex must design the structural foundation of an AI-paper figure with native shapes, text boxes, containers, and semantic connectors; generate two or three alternative wireframes for user review; refine a confirmed pipeline, hierarchy, swimlane, hub-spoke, loop, or multi-agent layout; preserve stable object names; or prepare semantic asset slots for later Level 2 icon replacement and Level 3 illustration upgrades.
+description: Recreate academic paper figures from reference images as editable PowerPoint objects, or build Level 1 semantic figures from Method text. Use when Codex must decompose a supplied paper figure into panels, modules, repeated motifs, typography, colors, and connectors; encode an editable scene specification; generate reference/recreation comparisons; preserve stable object names; validate layout fidelity; or prepare the semantic foundation for later reference-guided and text-only figure generation.
 ---
 
-# Draw Level 1 Figures in PowerPoint
+# Recreate Academic Figures in PowerPoint
 
-Treat Level 1 as the editable semantic source of truth for every later visual upgrade. Build a technically correct, readable structure before adding icons or illustrations.
+Prioritize the repository's current 1 → 1 goal: given one reference figure, reconstruct its observable structure and visual language as editable PowerPoint objects.
+
+Do not treat the reference as a flat background to trace. Create an explicit scene specification that can be validated, revised, regenerated, and compared.
+
+## Route the task
+
+### Reference image supplied
+
+Use the 1 → 1 recreation workflow below.
+
+### Reference image + Method text supplied
+
+The repository is not yet at the 0.5 → 1 stage. First recreate the reference structure, then identify which scene elements are supported or contradicted by the Method text. Do not silently change the technical graph.
+
+### Method text only
+
+Use the legacy Level 1 workflow in `references/workflow.md` and `references/level-1-grammar.md`. Treat the result as a semantic skeleton, not as proof that the 0 → 1 visual-generation problem is solved.
 
 ## Load the relevant guidance
 
-1. Read `references/workflow.md` for every new figure or substantial redesign.
-2. Read `references/level-1-grammar.md` before defining nodes, edges, groups, or upgrade slots.
-3. Read `references/layout-patterns.md` when selecting candidate topologies.
-4. Read `references/powerpoint-authoring.md` before creating or editing PPTX objects.
-5. Read `references/academic-style.md` when choosing typography, color, density, or paper sizing.
-6. Read `references/quality-checklist.md` before delivery.
+For every reference recreation:
 
-## Follow the mandatory structure-first loop
+1. Read `references/reference-recreation.md`.
+2. Read `references/powerpoint-authoring.md`.
+3. Read `references/academic-style.md`.
+4. Read `references/quality-checklist.md` before delivery.
 
-1. Extract a Figure Brief: message, audience, input, output, modules, edges, groups, claimed contribution, target width, and technical uncertainties.
-2. Encode the brief as the Level 1 semantic specification defined in `references/level-1-grammar.md`. Do not invent a technical edge.
-3. Run `scripts/validate_level1_spec.mjs --spec <json>` and resolve every error.
-4. Select two or three meaningfully different layouts. Generate wireframes without `selected_layout`:
+For Method-only semantic figures, also read:
+
+1. `references/workflow.md`
+2. `references/level-1-grammar.md`
+3. `references/layout-patterns.md`
+
+## Mandatory 1 → 1 loop
+
+1. Record paper title, venue, year, Figure number, paper URL, and the local research reference.
+2. Crop the actual Figure region for comparison without destroying the source image.
+3. Decompose the reference in this order:
+   - canvas and major regions;
+   - primary modules and reading direction;
+   - connectors, feedback paths, and skip relations;
+   - repeated tokens, layers, image stacks, or network nodes;
+   - typography, palette, line weight, radius, and spacing.
+4. Write one sentence describing the reconstruction logic.
+5. Encode the reconstruction as the Scene Spec in `references/reference-recreation.md`.
+6. Use stable object names such as `panel.training`, `module.encoder`, and `arrow.encoder-to-decoder`.
+7. Run:
 
    ```bash
-   node scripts/create_level1_figure.mjs --spec <json> --out <pptx> --preview-dir <dir>
+   node scripts/validate_reference_scene.mjs --manifest <manifest.json>
    ```
 
-5. Show all wireframes and ask the user to confirm reading order, module boundaries, contribution emphasis, and the layout choice. Do not interpret silence as approval.
-6. Add the confirmed layout as `selected_layout`, rerun the generator, and refine only the selected structure.
-7. Render and inspect every page. Run `scripts/check_layout.mjs --layout-dir <dir>` and the presentation overflow checker.
-8. Preserve the Level 1 graph and object names during later Level 2/3 work. Replace an `asset_slot`; do not rebuild unrelated structure.
+8. Generate the editable deck, previews, layout JSON, and comparisons:
 
-Skip the confirmation gate only when the user explicitly requests one-pass generation or the task is a tiny local edit.
+   ```bash
+   node scripts/create_reference_recreation.mjs --manifest <manifest.json>
+   ```
 
-## Enforce Level 1 boundaries
+9. Inspect every recreation and every comparison at full size.
+10. Run `scripts/check_layout.mjs` and the presentation overflow checker.
+11. Revise the Scene Spec and regenerate. Do not apply untracked manual edits to the generated deck.
 
-- Use native PowerPoint shapes, text boxes, connectors, and restrained semantic color.
-- Use icons only as placeholders when their absence would make a slot ambiguous; keep them out of the confirmed Level 1 output by default.
-- Keep one dominant reading direction and 5–12 primary modules.
-- Use solid arrows for the main path and dashed arrows for feedback, supervision, optional, or parameter-update relations.
-- Keep standard modules compact and give the claimed contribution more area or stronger stroke contrast.
-- Split the figure instead of shrinking labels below the intended paper-size readability threshold.
-- Never flatten the whole figure into an image.
+## Fidelity priorities
 
-## Preserve upgradeability
+Resolve mismatches in this order:
 
-- Name objects with stable dot-separated identifiers such as `module.skill-selector`, `arrow.selector-to-executor`, and `group.agent-core`.
-- Assign every node a semantic `type`, `role`, and optional `asset_slot`.
-- Preserve node IDs, edge IDs, coordinates, and connectors when upgrading visual treatment.
-- Store reusable Level 2/3 assets on a `COMPONENTS` page or in a separate component library; do not contaminate the Level 1 source graph.
+1. wrong topology or arrow direction;
+2. wrong panel and module silhouette;
+3. wrong alignment, spacing, or relative scale;
+4. wrong color and typography hierarchy;
+5. missing repeated motifs or small details.
 
-## Use bundled resources
+Topology and geometry are blocking. Style and detail are iterative.
 
-- Start from `assets/level1-example-spec.json` for the supported semantic format.
-- Use `scripts/validate_level1_spec.mjs` for deterministic graph and constraint validation.
-- Use `scripts/create_level1_figure.mjs` for supported Level 1 layouts.
-- Treat `scripts/create_figure.mjs` and `assets/example-spec.json` as the legacy pipeline prototype only.
-- Use a task-specific Artifact Tool script when the confirmed topology cannot be expressed faithfully by the bundled generator; retain the same schema, naming, and QA gates.
+## Editability requirements
+
+- Keep important modules as independent PowerPoint shapes.
+- Use attached connectors for semantic relationships.
+- Put filled stage and panel regions behind connectors.
+- Keep labels above connectors.
+- Use native repeated shapes for tokens, blocks, layers, and network nodes.
+- Never flatten the full reconstruction into a bitmap.
+- Do not copy protected photographs, characters, icons, or illustrations; replace them with neutral editable placeholders that preserve layout and semantic role.
+
+## Benchmark support
+
+The bundled benchmark is defined by:
+
+- `benchmark/manifest.json`
+- `benchmark/cases/*.json`
+- `docs/benchmark/references/`
+
+Default commands:
+
+```bash
+npm run validate:reference
+npm run build:reference
+npm run check:reference
+```
+
+The generated benchmark deliverables are:
+
+- `docs/benchmark/reference-recreation-benchmark.pptx`
+- `docs/benchmark/recreated/*.png`
+- `docs/benchmark/recreated/*.layout.json`
+- `docs/benchmark/comparisons/*.png`
+- `docs/benchmark/sources.csv`
 
 ## Deliver
 
-Return the editable PPTX and a rendered preview of the confirmed figure. Identify the working wireframe pages and the confirmed final page. State unresolved technical ambiguity, the selected layout, and which nodes expose `asset_slot` values for later Level 2/3 replacement.
+Return the editable PPTX, the rendered recreation, and the reference/recreation comparison. Identify the reference source, reconstruction logic, known simplifications, and any protected raster assets that were intentionally replaced with neutral editable placeholders.

@@ -7,3 +7,4 @@ tmp/
 work/
 output/
 research/
+docs/benchmark/recreated/*.layout.json

@@ -1,0 +1,16 @@
+{
+  "name": "Top-conference reference recreation benchmark",
+  "version": 1,
+  "cases": [
+    "cases/iclr-mmicl-fig2.json",
+    "cases/iclr-usf-fig4.json",
+    "cases/neurips-dot-fig2.json",
+    "cases/acl-translico-fig2.json",
+    "cases/emnlp-prof-fig1.json",
+    "cases/acl-obsd-fig2.json",
+    "cases/icml-fit-fig2.json",
+    "cases/cvpr-sned-fig1.json",
+    "cases/neurips-controlmllm-fig1.json",
+    "cases/icml-early-exit-fig2.json"
+  ]
+}

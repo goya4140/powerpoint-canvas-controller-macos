@@ -1,0 +1,29 @@
+{
+  "id": "icml-early-exit-fig2",
+  "venue": "ICML",
+  "year": 2024,
+  "paper_title": "A Simple Early Exiting Framework for Accelerated Sampling in Diffusion Models",
+  "figure": "Figure 2",
+  "paper_url": "https://proceedings.mlr.press/v235/moon24a.html",
+  "reference": "../../docs/benchmark/references/icml-early-exit-fig2.png",
+  "reference_crop": { "left": 0.02, "top": 0.05, "right": 0.02, "bottom": 0.37 },
+  "reconstruction_logic": "The time-dependent exit schedule is modeled as five progressively deeper block towers sharing long skip connections and terminating in lightweight decoders.",
+  "canvas": { "width": 1200, "height": 600 },
+  "background": "#FFFFFF",
+  "elements": [
+    { "type": "text", "name": "title.exit", "x": 250, "y": 20, "w": 700, "h": 40, "text": "Time-dependent Exit Schedule", "fontSize": 25, "bold": true },
+    { "type": "text", "name": "label.noise", "x": 20, "y": 80, "w": 180, "h": 42, "text": "xₜ ~ 𝒩(0, I)", "fontSize": 23, "italic": true },
+    { "type": "tokens", "name": "tower.one", "x": 65, "y": 145, "w": 150, "h": 135, "rows": 3, "cols": 1, "gapY": 12, "fills": ["#DCEAF5", "#DCEAF5", "#E7F2E0"], "labels": ["Block 1", "", "Decoder"], "fontSize": 17, "stroke": "#4B5563" },
+    { "type": "tokens", "name": "tower.two", "x": 280, "y": 145, "w": 150, "h": 190, "rows": 4, "cols": 1, "gapY": 12, "fills": ["#DCEAF5", "#DCEAF5", "#8FBCE0", "#E7F2E0"], "labels": ["", "", "Block 2", "Decoder"], "fontSize": 17, "stroke": "#4B5563" },
+    { "type": "tokens", "name": "tower.three", "x": 495, "y": 145, "w": 150, "h": 245, "rows": 5, "cols": 1, "gapY": 12, "fills": ["#DCEAF5", "#DCEAF5", "#8FBCE0", "#F9EDC6", "#E7F2E0"], "labels": ["", "", "Block 2", "Block 3", "Decoder"], "fontSize": 17, "stroke": "#4B5563" },
+    { "type": "tokens", "name": "tower.four", "x": 710, "y": 145, "w": 150, "h": 245, "rows": 5, "cols": 1, "gapY": 12, "fills": ["#DCEAF5", "#DCEAF5", "#8FBCE0", "#F9EDC6", "#E7F2E0"], "labels": ["", "", "", "Block 3", "Decoder"], "fontSize": 17, "stroke": "#4B5563" },
+    { "type": "tokens", "name": "tower.five", "x": 925, "y": 145, "w": 150, "h": 300, "rows": 6, "cols": 1, "gapY": 12, "fills": ["#DCEAF5", "#DCEAF5", "#8FBCE0", "#F9EDC6", "#F5D77B", "#E7F2E0"], "labels": ["", "", "", "", "Block 4", "Decoder"], "fontSize": 17, "stroke": "#4B5563" },
+    { "type": "line", "name": "skip.one", "x1": 80, "y1": 125, "x2": 200, "y2": 125, "stroke": "#333333", "strokeWidth": 1.8, "arrowEnd": "arrow" },
+    { "type": "line", "name": "skip.two", "x1": 295, "y1": 125, "x2": 415, "y2": 125, "stroke": "#333333", "strokeWidth": 1.8, "arrowEnd": "arrow" },
+    { "type": "line", "name": "skip.three", "x1": 510, "y1": 125, "x2": 630, "y2": 125, "stroke": "#333333", "strokeWidth": 1.8, "arrowEnd": "arrow" },
+    { "type": "line", "name": "skip.four", "x1": 725, "y1": 125, "x2": 845, "y2": 125, "stroke": "#333333", "strokeWidth": 1.8, "arrowEnd": "arrow" },
+    { "type": "line", "name": "skip.five", "x1": 940, "y1": 125, "x2": 1060, "y2": 125, "stroke": "#333333", "strokeWidth": 1.8, "arrowEnd": "arrow" },
+    { "type": "text", "name": "label.schedule", "x": 170, "y": 475, "w": 860, "h": 45, "text": "Blocks exit later as the score-estimation problem becomes harder", "fontSize": 21, "bold": true, "color": "#4B5563" },
+    { "type": "text", "name": "formula.sde", "x": 180, "y": 530, "w": 840, "h": 45, "text": "dx = [ f(x,t) − g²(t) ∇ₓ log pₜ(x) ]dt + g(t)dw", "fontFamily": "Times New Roman", "fontSize": 25, "italic": true }
+  ]
+}

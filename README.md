@@ -1,124 +1,189 @@
 # draw-in-powerpoint
 
-用 Codex 把论文方法描述转化为**结构正确、可逐对象编辑、可继续升级视觉风格的 PowerPoint 插图**。
+把论文插图生成拆成可验证的三步，并先把最基础的一步做好：**给一张参考图，在 PowerPoint 中临摹出结构、版式和视觉语言相近、且每个对象仍可编辑的复现图。**
 
-当前版本聚焦最关键的 Level 1：先确认方法图的语义骨架，再用图标或插画升级表现，而不是一开始就被具体画风锁定。
+当前仓库聚焦 **1 → 1 参考图临摹**。只有当流水线能稳定复现已经存在的优秀论文插图，才继续做“参考图 + Method 文本”的 0.5 → 1 改写，最后再挑战纯 Method 文本到插图的 0 → 1 生成。
 
-![Level 2 参考图到 Level 1 语义骨架的解析对比](docs/images/comparisons/level2-to-level1.png)
+[下载 10 页可编辑复现基准 PPTX](docs/benchmark/reference-recreation-benchmark.pptx) · [查看来源索引](docs/benchmark/sources.csv) · [查看场景规格](benchmark/manifest.json)
 
-## 为什么先做 Level 1
+## 新的三阶段目标
 
-一张方法图首先是技术关系图，其次才是视觉作品。过早添加机器人、人物和场景，容易掩盖箭头方向、模块边界或贡献位置的问题。
-
-本项目把绘图拆成三个可递进、可回退的层级：
-
-| 层级 | 视觉构成 | 主要目标 | 当前状态 |
+| 阶段 | 输入 | 输出 | 当前状态 |
 |---|---|---|---|
-| **Level 1** | 线条、箭头、图框、文字框、基本几何 | 验证语义、结构、阅读顺序与论文缩放可读性 | **已实现核心工作流** |
-| **Level 2** | Level 1 骨架 + 少量图标/轻卡通元素 | 用小型视觉资产替代局部模块，提升辨识度 | 通过 `asset_slot` 预留升级接口 |
-| **Level 3** | 插画、角色、场景成为主要叙事元素 | 形成统一画风和强视觉记忆点 | 规划中，仍需继承已确认的语义图 |
+| **1 → 1：临摹** | 一张论文参考图 | 结构、排版、配色和视觉节奏相近的可编辑 PPTX | **当前主线；已建立 10 图基准** |
+| **0.5 → 1：受控改写** | 参考图 + 对应 Method 文本 + 改写要求 | 表述相近但风格或排版不同的新图 | 下一阶段 |
+| **0 → 1：原创生成** | Method 文本 + 用户要求 | 一张或多张精美论文插图 | 最终阶段 |
 
-层级表示具象视觉的占比与制作复杂度，不代表论文或插图质量。
+这里的“1 → 1”不是像素级复制，也不是复用论文里的独特图片素材；它要求复现可验证的视觉结构：画布比例、分区、模块轮廓、相对位置、阅读方向、重复图元、颜色角色、文字层级和连接关系。
 
-[查看三个 Level 的完整视觉样本与判定标准](docs/VISUAL_LEVELS.md)
-
-## 绘图流程
+## 1 → 1 临摹流水线
 
 ```mermaid
 flowchart LR
-    A["方法文本 / 伪代码 / 草图"] --> B["Figure Brief<br/>明确输入、输出、模块、边与贡献"]
-    B --> C["Level 1 语义图<br/>稳定 ID、节点、边、分组"]
-    C --> D["2–3 个结构候选<br/>Pipeline / Swimlane / Hub-spoke"]
-    D --> E{"用户 Double Check"}
-    E -->|修改结构| C
-    E -->|确认| F["Level 1 定稿<br/>可编辑 PPTX"]
-    F --> G["Level 2<br/>替换 asset_slot、建立配色"]
-    G --> H["Level 3<br/>统一角色与场景画风"]
-    H --> I["QA 与交付<br/>论文尺寸、灰度、导出检查"]
+    A["参考图"] --> B["裁出 Figure 区域"]
+    B --> C["视觉拆解<br/>面板 / 模块 / 图元 / 连线 / 文字"]
+    C --> D["Scene Spec<br/>坐标、层级、颜色、稳定对象名"]
+    D --> E["规格校验<br/>引用、边界、唯一 ID"]
+    E --> F["Artifact Tool<br/>生成原生 PowerPoint 对象"]
+    F --> G["逐页渲染<br/>PNG + layout JSON"]
+    G --> H["参考图 / 复现图拼接"]
+    H --> I{"视觉与结构 QA"}
+    I -->|修正| C
+    I -->|通过| J["可编辑 PPTX + README 基准"]
 ```
 
-核心原则是：**先确认语义图，再确认版式，最后增加视觉资产。** Level 2/3 可以改变模块的表现形式，但未经确认不得改变 Level 1 中的节点、边、分组和技术含义。
+这套流程把“像不像”拆成可以定位和返工的问题：
 
-[阅读完整制作流程、阶段输入输出与确认门](docs/DRAWING_WORKFLOW.md)
+- **轮廓不像**：修正画布、面板和主模块的相对尺寸。
+- **逻辑不像**：修正阅读顺序、箭头方向、分组边界和重复关系。
+- **风格不像**：修正色板、线宽、圆角、字体层级和留白。
+- **细节不像**：补充 token、网络节点、堆叠模块等重复图元。
+- **不可编辑**：禁止整图扁平化，所有关键对象使用稳定名称。
 
-## 当前能力
+更完整的拆解方法和 Scene Spec 语法见 [参考图临摹规范](references/reference-recreation.md)。
 
-- 从 Method 文本、伪代码、草图或现有 PPTX 提取 Figure Brief。
-- 使用稳定的节点、边、分组和 `asset_slot` 生成 Level 1 语义规格。
-- 校验未知节点、重复 ID、不合法环路、标签长度和布局字段。
-- 一次生成 2–3 个结构真正不同的候选页，而非只换颜色。
-- 支持 pipeline、swimlane、hub-spoke 等常用学术图布局。
-- 输出由 PowerPoint 原生形状、文本框和连接线构成的可编辑 PPTX。
-- 为 Level 2 图标替换和 Level 3 插画升级保留稳定对象命名与连接关系。
+## 顶会论文插图复现基准
 
-## 快速开始
+当前基准包含 2024 年 ICLR、NeurIPS、ACL、ICML、CVPR 和 EMNLP 已发表论文中的 10 张插图。每张对比图左侧是论文参考图，右侧是本仓库生成的可编辑复现图。
 
-本 Skill 面向带有 PowerPoint/Artifact Tool 运行环境的 Codex 工作区。
+### 01 · ICLR 2024 · MMICL Figure 2
 
-先验证示例语义规格：
+复现逻辑：保持三联架构的等宽面板，用重复的 LLM、VPG、图像和 token 图元表达从单图 VLM 到多模态上下文的演进。
+
+![MMICL Figure 2 参考图与可编辑复现图](docs/benchmark/comparisons/iclr-mmicl-fig2.png)
+
+### 02 · ICLR 2024 · Unified Sampling Framework Figure 4
+
+复现逻辑：用“采样集合 → 评估数据集 → Predictor → 搜索空间”的顺时针外环重建迭代搜索流程。
+
+![Unified Sampling Framework Figure 4 参考图与可编辑复现图](docs/benchmark/comparisons/iclr-usf-fig4.png)
+
+### 03 · NeurIPS 2024 · Diffusion of Thought Figure 2
+
+复现逻辑：把高密度总览拆成任务输入、单次扩散、多次扩散和自纠正四个区域，并保留 token 状态和因果偏置的重复节奏。
+
+![Diffusion of Thought Figure 2 参考图与可编辑复现图](docs/benchmark/comparisons/neurips-dot-fig2.png)
+
+### 04 · ACL 2024 · TransliCo Figure 2
+
+复现逻辑：复用上下两条 Transformer 分支，让原始文本和转写文本经过相同结构，再通过 mean pooling 汇入对比学习目标。
+
+![TransliCo Figure 2 参考图与可编辑复现图](docs/benchmark/comparisons/acl-translico-fig2.png)
+
+### 05 · EMNLP 2024 · PROF Figure 1
+
+复现逻辑：用交替色块重建从初始写作到 DPO 的横向链路，并用红色回路强调“下一轮模型”的闭环更新。
+
+![PROF Figure 1 参考图与可编辑复现图](docs/benchmark/comparisons/emnlp-prof-fig1.png)
+
+### 06 · ACL 2024 · OBSD Figure 2
+
+复现逻辑：保留“初始解码”和“零样本细化”两块柔和背景区域，用对称扩散模块连接输入、参考字形和最终输出。
+
+![OBSD Figure 2 参考图与可编辑复现图](docs/benchmark/comparisons/acl-obsd-fig2.png)
+
+### 07 · ICML 2024 · FiT Figure 2
+
+复现逻辑：用两条平行流水线对照固定分辨率 DiT 与灵活分辨率 FiT，并保留 Resize、Center Crop 和输出尺寸的差异。
+
+![FiT Figure 2 参考图与可编辑复现图](docs/benchmark/comparisons/icml-fit-fig2.png)
+
+### 08 · CVPR 2024 · SNED Figure 1
+
+复现逻辑：用一个稠密 SuperNet、三个面向不同分辨率的稀疏子网，以及对应的输入/输出图像栈复刻搜索拓扑。
+
+![SNED Figure 1 参考图与可编辑复现图](docs/benchmark/comparisons/cvpr-sned-fig1.png)
+
+### 09 · NeurIPS 2024 · ControlMLLM Figure 1
+
+复现逻辑：上下复用同一个冻结 MLLM 骨架，仅替换域内/域外视觉 prompt、输入和回答，突出 training-free 迁移。
+
+![ControlMLLM Figure 1 参考图与可编辑复现图](docs/benchmark/comparisons/neurips-controlmllm-fig1.png)
+
+### 10 · ICML 2024 · Early Exiting Figure 2
+
+复现逻辑：用五个逐渐加深的 block 塔和长跳连重建时间相关退出策略，并保留轻量 Decoder 的终止位置。
+
+![Early Exiting Figure 2 参考图与可编辑复现图](docs/benchmark/comparisons/icml-early-exit-fig2.png)
+
+## 快速运行
+
+项目使用 `@oai/artifact-tool` 生成 PowerPoint 原生对象。
 
 ```bash
-node scripts/validate_level1_spec.mjs \
-  --spec assets/level1-example-spec.json
+npm run validate:reference
+npm run build:reference
+npm run check:reference
 ```
 
-再生成候选结构：
+三个命令依次完成：
 
-```bash
-node scripts/create_level1_figure.mjs \
-  --spec assets/level1-example-spec.json \
-  --out output/agent-skill-level1.pptx \
-  --preview-dir output/agent-skill-level1-preview
-```
+1. 校验 10 个场景规格、引用关系、对象 ID 和画布边界；
+2. 生成 10 页可编辑 PPTX、逐图 PNG、layout JSON 和拼接对比图；
+3. 检查导出布局是否存在溢出、裁切或越界标记。
 
-在用户选定布局后，把 `selected_layout` 写回规格并重新生成。交付前检查导出的 layout JSON：
+单个案例位于 `benchmark/cases/<case-id>.json`。新增案例时，把规格文件加入 `benchmark/manifest.json`，再运行同一套命令。
 
-```bash
-node scripts/check_layout.mjs \
-  --layout-dir output/agent-skill-level1-preview
-```
+## Scene Spec 能表达什么
 
-语义格式、布局模式与 QA 规则分别见：
+- `shape`：矩形、圆角矩形、椭圆、梯形、菱形、圆柱等基础轮廓；
+- `text`：字体、字号、字重、颜色、对齐和旋转；
+- `line` / `connector`：精确位置连线或附着到对象的语义箭头；
+- `stack`：错位堆叠的卡片、图像或模块；
+- `tokens`：规则排列的 token、block 或小图元；
+- `network`：可编辑节点和边构成的网络拓扑；
+- `reference_crop`：README 对比图中使用的参考 Figure 裁剪区域；
+- 稳定对象名：例如 `module.mllm-free`、`arrow.preference-to-dpo`。
 
-- [Level 1 语义语法](references/level-1-grammar.md)
-- [布局模式](references/layout-patterns.md)
-- [PowerPoint 制作约束](references/powerpoint-authoring.md)
-- [质量检查清单](references/quality-checklist.md)
+这些图元是当前 1 → 1 阶段的中间表示。它们比直接“看图写一段绘图代码”更容易验证、比较、局部修改和批量回归。
+
+## 成功标准
+
+一个复现案例只有同时满足以下条件才算通过：
+
+- 主阅读方向、分区、模块数量和连接关系与参考图一致；
+- 主模块的相对尺寸、位置、色彩角色和视觉节奏相近；
+- 没有意外重叠、裁切、越界、标题换行或连接线穿过标签；
+- 关键对象均为 PowerPoint 原生对象，并使用稳定语义名称；
+- 参考来源、论文、会议和 Figure 编号可追溯；
+- 自动生成参考图/复现图拼接结果，便于人工判断“像不像”。
+
+当前基准证明的是：**这条流水线已经具备重建论文插图结构与视觉语法的能力。** 它还不代表对复杂照片、独特插画、任意数学公式或像素级纹理的完美复制。
 
 ## 仓库结构
 
 ```text
 .
-├── SKILL.md                         # Codex Skill 主入口
-├── agents/openai.yaml               # Skill 展示与默认提示
-├── assets/                          # 示例规格、组件库与预览
-├── docs/                            # GitHub 使用说明与视觉样本
-├── references/                      # 工作流、语法、布局、风格和 QA 规范
-└── scripts/                         # 规格校验、PPTX 生成与布局检查
+├── benchmark/
+│   ├── manifest.json                 # 1→1 基准清单
+│   └── cases/                        # 每张参考图的 Scene Spec
+├── docs/benchmark/
+│   ├── references/                   # 论文参考图，仅用于研究与对比
+│   ├── recreated/                    # 生成 PNG 与 layout JSON
+│   ├── comparisons/                  # README 使用的左右拼接图
+│   ├── sources.csv                   # 论文与 Figure 来源
+│   └── reference-recreation-benchmark.pptx
+├── references/reference-recreation.md
+└── scripts/
+    ├── validate_reference_scene.mjs
+    └── create_reference_recreation.mjs
 ```
 
-本地 `research/` 与 `output/` 用于研究采集和生成过程，不直接提交；适合公开展示的接触表、对比图与来源索引会经过筛选后放入 `docs/`。
+原有 Method 文本到 Level 1 语义骨架的实现仍保留在 `scripts/create_level1_figure.mjs`，作为未来 0.5 → 1 和 0 → 1 阶段的语义建模基础。
 
-## 视觉研究样本
+## 使用边界
 
-仓库中的三个视觉接触表来自 Agent Skill 方向的 arXiv 论文 Figure 风格研究，共 45 张样本：Level 1 为 12 张、Level 2 为 26 张、Level 3 为 7 张。
+参考图来自公开论文，仅用于非商业研究、评估和工作流验证；著作权归论文作者或其他权利人所有。公开引用时请访问 [来源索引](docs/benchmark/sources.csv) 中的论文页面并遵循对应许可。
 
-这些图仅用于非商业的风格分析、分类说明和工作流研究，著作权归原论文作者或权利人所有，不属于本项目可复用素材库。每张图的论文标题、Figure 编号、arXiv 链接和分类理由见[来源与分类索引](docs/data/agent-skill-visual-classification.csv)。
-
-## 项目边界
-
-- 不把整张论文方法图扁平化成一张不可编辑的 AI 图片。
-- 不把参考论文中的独特角色、插画或受保护资产直接当作组件复用。
-- 不把“CCF-A 风格”理解为会议制定的统一绘图规范；这里指 AI 顶会论文中常见的克制、结构清晰、适合出版的视觉表达。
-- 不用装饰补救尚未确认的技术结构。
-
-更完整的项目定位见 [REPOSITORY_PURPOSE.md](REPOSITORY_PURPOSE.md)。
+本项目不把论文中的独特照片、角色或插画当成可复用素材，也不声称生成图由原论文作者认可。发布新图前，仍需由研究者核对技术含义、论文规范与第三方权利。
 
 ## 路线图
 
-- [x] Level 1 语义规格、验证器与候选布局生成
-- [x] 论文 Figure 三档视觉样本研究
-- [x] Level 2 参考图到 Level 1 骨架的解析实验
-- [ ] Level 2 组件素材库、检索与 `asset_slot` 自动替换
-- [ ] Level 3 统一画风、角色设定与场景组合流程
-- [ ] 端到端论文尺寸导出与回归测试
+- [x] 把仓库主目标切换为 1 → 1 参考图临摹
+- [x] 建立可验证的 Scene Spec 与稳定对象命名
+- [x] 批量生成可编辑 PPTX、PNG、layout JSON 和拼接对比图
+- [x] 完成 6 个顶会、10 张论文插图的复现基准
+- [ ] 增加视觉相似度度量与人工评分表
+- [ ] 从参考图自动提取候选分区、色板、字体层级和连接图
+- [ ] 进入 0.5 → 1：参考图 + Method 文本的受控改写
+- [ ] 进入 0 → 1：纯 Method 文本到一张或多张原创论文插图
