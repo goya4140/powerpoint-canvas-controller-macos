@@ -1,0 +1,32 @@
+{
+  "id": "acl-grace-fig2",
+  "paper": "Generative Cross-Modal Retrieval: Memorizing Images in Multimodal Language Models for Retrieval and Beyond",
+  "figure": "Figure 2",
+  "reference": "../../docs/benchmark/references/acl-grace-fig2.png",
+  "reference_crop": {
+    "left": 0,
+    "top": 0,
+    "right": 0,
+    "bottom": 0.287109375
+  },
+  "recreation": "../../docs/strict-recreation/acl-grace-fig2/editable.pptx",
+  "render_width": 1165,
+  "white_threshold": 0.97,
+  "edge_threshold": 0.08,
+  "expected_line_object_count": 15,
+  "expected_texts": [
+    "MLLM",
+    "Visual Encoder",
+    "Language Model",
+    "Learning to memorize",
+    "Learning to retrieve",
+    "Inference"
+  ],
+  "thresholds": {
+    "max_mae": 0.06,
+    "min_foreground_iou": 0.85,
+    "min_edge_iou": 0.58,
+    "min_text_coverage": 1,
+    "min_object_count": 55
+  }
+}

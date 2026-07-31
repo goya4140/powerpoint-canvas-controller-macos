@@ -16,7 +16,9 @@
     "build:controlmllm-strict": "node scripts/create_controlmllm_fig1_strict.mjs",
     "build:dot-strict": "node scripts/create_dot_fig2_strict.mjs",
     "build:sned-strict": "node scripts/create_sned_fig1_strict.mjs",
-    "build:strict": "npm run build:obsd-strict && npm run build:prof-strict && npm run build:mmicl-strict && npm run build:translico-strict && npm run build:early-exit-strict && npm run build:usf-strict && npm run build:fit-strict && npm run build:controlmllm-strict && npm run build:dot-strict && npm run build:sned-strict",
+    "build:expanded-strict": "node scripts/create_expanded_strict_cases.mjs",
+    "build:strict": "npm run build:obsd-strict && npm run build:prof-strict && npm run build:mmicl-strict && npm run build:translico-strict && npm run build:early-exit-strict && npm run build:usf-strict && npm run build:fit-strict && npm run build:controlmllm-strict && npm run build:dot-strict && npm run build:sned-strict && npm run build:expanded-strict",
+    "test:line-geometry": "node scripts/test_reference_line_geometry.mjs",
     "qa:strict": "python3 scripts/strict_recreation_qa.py --manifest benchmark/strict/manifest.json"
   }
 }

@@ -1,0 +1,31 @@
+{
+  "id": "emnlp-ex2-fig2",
+  "paper": "If CLIP Could Talk: Understanding Vision-Language Model Representations Through Their Preferred Concept Descriptions",
+  "figure": "Figure 2",
+  "reference": "../../docs/benchmark/references/emnlp-ex2-fig2.png",
+  "reference_crop": {
+    "left": 0,
+    "top": 0,
+    "right": 0,
+    "bottom": 0.3926096998
+  },
+  "recreation": "../../docs/strict-recreation/emnlp-ex2-fig2/editable.pptx",
+  "render_width": 1162,
+  "white_threshold": 0.97,
+  "edge_threshold": 0.08,
+  "expected_line_object_count": 17,
+  "expected_texts": [
+    "Describe Abyssinian",
+    "LLM Agent",
+    "VLM",
+    "Inspector",
+    "Attributes contribute to this VLM’s representations"
+  ],
+  "thresholds": {
+    "max_mae": 0.05,
+    "min_foreground_iou": 0.60,
+    "min_edge_iou": 0.42,
+    "min_text_coverage": 1,
+    "min_object_count": 50
+  }
+}

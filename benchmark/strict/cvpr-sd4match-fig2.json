@@ -1,0 +1,51 @@
+{
+  "id": "cvpr-sd4match-fig2",
+  "paper": "SD4Match: Learning to Prompt Stable Diffusion Model for Semantic Matching",
+  "figure": "Figure 2",
+  "reference": "../../docs/benchmark/references/cvpr-sd4match-fig2.png",
+  "reference_crop": {
+    "left": 0,
+    "top": 0,
+    "right": 0,
+    "bottom": 0.1017857143
+  },
+  "recreation": "../../docs/strict-recreation/cvpr-sd4match-fig2/editable.pptx",
+  "render_width": 1138,
+  "white_threshold": 0.97,
+  "edge_threshold": 0.08,
+  "line_gate": {
+    "coordinate_space": {
+      "width": 1138,
+      "height": 503
+    },
+    "dark_threshold": 0.62,
+    "max_chroma": 0.16,
+    "tolerance_px": 2,
+    "regions": [
+      {
+        "name": "feature-flow",
+        "left": 250,
+        "top": 60,
+        "width": 870,
+        "height": 410
+      }
+    ]
+  },
+  "expected_line_object_count": 15,
+  "expected_texts": [
+    "DINOv2",
+    "Global Descriptor",
+    "Local Feature Patches",
+    "Projection Along Feature Dimension",
+    "Conditional Prompt",
+    "Stable Diffusion"
+  ],
+  "thresholds": {
+    "max_mae": 0.085,
+    "min_foreground_iou": 0.63,
+    "min_edge_iou": 0.36,
+    "min_line_f1": 0.57,
+    "min_text_coverage": 1,
+    "min_object_count": 110
+  }
+}

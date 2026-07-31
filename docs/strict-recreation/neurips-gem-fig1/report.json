@@ -1,0 +1,66 @@
+{
+  "id": "neurips-gem-fig1",
+  "paper": "Graph-based Unsupervised Disentangled Representation Learning via Multimodal Large Language Models",
+  "figure": "Figure 1",
+  "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/benchmark/references/neurips-gem-fig1.png",
+  "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-gem-fig1/editable.pptx",
+  "metrics": {
+    "mae": 0.06405376642942429,
+    "rmse": 0.17913006271853138,
+    "pixel_similarity": 0.9359462335705757,
+    "foreground_iou": 0.4584204413472706,
+    "edge_iou": 0.3779502889368516,
+    "text_coverage": 1.0,
+    "object_count": 74,
+    "line_object_count": 22,
+    "picture_count": 4,
+    "full_canvas_picture_count": 0,
+    "line_precision": 0.5667870036101083,
+    "line_recall": 0.2714041095890411,
+    "line_f1": 0.3670483249442263,
+    "line_regions": [
+      {
+        "precision": 0.5667870036101083,
+        "recall": 0.2714041095890411,
+        "f1": 0.3670483249442263,
+        "reference_pixels": 1168,
+        "recreation_pixels": 554,
+        "name": "disgraph",
+        "bounds": [
+          765,
+          50,
+          1003,
+          231
+        ]
+      }
+    ]
+  },
+  "thresholds": {
+    "max_mae": 0.075,
+    "min_foreground_iou": 0.43,
+    "min_edge_iou": 0.35,
+    "min_line_f1": 0.34,
+    "min_text_coverage": 1,
+    "min_object_count": 70
+  },
+  "checks": {
+    "mae": true,
+    "foreground_iou": true,
+    "edge_iou": true,
+    "text_coverage": true,
+    "object_count": true,
+    "no_full_canvas_picture": true,
+    "line_f1": true,
+    "line_object_count": true
+  },
+  "missing_expected_texts": [],
+  "full_canvas_pictures": [],
+  "artifacts": {
+    "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-gem-fig1/neurips-gem-fig1-reference.png",
+    "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-gem-fig1/neurips-gem-fig1-recreation.png",
+    "overlay": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-gem-fig1/neurips-gem-fig1-overlay.png",
+    "difference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-gem-fig1/neurips-gem-fig1-diff.png",
+    "comparison": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-gem-fig1/neurips-gem-fig1-comparison.png"
+  },
+  "passed": true
+}

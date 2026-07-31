@@ -1,0 +1,30 @@
+{
+  "id": "icml-diffuco-fig1",
+  "paper": "A Diffusion Model Framework for Unsupervised Neural Combinatorial Optimization",
+  "figure": "Figure 1",
+  "reference": "../../docs/benchmark/references/icml-diffuco-fig1.png",
+  "reference_crop": {
+    "left": 0,
+    "top": 0.0792079208,
+    "right": 0,
+    "bottom": 0.1386138614
+  },
+  "recreation": "../../docs/strict-recreation/icml-diffuco-fig1/editable.pptx",
+  "render_width": 1246,
+  "white_threshold": 0.97,
+  "edge_threshold": 0.08,
+  "expected_line_object_count": 10,
+  "expected_texts": [
+    "Forward Process",
+    "Reverse Process",
+    "Set size: 10",
+    "Set size: 6"
+  ],
+  "thresholds": {
+    "max_mae": 0.035,
+    "min_foreground_iou": 0.48,
+    "min_edge_iou": 0.39,
+    "min_text_coverage": 1,
+    "min_object_count": 33
+  }
+}

@@ -15,6 +15,7 @@
         "edge_iou": 0.7310759634662508,
         "text_coverage": 1.0,
         "object_count": 193,
+        "line_object_count": 13,
         "picture_count": 9,
         "full_canvas_picture_count": 0
       },
@@ -58,6 +59,7 @@
         "edge_iou": 0.5658627087198516,
         "text_coverage": 1.0,
         "object_count": 34,
+        "line_object_count": 4,
         "picture_count": 3,
         "full_canvas_picture_count": 0
       },
@@ -101,6 +103,7 @@
         "edge_iou": 0.39576073865917305,
         "text_coverage": 1.0,
         "object_count": 37,
+        "line_object_count": 8,
         "picture_count": 7,
         "full_canvas_picture_count": 0
       },
@@ -144,6 +147,7 @@
         "edge_iou": 0.46292280395414986,
         "text_coverage": 1.0,
         "object_count": 92,
+        "line_object_count": 29,
         "picture_count": 0,
         "full_canvas_picture_count": 0
       },
@@ -187,6 +191,7 @@
         "edge_iou": 0.5040648520764958,
         "text_coverage": 1.0,
         "object_count": 87,
+        "line_object_count": 21,
         "picture_count": 0,
         "full_canvas_picture_count": 0
       },
@@ -230,6 +235,7 @@
         "edge_iou": 0.5906076533870414,
         "text_coverage": 1.0,
         "object_count": 73,
+        "line_object_count": 42,
         "picture_count": 1,
         "full_canvas_picture_count": 0
       },
@@ -273,6 +279,7 @@
         "edge_iou": 0.39753267237494366,
         "text_coverage": 1.0,
         "object_count": 51,
+        "line_object_count": 5,
         "picture_count": 0,
         "full_canvas_picture_count": 0
       },
@@ -316,6 +323,7 @@
         "edge_iou": 0.6594919747983009,
         "text_coverage": 1.0,
         "object_count": 43,
+        "line_object_count": 16,
         "picture_count": 7,
         "full_canvas_picture_count": 0
       },
@@ -359,6 +367,7 @@
         "edge_iou": 0.569398799567057,
         "text_coverage": 1.0,
         "object_count": 61,
+        "line_object_count": 15,
         "picture_count": 7,
         "full_canvas_picture_count": 0
       },
@@ -402,6 +411,7 @@
         "edge_iou": 0.29550932952414966,
         "text_coverage": 1.0,
         "object_count": 113,
+        "line_object_count": 14,
         "picture_count": 0,
         "full_canvas_picture_count": 0
       },
@@ -438,22 +448,57 @@
       "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/benchmark/references/cvpr-sned-fig1.png",
       "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/cvpr-sned-fig1/editable.pptx",
       "metrics": {
-        "mae": 0.1038600355386734,
-        "rmse": 0.26844750779828713,
-        "pixel_similarity": 0.8961399644613266,
-        "foreground_iou": 0.4522374901935411,
-        "edge_iou": 0.3676288744216517,
+        "mae": 0.07109092175960541,
+        "rmse": 0.2123857776714801,
+        "pixel_similarity": 0.9289090782403946,
+        "foreground_iou": 0.6142054752111804,
+        "edge_iou": 0.5682133623622262,
         "text_coverage": 1.0,
-        "object_count": 417,
+        "object_count": 389,
+        "line_object_count": 255,
         "picture_count": 6,
-        "full_canvas_picture_count": 0
+        "full_canvas_picture_count": 0,
+        "line_precision": 0.9968614910878191,
+        "line_recall": 0.97436484321355,
+        "line_f1": 0.9854847954977769,
+        "line_regions": [
+          {
+            "precision": 0.9885231702035513,
+            "recall": 0.9152955514929921,
+            "f1": 0.950501063913036,
+            "reference_pixels": 6564,
+            "recreation_pixels": 4618,
+            "name": "supernet",
+            "bounds": [
+              218,
+              82,
+              386,
+              259
+            ]
+          },
+          {
+            "precision": 1.0,
+            "recall": 0.9997382370263727,
+            "f1": 0.9998691013809805,
+            "reference_pixels": 15281,
+            "recreation_pixels": 12269,
+            "name": "subnet-topology",
+            "bounds": [
+              560,
+              2,
+              952,
+              331
+            ]
+          }
+        ]
       },
       "thresholds": {
-        "max_mae": 0.105,
-        "min_foreground_iou": 0.45,
-        "min_edge_iou": 0.36,
+        "max_mae": 0.08,
+        "min_foreground_iou": 0.6,
+        "min_edge_iou": 0.55,
+        "min_line_f1": 0.96,
         "min_text_coverage": 1.0,
-        "min_object_count": 400
+        "min_object_count": 380
       },
       "checks": {
         "mae": true,
@@ -461,7 +506,9 @@
         "edge_iou": true,
         "text_coverage": true,
         "object_count": true,
-        "no_full_canvas_picture": true
+        "no_full_canvas_picture": true,
+        "line_f1": true,
+        "line_object_count": true
       },
       "missing_expected_texts": [],
       "full_canvas_pictures": [],
@@ -471,6 +518,540 @@
         "overlay": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/cvpr-sned-fig1/cvpr-sned-fig1-overlay.png",
         "difference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/cvpr-sned-fig1/cvpr-sned-fig1-diff.png",
         "comparison": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/cvpr-sned-fig1/cvpr-sned-fig1-comparison.png"
+      },
+      "passed": true
+    },
+    {
+      "id": "acl-grace-fig2",
+      "paper": "Generative Cross-Modal Retrieval: Memorizing Images in Multimodal Language Models for Retrieval and Beyond",
+      "figure": "Figure 2",
+      "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/benchmark/references/acl-grace-fig2.png",
+      "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/acl-grace-fig2/editable.pptx",
+      "metrics": {
+        "mae": 0.04971788823604584,
+        "rmse": 0.17267776092026169,
+        "pixel_similarity": 0.9502821117639542,
+        "foreground_iou": 0.8807815610137226,
+        "edge_iou": 0.6233117723156533,
+        "text_coverage": 1.0,
+        "object_count": 57,
+        "line_object_count": 15,
+        "picture_count": 2,
+        "full_canvas_picture_count": 0
+      },
+      "thresholds": {
+        "max_mae": 0.06,
+        "min_foreground_iou": 0.85,
+        "min_edge_iou": 0.58,
+        "min_text_coverage": 1,
+        "min_object_count": 55
+      },
+      "checks": {
+        "mae": true,
+        "foreground_iou": true,
+        "edge_iou": true,
+        "text_coverage": true,
+        "object_count": true,
+        "no_full_canvas_picture": true,
+        "line_object_count": true
+      },
+      "missing_expected_texts": [],
+      "full_canvas_pictures": [],
+      "artifacts": {
+        "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/acl-grace-fig2/acl-grace-fig2-reference.png",
+        "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/acl-grace-fig2/acl-grace-fig2-recreation.png",
+        "overlay": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/acl-grace-fig2/acl-grace-fig2-overlay.png",
+        "difference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/acl-grace-fig2/acl-grace-fig2-diff.png",
+        "comparison": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/acl-grace-fig2/acl-grace-fig2-comparison.png"
+      },
+      "passed": true
+    },
+    {
+      "id": "emnlp-ex2-fig2",
+      "paper": "If CLIP Could Talk: Understanding Vision-Language Model Representations Through Their Preferred Concept Descriptions",
+      "figure": "Figure 2",
+      "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/benchmark/references/emnlp-ex2-fig2.png",
+      "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/emnlp-ex2-fig2/editable.pptx",
+      "metrics": {
+        "mae": 0.04042196646332741,
+        "rmse": 0.15169206027000295,
+        "pixel_similarity": 0.9595780335366726,
+        "foreground_iou": 0.6459854014598541,
+        "edge_iou": 0.462858087718573,
+        "text_coverage": 1.0,
+        "object_count": 51,
+        "line_object_count": 17,
+        "picture_count": 3,
+        "full_canvas_picture_count": 0
+      },
+      "thresholds": {
+        "max_mae": 0.05,
+        "min_foreground_iou": 0.6,
+        "min_edge_iou": 0.42,
+        "min_text_coverage": 1,
+        "min_object_count": 50
+      },
+      "checks": {
+        "mae": true,
+        "foreground_iou": true,
+        "edge_iou": true,
+        "text_coverage": true,
+        "object_count": true,
+        "no_full_canvas_picture": true,
+        "line_object_count": true
+      },
+      "missing_expected_texts": [],
+      "full_canvas_pictures": [],
+      "artifacts": {
+        "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/emnlp-ex2-fig2/emnlp-ex2-fig2-reference.png",
+        "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/emnlp-ex2-fig2/emnlp-ex2-fig2-recreation.png",
+        "overlay": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/emnlp-ex2-fig2/emnlp-ex2-fig2-overlay.png",
+        "difference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/emnlp-ex2-fig2/emnlp-ex2-fig2-diff.png",
+        "comparison": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/emnlp-ex2-fig2/emnlp-ex2-fig2-comparison.png"
+      },
+      "passed": true
+    },
+    {
+      "id": "iclr-addp-fig2",
+      "paper": "ADDP: Learning General Representations for Image Recognition and Generation with Alternating Denoising Diffusion Process",
+      "figure": "Figure 2",
+      "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/benchmark/references/iclr-addp-fig2.png",
+      "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-addp-fig2/editable.pptx",
+      "metrics": {
+        "mae": 0.016735196113586426,
+        "rmse": 0.10444782777191962,
+        "pixel_similarity": 0.9832648038864136,
+        "foreground_iou": 0.8128241065171689,
+        "edge_iou": 0.6713468958968868,
+        "text_coverage": 1.0,
+        "object_count": 41,
+        "line_object_count": 7,
+        "picture_count": 11,
+        "full_canvas_picture_count": 0
+      },
+      "thresholds": {
+        "max_mae": 0.025,
+        "min_foreground_iou": 0.78,
+        "min_edge_iou": 0.64,
+        "min_text_coverage": 1,
+        "min_object_count": 40
+      },
+      "checks": {
+        "mae": true,
+        "foreground_iou": true,
+        "edge_iou": true,
+        "text_coverage": true,
+        "object_count": true,
+        "no_full_canvas_picture": true,
+        "line_object_count": true
+      },
+      "missing_expected_texts": [],
+      "full_canvas_pictures": [],
+      "artifacts": {
+        "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-addp-fig2/iclr-addp-fig2-reference.png",
+        "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-addp-fig2/iclr-addp-fig2-recreation.png",
+        "overlay": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-addp-fig2/iclr-addp-fig2-overlay.png",
+        "difference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-addp-fig2/iclr-addp-fig2-diff.png",
+        "comparison": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-addp-fig2/iclr-addp-fig2-comparison.png"
+      },
+      "passed": true
+    },
+    {
+      "id": "icml-diffuco-fig1",
+      "paper": "A Diffusion Model Framework for Unsupervised Neural Combinatorial Optimization",
+      "figure": "Figure 1",
+      "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/benchmark/references/icml-diffuco-fig1.png",
+      "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/icml-diffuco-fig1/editable.pptx",
+      "metrics": {
+        "mae": 0.027365941554307938,
+        "rmse": 0.12013883705733705,
+        "pixel_similarity": 0.9726340584456921,
+        "foreground_iou": 0.5086454422112139,
+        "edge_iou": 0.4147089901139143,
+        "text_coverage": 1.0,
+        "object_count": 33,
+        "line_object_count": 10,
+        "picture_count": 3,
+        "full_canvas_picture_count": 0
+      },
+      "thresholds": {
+        "max_mae": 0.035,
+        "min_foreground_iou": 0.48,
+        "min_edge_iou": 0.39,
+        "min_text_coverage": 1,
+        "min_object_count": 33
+      },
+      "checks": {
+        "mae": true,
+        "foreground_iou": true,
+        "edge_iou": true,
+        "text_coverage": true,
+        "object_count": true,
+        "no_full_canvas_picture": true,
+        "line_object_count": true
+      },
+      "missing_expected_texts": [],
+      "full_canvas_pictures": [],
+      "artifacts": {
+        "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/icml-diffuco-fig1/icml-diffuco-fig1-reference.png",
+        "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/icml-diffuco-fig1/icml-diffuco-fig1-recreation.png",
+        "overlay": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/icml-diffuco-fig1/icml-diffuco-fig1-overlay.png",
+        "difference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/icml-diffuco-fig1/icml-diffuco-fig1-diff.png",
+        "comparison": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/icml-diffuco-fig1/icml-diffuco-fig1-comparison.png"
+      },
+      "passed": true
+    },
+    {
+      "id": "neurips-gem-fig1",
+      "paper": "Graph-based Unsupervised Disentangled Representation Learning via Multimodal Large Language Models",
+      "figure": "Figure 1",
+      "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/benchmark/references/neurips-gem-fig1.png",
+      "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-gem-fig1/editable.pptx",
+      "metrics": {
+        "mae": 0.06405376642942429,
+        "rmse": 0.17913006271853138,
+        "pixel_similarity": 0.9359462335705757,
+        "foreground_iou": 0.4584204413472706,
+        "edge_iou": 0.3779502889368516,
+        "text_coverage": 1.0,
+        "object_count": 74,
+        "line_object_count": 22,
+        "picture_count": 4,
+        "full_canvas_picture_count": 0,
+        "line_precision": 0.5667870036101083,
+        "line_recall": 0.2714041095890411,
+        "line_f1": 0.3670483249442263,
+        "line_regions": [
+          {
+            "precision": 0.5667870036101083,
+            "recall": 0.2714041095890411,
+            "f1": 0.3670483249442263,
+            "reference_pixels": 1168,
+            "recreation_pixels": 554,
+            "name": "disgraph",
+            "bounds": [
+              765,
+              50,
+              1003,
+              231
+            ]
+          }
+        ]
+      },
+      "thresholds": {
+        "max_mae": 0.075,
+        "min_foreground_iou": 0.43,
+        "min_edge_iou": 0.35,
+        "min_line_f1": 0.34,
+        "min_text_coverage": 1,
+        "min_object_count": 70
+      },
+      "checks": {
+        "mae": true,
+        "foreground_iou": true,
+        "edge_iou": true,
+        "text_coverage": true,
+        "object_count": true,
+        "no_full_canvas_picture": true,
+        "line_f1": true,
+        "line_object_count": true
+      },
+      "missing_expected_texts": [],
+      "full_canvas_pictures": [],
+      "artifacts": {
+        "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-gem-fig1/neurips-gem-fig1-reference.png",
+        "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-gem-fig1/neurips-gem-fig1-recreation.png",
+        "overlay": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-gem-fig1/neurips-gem-fig1-overlay.png",
+        "difference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-gem-fig1/neurips-gem-fig1-diff.png",
+        "comparison": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/neurips-gem-fig1/neurips-gem-fig1-comparison.png"
+      },
+      "passed": true
+    },
+    {
+      "id": "cvpr-sd4match-fig2",
+      "paper": "SD4Match: Learning to Prompt Stable Diffusion Model for Semantic Matching",
+      "figure": "Figure 2",
+      "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/benchmark/references/cvpr-sd4match-fig2.png",
+      "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/cvpr-sd4match-fig2/editable.pptx",
+      "metrics": {
+        "mae": 0.07631327956914902,
+        "rmse": 0.22068194903844487,
+        "pixel_similarity": 0.923686720430851,
+        "foreground_iou": 0.6497420110133114,
+        "edge_iou": 0.374437306061798,
+        "text_coverage": 1.0,
+        "object_count": 117,
+        "line_object_count": 15,
+        "picture_count": 2,
+        "full_canvas_picture_count": 0,
+        "line_precision": 0.6692782649302133,
+        "line_recall": 0.5466631794603548,
+        "line_f1": 0.6017884922638436,
+        "line_regions": [
+          {
+            "precision": 0.6692782649302133,
+            "recall": 0.5466631794603548,
+            "f1": 0.6017884922638436,
+            "reference_pixels": 22941,
+            "recreation_pixels": 19273,
+            "name": "feature-flow",
+            "bounds": [
+              250,
+              60,
+              1120,
+              470
+            ]
+          }
+        ]
+      },
+      "thresholds": {
+        "max_mae": 0.085,
+        "min_foreground_iou": 0.63,
+        "min_edge_iou": 0.36,
+        "min_line_f1": 0.57,
+        "min_text_coverage": 1,
+        "min_object_count": 110
+      },
+      "checks": {
+        "mae": true,
+        "foreground_iou": true,
+        "edge_iou": true,
+        "text_coverage": true,
+        "object_count": true,
+        "no_full_canvas_picture": true,
+        "line_f1": true,
+        "line_object_count": true
+      },
+      "missing_expected_texts": [],
+      "full_canvas_pictures": [],
+      "artifacts": {
+        "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/cvpr-sd4match-fig2/cvpr-sd4match-fig2-reference.png",
+        "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/cvpr-sd4match-fig2/cvpr-sd4match-fig2-recreation.png",
+        "overlay": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/cvpr-sd4match-fig2/cvpr-sd4match-fig2-overlay.png",
+        "difference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/cvpr-sd4match-fig2/cvpr-sd4match-fig2-diff.png",
+        "comparison": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/cvpr-sd4match-fig2/cvpr-sd4match-fig2-comparison.png"
+      },
+      "passed": true
+    },
+    {
+      "id": "emnlp-adot-fig2",
+      "paper": "Adaption-of-Thought: Learning Question Difficulty Improves Large Language Models for Reasoning",
+      "figure": "Figure 2",
+      "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/benchmark/references/emnlp-adot-fig2.png",
+      "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/emnlp-adot-fig2/editable.pptx",
+      "metrics": {
+        "mae": 0.08782216161489487,
+        "rmse": 0.20714523668314197,
+        "pixel_similarity": 0.9121778383851051,
+        "foreground_iou": 0.17838626053143228,
+        "edge_iou": 0.22348670373678298,
+        "text_coverage": 1.0,
+        "object_count": 100,
+        "line_object_count": 20,
+        "picture_count": 0,
+        "full_canvas_picture_count": 0,
+        "line_precision": 0.3992983642588444,
+        "line_recall": 0.2875830146910847,
+        "line_f1": 0.3343559190098473,
+        "line_regions": [
+          {
+            "precision": 0.3992983642588444,
+            "recall": 0.2875830146910847,
+            "f1": 0.3343559190098473,
+            "reference_pixels": 29814,
+            "recreation_pixels": 23659,
+            "name": "three-step-flow",
+            "bounds": [
+              0,
+              0,
+              1162,
+              530
+            ]
+          }
+        ]
+      },
+      "thresholds": {
+        "max_mae": 0.1,
+        "min_foreground_iou": 0.16,
+        "min_edge_iou": 0.2,
+        "min_line_f1": 0.3,
+        "min_text_coverage": 1,
+        "min_object_count": 95
+      },
+      "checks": {
+        "mae": true,
+        "foreground_iou": true,
+        "edge_iou": true,
+        "text_coverage": true,
+        "object_count": true,
+        "no_full_canvas_picture": true,
+        "line_f1": true,
+        "line_object_count": true
+      },
+      "missing_expected_texts": [],
+      "full_canvas_pictures": [],
+      "artifacts": {
+        "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/emnlp-adot-fig2/emnlp-adot-fig2-reference.png",
+        "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/emnlp-adot-fig2/emnlp-adot-fig2-recreation.png",
+        "overlay": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/emnlp-adot-fig2/emnlp-adot-fig2-overlay.png",
+        "difference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/emnlp-adot-fig2/emnlp-adot-fig2-diff.png",
+        "comparison": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/emnlp-adot-fig2/emnlp-adot-fig2-comparison.png"
+      },
+      "passed": true
+    },
+    {
+      "id": "iclr-vdr-fig2",
+      "paper": "Retrieval-based Disentangled Representation Learning with Natural Language Supervision",
+      "figure": "Figure 2",
+      "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/benchmark/references/iclr-vdr-fig2.png",
+      "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-vdr-fig2/editable.pptx",
+      "metrics": {
+        "mae": 0.04696899652481079,
+        "rmse": 0.17185807144720844,
+        "pixel_similarity": 0.9530310034751892,
+        "foreground_iou": 0.5156588536537325,
+        "edge_iou": 0.55097309785801,
+        "text_coverage": 1.0,
+        "object_count": 64,
+        "line_object_count": 12,
+        "picture_count": 1,
+        "full_canvas_picture_count": 0
+      },
+      "thresholds": {
+        "max_mae": 0.06,
+        "min_foreground_iou": 0.49,
+        "min_edge_iou": 0.51,
+        "min_text_coverage": 1,
+        "min_object_count": 60
+      },
+      "checks": {
+        "mae": true,
+        "foreground_iou": true,
+        "edge_iou": true,
+        "text_coverage": true,
+        "object_count": true,
+        "no_full_canvas_picture": true,
+        "line_object_count": true
+      },
+      "missing_expected_texts": [],
+      "full_canvas_pictures": [],
+      "artifacts": {
+        "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-vdr-fig2/iclr-vdr-fig2-reference.png",
+        "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-vdr-fig2/iclr-vdr-fig2-recreation.png",
+        "overlay": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-vdr-fig2/iclr-vdr-fig2-overlay.png",
+        "difference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-vdr-fig2/iclr-vdr-fig2-diff.png",
+        "comparison": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-vdr-fig2/iclr-vdr-fig2-comparison.png"
+      },
+      "passed": true
+    },
+    {
+      "id": "emnlp-blendfilter-fig1",
+      "paper": "BlendFilter: Advancing Retrieval-Augmented Large Language Models via Query Generation Blending and Knowledge Filtering",
+      "figure": "Figure 1",
+      "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/benchmark/references/emnlp-blendfilter-fig1.png",
+      "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/emnlp-blendfilter-fig1/editable.pptx",
+      "metrics": {
+        "mae": 0.04350195452570915,
+        "rmse": 0.16106245065206498,
+        "pixel_similarity": 0.9564980454742908,
+        "foreground_iou": 0.3089633694201394,
+        "edge_iou": 0.49109712625973684,
+        "text_coverage": 1.0,
+        "object_count": 90,
+        "line_object_count": 25,
+        "picture_count": 28,
+        "full_canvas_picture_count": 0,
+        "line_precision": 0.8046773926024217,
+        "line_recall": 0.6308613819202527,
+        "line_f1": 0.7072465068955632,
+        "line_regions": [
+          {
+            "precision": 0.8046773926024217,
+            "recall": 0.6308613819202527,
+            "f1": 0.7072465068955632,
+            "reference_pixels": 39901,
+            "recreation_pixels": 30145,
+            "name": "knowledge-flow",
+            "bounds": [
+              10,
+              10,
+              1047,
+              610
+            ]
+          }
+        ]
+      },
+      "thresholds": {
+        "max_mae": 0.055,
+        "min_foreground_iou": 0.28,
+        "min_edge_iou": 0.46,
+        "min_line_f1": 0.68,
+        "min_text_coverage": 1,
+        "min_object_count": 85
+      },
+      "checks": {
+        "mae": true,
+        "foreground_iou": true,
+        "edge_iou": true,
+        "text_coverage": true,
+        "object_count": true,
+        "no_full_canvas_picture": true,
+        "line_f1": true,
+        "line_object_count": true
+      },
+      "missing_expected_texts": [],
+      "full_canvas_pictures": [],
+      "artifacts": {
+        "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/emnlp-blendfilter-fig1/emnlp-blendfilter-fig1-reference.png",
+        "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/emnlp-blendfilter-fig1/emnlp-blendfilter-fig1-recreation.png",
+        "overlay": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/emnlp-blendfilter-fig1/emnlp-blendfilter-fig1-overlay.png",
+        "difference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/emnlp-blendfilter-fig1/emnlp-blendfilter-fig1-diff.png",
+        "comparison": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/emnlp-blendfilter-fig1/emnlp-blendfilter-fig1-comparison.png"
+      },
+      "passed": true
+    },
+    {
+      "id": "cvpr-humannorm-fig4",
+      "paper": "HumanNorm: Learning Normal Diffusion Model for High-quality and Realistic 3D Human Generation",
+      "figure": "Figure 4",
+      "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/benchmark/references/cvpr-humannorm-fig4.png",
+      "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/cvpr-humannorm-fig4/editable.pptx",
+      "metrics": {
+        "mae": 0.04430977255105972,
+        "rmse": 0.15084800280275254,
+        "pixel_similarity": 0.9556902274489403,
+        "foreground_iou": 0.7119808275511884,
+        "edge_iou": 0.5281632567499581,
+        "text_coverage": 1.0,
+        "object_count": 60,
+        "line_object_count": 23,
+        "picture_count": 14,
+        "full_canvas_picture_count": 0
+      },
+      "thresholds": {
+        "max_mae": 0.055,
+        "min_foreground_iou": 0.68,
+        "min_edge_iou": 0.5,
+        "min_text_coverage": 1,
+        "min_object_count": 55
+      },
+      "checks": {
+        "mae": true,
+        "foreground_iou": true,
+        "edge_iou": true,
+        "text_coverage": true,
+        "object_count": true,
+        "no_full_canvas_picture": true,
+        "line_object_count": true
+      },
+      "missing_expected_texts": [],
+      "full_canvas_pictures": [],
+      "artifacts": {
+        "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/cvpr-humannorm-fig4/cvpr-humannorm-fig4-reference.png",
+        "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/cvpr-humannorm-fig4/cvpr-humannorm-fig4-recreation.png",
+        "overlay": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/cvpr-humannorm-fig4/cvpr-humannorm-fig4-overlay.png",
+        "difference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/cvpr-humannorm-fig4/cvpr-humannorm-fig4-diff.png",
+        "comparison": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/cvpr-humannorm-fig4/cvpr-humannorm-fig4-comparison.png"
       },
       "passed": true
     }

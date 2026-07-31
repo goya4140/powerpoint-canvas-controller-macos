@@ -1,0 +1,45 @@
+{
+  "id": "iclr-addp-fig2",
+  "paper": "ADDP: Learning General Representations for Image Recognition and Generation with Alternating Denoising Diffusion Process",
+  "figure": "Figure 2",
+  "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/benchmark/references/iclr-addp-fig2.png",
+  "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-addp-fig2/editable.pptx",
+  "metrics": {
+    "mae": 0.016735196113586426,
+    "rmse": 0.10444782777191962,
+    "pixel_similarity": 0.9832648038864136,
+    "foreground_iou": 0.8128241065171689,
+    "edge_iou": 0.6713468958968868,
+    "text_coverage": 1.0,
+    "object_count": 41,
+    "line_object_count": 7,
+    "picture_count": 11,
+    "full_canvas_picture_count": 0
+  },
+  "thresholds": {
+    "max_mae": 0.025,
+    "min_foreground_iou": 0.78,
+    "min_edge_iou": 0.64,
+    "min_text_coverage": 1,
+    "min_object_count": 40
+  },
+  "checks": {
+    "mae": true,
+    "foreground_iou": true,
+    "edge_iou": true,
+    "text_coverage": true,
+    "object_count": true,
+    "no_full_canvas_picture": true,
+    "line_object_count": true
+  },
+  "missing_expected_texts": [],
+  "full_canvas_pictures": [],
+  "artifacts": {
+    "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-addp-fig2/iclr-addp-fig2-reference.png",
+    "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-addp-fig2/iclr-addp-fig2-recreation.png",
+    "overlay": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-addp-fig2/iclr-addp-fig2-overlay.png",
+    "difference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-addp-fig2/iclr-addp-fig2-diff.png",
+    "comparison": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/iclr-addp-fig2/iclr-addp-fig2-comparison.png"
+  },
+  "passed": true
+}

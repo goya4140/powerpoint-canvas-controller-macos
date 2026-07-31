@@ -1,0 +1,33 @@
+{
+  "id": "iclr-vdr-fig2",
+  "paper": "Retrieval-based Disentangled Representation Learning with Natural Language Supervision",
+  "figure": "Figure 2",
+  "reference": "../../docs/benchmark/references/iclr-vdr-fig2.png",
+  "reference_crop": {
+    "left": 0,
+    "top": 0.180798005,
+    "right": 0,
+    "bottom": 0.072319202
+  },
+  "recreation": "../../docs/strict-recreation/iclr-vdr-fig2/editable.pptx",
+  "render_width": 1018,
+  "white_threshold": 0.97,
+  "edge_threshold": 0.08,
+  "expected_line_object_count": 12,
+  "expected_texts": [
+    "Training",
+    "Inference",
+    "Base Encoder",
+    "DST Head",
+    "Contrastive Loss",
+    "Embed Corpus",
+    "Nonparametric Inference"
+  ],
+  "thresholds": {
+    "max_mae": 0.06,
+    "min_foreground_iou": 0.49,
+    "min_edge_iou": 0.51,
+    "min_text_coverage": 1,
+    "min_object_count": 60
+  }
+}

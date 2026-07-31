@@ -177,6 +177,112 @@ def iou(left: np.ndarray, right: np.ndarray) -> float:
     return float(np.logical_and(left, right).sum() / union) if union else 1.0
 
 
+def dilate_mask(mask: np.ndarray, radius: int) -> np.ndarray:
+    """Dilate a boolean mask without adding a scipy dependency."""
+    if radius <= 0:
+        return mask.copy()
+    height, width = mask.shape
+    dilated = np.zeros_like(mask)
+    for dy in range(-radius, radius + 1):
+        for dx in range(-radius, radius + 1):
+            if dx * dx + dy * dy > radius * radius:
+                continue
+            source_y0 = max(0, -dy)
+            source_y1 = min(height, height - dy)
+            source_x0 = max(0, -dx)
+            source_x1 = min(width, width - dx)
+            target_y0 = source_y0 + dy
+            target_y1 = source_y1 + dy
+            target_x0 = source_x0 + dx
+            target_x1 = source_x1 + dx
+            dilated[target_y0:target_y1, target_x0:target_x1] |= mask[
+                source_y0:source_y1,
+                source_x0:source_x1,
+            ]
+    return dilated
+
+
+def line_mask(array: np.ndarray, dark_threshold: float, max_chroma: float) -> np.ndarray:
+    """Keep neutral dark strokes while rejecting colored nodes and images."""
+    gray = array.mean(axis=2)
+    chroma = array.max(axis=2) - array.min(axis=2)
+    return np.logical_and(gray <= dark_threshold, chroma <= max_chroma)
+
+
+def tolerant_line_scores(reference: np.ndarray, recreation: np.ndarray, radius: int) -> dict:
+    reference_count = int(reference.sum())
+    recreation_count = int(recreation.sum())
+    if not reference_count and not recreation_count:
+        return {"precision": 1.0, "recall": 1.0, "f1": 1.0, "reference_pixels": 0, "recreation_pixels": 0}
+    precision = (
+        float(np.logical_and(recreation, dilate_mask(reference, radius)).sum() / recreation_count)
+        if recreation_count
+        else 0.0
+    )
+    recall = (
+        float(np.logical_and(reference, dilate_mask(recreation, radius)).sum() / reference_count)
+        if reference_count
+        else 0.0
+    )
+    f1 = 2 * precision * recall / (precision + recall) if precision + recall else 0.0
+    return {
+        "precision": precision,
+        "recall": recall,
+        "f1": f1,
+        "reference_pixels": reference_count,
+        "recreation_pixels": recreation_count,
+    }
+
+
+def evaluate_line_gate(reference: np.ndarray, recreation: np.ndarray, config: dict) -> dict:
+    """Measure dark line fidelity only inside declared diagram regions."""
+    coordinate_space = config.get("coordinate_space", {})
+    source_width = float(coordinate_space.get("width", reference.shape[1]))
+    source_height = float(coordinate_space.get("height", reference.shape[0]))
+    scale_x = reference.shape[1] / source_width
+    scale_y = reference.shape[0] / source_height
+    dark_threshold = float(config.get("dark_threshold", 0.62))
+    max_chroma = float(config.get("max_chroma", 0.16))
+    radius = int(config.get("tolerance_px", 2))
+    regions = []
+    for index, region in enumerate(config.get("regions", [])):
+        left = max(0, round(float(region["left"]) * scale_x))
+        top = max(0, round(float(region["top"]) * scale_y))
+        right = min(reference.shape[1], round((float(region["left"]) + float(region["width"])) * scale_x))
+        bottom = min(reference.shape[0], round((float(region["top"]) + float(region["height"])) * scale_y))
+        reference_mask = line_mask(reference[top:bottom, left:right], dark_threshold, max_chroma)
+        recreation_mask = line_mask(recreation[top:bottom, left:right], dark_threshold, max_chroma)
+        score = tolerant_line_scores(reference_mask, recreation_mask, radius)
+        score.update({"name": region.get("name", f"region-{index + 1}"), "bounds": [left, top, right, bottom]})
+        regions.append(score)
+    if not regions:
+        raise RuntimeError("line_gate requires at least one region")
+    reference_count = sum(item["reference_pixels"] for item in regions)
+    recreation_count = sum(item["recreation_pixels"] for item in regions)
+    precision = (
+        sum(item["precision"] * item["recreation_pixels"] for item in regions) / recreation_count
+        if recreation_count
+        else (1.0 if not reference_count else 0.0)
+    )
+    recall = (
+        sum(item["recall"] * item["reference_pixels"] for item in regions) / reference_count
+        if reference_count
+        else (1.0 if not recreation_count else 0.0)
+    )
+    aggregate = {
+        "precision": precision,
+        "recall": recall,
+        "f1": 2 * precision * recall / (precision + recall) if precision + recall else 0.0,
+        "reference_pixels": reference_count,
+        "recreation_pixels": recreation_count,
+    }
+    aggregate["regions"] = regions
+    aggregate["tolerance_px"] = radius
+    aggregate["dark_threshold"] = dark_threshold
+    aggregate["max_chroma"] = max_chroma
+    return aggregate
+
+
 def inspect_pptx(pptx: Path) -> dict:
     with ZipFile(pptx) as archive:
         presentation = ET.fromstring(archive.read("ppt/presentation.xml"))
@@ -190,6 +296,13 @@ def inspect_pptx(pptx: Path) -> dict:
         len(slide.findall(f".//p:{tag}", NS))
         for tag in ("sp", "pic", "cxnSp", "graphicFrame")
     )
+    line_shape_count = sum(
+        1
+        for item in slide.findall(".//p:sp", NS)
+        if (geometry := item.find("./p:spPr/a:prstGeom", NS)) is not None
+        and geometry.get("prst") == "line"
+    )
+    line_object_count = line_shape_count + len(slide.findall(".//p:cxnSp", NS))
     pictures = slide.findall(".//p:pic", NS)
     full_canvas_pictures = []
     for picture in pictures:
@@ -208,6 +321,7 @@ def inspect_pptx(pptx: Path) -> dict:
     return {
         "text": "\n".join(texts),
         "object_count": object_count,
+        "line_object_count": line_object_count,
         "picture_count": len(pictures),
         "full_canvas_pictures": full_canvas_pictures,
     }
@@ -312,6 +426,7 @@ def evaluate_case(
         edge_mask(left, float(spec.get("edge_threshold", 0.08))),
         edge_mask(right, float(spec.get("edge_threshold", 0.08))),
     )
+    line_gate = evaluate_line_gate(left, right, spec["line_gate"]) if spec.get("line_gate") else None
 
     structure = inspect_pptx(recreation_path)
     normalized_deck_text = normalize_text(structure["text"])
@@ -327,9 +442,19 @@ def evaluate_case(
         "edge_iou": edge_iou,
         "text_coverage": text_coverage,
         "object_count": structure["object_count"],
+        "line_object_count": structure["line_object_count"],
         "picture_count": structure["picture_count"],
         "full_canvas_picture_count": len(structure["full_canvas_pictures"]),
     }
+    if line_gate:
+        metrics.update(
+            {
+                "line_precision": line_gate["precision"],
+                "line_recall": line_gate["recall"],
+                "line_f1": line_gate["f1"],
+                "line_regions": line_gate["regions"],
+            }
+        )
     checks = {
         "mae": mae <= float(thresholds["max_mae"]),
         "foreground_iou": foreground_iou >= float(thresholds["min_foreground_iou"]),
@@ -338,6 +463,10 @@ def evaluate_case(
         "object_count": structure["object_count"] >= int(thresholds["min_object_count"]),
         "no_full_canvas_picture": not structure["full_canvas_pictures"],
     }
+    if line_gate:
+        checks["line_f1"] = line_gate["f1"] >= float(thresholds["min_line_f1"])
+    if "expected_line_object_count" in spec:
+        checks["line_object_count"] = structure["line_object_count"] == int(spec["expected_line_object_count"])
     case_out = out_root / spec["id"]
     artifacts = make_outputs(reference, recreation, case_out, spec["id"])
     report = {
@@ -404,10 +533,11 @@ def main() -> int:
         passed &= case_passed
         status = "PASS" if case_passed else "FAIL"
         metrics = report["metrics"]
+        line_summary = f", line_f1={metrics['line_f1']:.4f}" if "line_f1" in metrics else ""
         print(
             f"{status} {report['id']}: similarity={metrics['pixel_similarity']:.4f}, "
             f"fg_iou={metrics['foreground_iou']:.4f}, edge_iou={metrics['edge_iou']:.4f}, "
-            f"text={metrics['text_coverage']:.3f}, objects={metrics['object_count']}"
+            f"text={metrics['text_coverage']:.3f}, objects={metrics['object_count']}{line_summary}"
         )
 
     if not args.case:

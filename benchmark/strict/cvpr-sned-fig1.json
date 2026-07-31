@@ -13,6 +13,32 @@
   "render_width": 1216,
   "white_threshold": 0.97,
   "edge_threshold": 0.08,
+  "line_gate": {
+    "coordinate_space": {
+      "width": 1216,
+      "height": 370
+    },
+    "dark_threshold": 0.62,
+    "max_chroma": 0.16,
+    "tolerance_px": 2,
+    "regions": [
+      {
+        "name": "supernet",
+        "left": 218,
+        "top": 82,
+        "width": 168,
+        "height": 177
+      },
+      {
+        "name": "subnet-topology",
+        "left": 560,
+        "top": 2,
+        "width": 392,
+        "height": 329
+      }
+    ]
+  },
+  "expected_line_object_count": 255,
   "expected_texts": [
     "Training Data",
     "Different Resolution",
@@ -27,10 +53,11 @@
     "Subnets with different size targeting different resolution options"
   ],
   "thresholds": {
-    "max_mae": 0.105,
-    "min_foreground_iou": 0.45,
-    "min_edge_iou": 0.36,
+    "max_mae": 0.08,
+    "min_foreground_iou": 0.60,
+    "min_edge_iou": 0.55,
+    "min_line_f1": 0.96,
     "min_text_coverage": 1.0,
-    "min_object_count": 400
+    "min_object_count": 380
   }
 }

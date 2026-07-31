@@ -5,22 +5,57 @@
   "reference": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/benchmark/references/cvpr-sned-fig1.png",
   "recreation": "/Users/wlh/Desktop/项目实践/draw-in-powerpoint/docs/strict-recreation/cvpr-sned-fig1/editable.pptx",
   "metrics": {
-    "mae": 0.1038600355386734,
-    "rmse": 0.26844750779828713,
-    "pixel_similarity": 0.8961399644613266,
-    "foreground_iou": 0.4522374901935411,
-    "edge_iou": 0.3676288744216517,
+    "mae": 0.07109092175960541,
+    "rmse": 0.2123857776714801,
+    "pixel_similarity": 0.9289090782403946,
+    "foreground_iou": 0.6142054752111804,
+    "edge_iou": 0.5682133623622262,
     "text_coverage": 1.0,
-    "object_count": 417,
+    "object_count": 389,
+    "line_object_count": 255,
     "picture_count": 6,
-    "full_canvas_picture_count": 0
+    "full_canvas_picture_count": 0,
+    "line_precision": 0.9968614910878191,
+    "line_recall": 0.97436484321355,
+    "line_f1": 0.9854847954977769,
+    "line_regions": [
+      {
+        "precision": 0.9885231702035513,
+        "recall": 0.9152955514929921,
+        "f1": 0.950501063913036,
+        "reference_pixels": 6564,
+        "recreation_pixels": 4618,
+        "name": "supernet",
+        "bounds": [
+          218,
+          82,
+          386,
+          259
+        ]
+      },
+      {
+        "precision": 1.0,
+        "recall": 0.9997382370263727,
+        "f1": 0.9998691013809805,
+        "reference_pixels": 15281,
+        "recreation_pixels": 12269,
+        "name": "subnet-topology",
+        "bounds": [
+          560,
+          2,
+          952,
+          331
+        ]
+      }
+    ]
   },
   "thresholds": {
-    "max_mae": 0.105,
-    "min_foreground_iou": 0.45,
-    "min_edge_iou": 0.36,
+    "max_mae": 0.08,
+    "min_foreground_iou": 0.6,
+    "min_edge_iou": 0.55,
+    "min_line_f1": 0.96,
     "min_text_coverage": 1.0,
-    "min_object_count": 400
+    "min_object_count": 380
   },
   "checks": {
     "mae": true,
@@ -28,7 +63,9 @@
     "edge_iou": true,
     "text_coverage": true,
     "object_count": true,
-    "no_full_canvas_picture": true
+    "no_full_canvas_picture": true,
+    "line_f1": true,
+    "line_object_count": true
   },
   "missing_expected_texts": [],
   "full_canvas_pictures": [],

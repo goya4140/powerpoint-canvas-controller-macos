@@ -1,0 +1,31 @@
+{
+  "id": "cvpr-humannorm-fig4",
+  "paper": "HumanNorm: Learning Normal Diffusion Model for High-quality and Realistic 3D Human Generation",
+  "figure": "Figure 4",
+  "reference": "../../docs/benchmark/references/cvpr-humannorm-fig4.png",
+  "reference_crop": {
+    "left": 0,
+    "top": 0,
+    "right": 0,
+    "bottom": 0.3591160221
+  },
+  "recreation": "../../docs/strict-recreation/cvpr-humannorm-fig4/editable.pptx",
+  "render_width": 1266,
+  "white_threshold": 0.97,
+  "edge_threshold": 0.08,
+  "expected_line_object_count": 23,
+  "expected_texts": [
+    "Geometry Generation",
+    "Texture Generation",
+    "Back Propagation",
+    "DMTET",
+    "Multi-denoise"
+  ],
+  "thresholds": {
+    "max_mae": 0.055,
+    "min_foreground_iou": 0.68,
+    "min_edge_iou": 0.50,
+    "min_text_coverage": 1,
+    "min_object_count": 55
+  }
+}

@@ -11,6 +11,16 @@
     "icml-fit-fig2.json",
     "neurips-controlmllm-fig1.json",
     "neurips-dot-fig2.json",
-    "cvpr-sned-fig1.json"
+    "cvpr-sned-fig1.json",
+    "acl-grace-fig2.json",
+    "emnlp-ex2-fig2.json",
+    "iclr-addp-fig2.json",
+    "icml-diffuco-fig1.json",
+    "neurips-gem-fig1.json",
+    "cvpr-sd4match-fig2.json",
+    "emnlp-adot-fig2.json",
+    "iclr-vdr-fig2.json",
+    "emnlp-blendfilter-fig1.json",
+    "cvpr-humannorm-fig4.json"
   ]
 }

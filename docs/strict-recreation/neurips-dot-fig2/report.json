@@ -12,6 +12,7 @@
     "edge_iou": 0.29550932952414966,
     "text_coverage": 1.0,
     "object_count": 113,
+    "line_object_count": 14,
     "picture_count": 0,
     "full_canvas_picture_count": 0
   },
