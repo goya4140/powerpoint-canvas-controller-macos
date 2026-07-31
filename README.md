@@ -277,6 +277,26 @@ flowchart LR
 
 [论文来源](https://openaccess.thecvf.com/content/CVPR2024/html/Huang_HumanNorm_Learning_Normal_Diffusion_Model_for_High-quality_and_Realistic_3D_CVPR_2024_paper.html) · [叠加图](docs/strict-recreation/cvpr-humannorm-fig4/cvpr-humannorm-fig4-overlay.png) · [差异图](docs/strict-recreation/cvpr-humannorm-fig4/cvpr-humannorm-fig4-diff.png) · [报告](docs/strict-recreation/cvpr-humannorm-fig4/report.json) · [PPTX](docs/strict-recreation/cvpr-humannorm-fig4/editable.pptx)
 
+## 用户指定复刻实验
+
+以下两项用于验证 pipeline 对超密集 taxonomy 图和完整竖版学术 poster 的适应性，不计入上方 20 条顶会严格 benchmark。
+
+### Agent Memory Taxonomy Figure 1
+
+![Agent Memory Taxonomy 参考图与复刻图](docs/strict-experiments/agent-memory-taxonomy-fig1/agent-memory-taxonomy-fig1-comparison.png)
+
+复刻逻辑：外围 12 个系统列表作为局部内容资产；标题、中央 3 × 3 记忆分类平面、18 个椭圆节点、53 个线对象、投影虚线、跨区箭头、分类标签和图注原生重建。最终像素相似度 93.21%，前景 IoU 79.45%，边缘 IoU 46.93%，中央拓扑线条 F1 40.47%，共 147 个对象。
+
+[叠加图](docs/strict-experiments/agent-memory-taxonomy-fig1/agent-memory-taxonomy-fig1-overlay.png) · [差异图](docs/strict-experiments/agent-memory-taxonomy-fig1/agent-memory-taxonomy-fig1-diff.png) · [报告](docs/strict-experiments/agent-memory-taxonomy-fig1/report.json) · [PPTX](docs/strict-experiments/agent-memory-taxonomy-fig1/editable.pptx)
+
+### ACL 2026 · Masked History Learning Poster
+
+![ACL 2026 MHL Poster 参考图与复刻图](docs/strict-experiments/acl2026-mhl-poster/acl2026-mhl-poster-comparison.png)
+
+复刻逻辑：标题、作者、单位、六个章节标题和四段正文均保留为原生文本；ACL/CQU 标识、概念图、方法图、实验表格和案例图作为六个独立局部资产。最终像素相似度 93.96%，前景 IoU 78.60%，边缘 IoU 65.19%，共 19 个对象。
+
+[叠加图](docs/strict-experiments/acl2026-mhl-poster/acl2026-mhl-poster-overlay.png) · [差异图](docs/strict-experiments/acl2026-mhl-poster/acl2026-mhl-poster-diff.png) · [报告](docs/strict-experiments/acl2026-mhl-poster/report.json) · [PPTX](docs/strict-experiments/acl2026-mhl-poster/editable.pptx)
+
 ## 严格 1 → 1 门禁
 
 ```mermaid

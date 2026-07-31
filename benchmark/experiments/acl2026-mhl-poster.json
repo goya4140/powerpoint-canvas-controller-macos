@@ -1,0 +1,27 @@
+{
+  "id": "acl2026-mhl-poster",
+  "paper": "From Past To Path: Masked History Learning for Next-Item Prediction in Generative Recommendation",
+  "figure": "ACL 2026 Poster",
+  "reference": "../../docs/benchmark/references/acl2026-mhl-poster.jpg",
+  "recreation": "../../docs/strict-experiments/acl2026-mhl-poster/editable.pptx",
+  "render_width": 1080,
+  "white_threshold": 0.97,
+  "edge_threshold": 0.08,
+  "expected_texts": [
+    "From Past To Path",
+    "Introduction",
+    "Main Contributions",
+    "Mask History Learning",
+    "Performance comparisons",
+    "Conclusion",
+    "Kaiwen Wei",
+    "Chongqing University"
+  ],
+  "thresholds": {
+    "max_mae": 0.075,
+    "min_foreground_iou": 0.76,
+    "min_edge_iou": 0.62,
+    "min_text_coverage": 1,
+    "min_object_count": 18
+  }
+}

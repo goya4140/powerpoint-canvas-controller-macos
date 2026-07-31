@@ -1,0 +1,152 @@
+{"kind":"deck","id":"pr/3n346x","name":"Deck"}
+{"kind":"layout","layoutId":"70ae39b9-ac15-4161-934b-95973353a5b1","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"9d197b5e-6edf-42f7-b586-4f760ccf711e","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/5tjebt","slide":1,"title":"Context Condensation","textShapes":41}
+{"kind":"textbox","id":"sh/9c7itkb6","slide":1,"name":"title.Context Condensation","text":"Context Condensation","textPreview":"Context Condensation","textChars":20,"textLines":1,"bbox":[58,39,420,32]}
+{"kind":"textbox","id":"sh/y5wzu5cj","slide":1,"name":"title.Context Branching","text":"Context Branching","textPreview":"Context Branching","textChars":17,"textLines":1,"bbox":[525,44,260,32]}
+{"kind":"textbox","id":"sh/z650nqto","slide":1,"name":"title.Internalizing Experiences","text":"Internalizing Experiences","textPreview":"Internalizing Experiences","textChars":25,"textLines":1,"bbox":[818,42,390,32]}
+{"kind":"textbox","id":"sh/k7ehwvu9","slide":1,"name":"title.KV Generation","text":"KV Generation","textPreview":"KV Generation","textChars":13,"textLines":1,"bbox":[1590,48,250,32]}
+{"kind":"textbox","id":"sh/l87ip0bu","slide":1,"name":"title.Extract Insights","text":"Extract Insights","textPreview":"Extract Insights","textChars":16,"textLines":1,"bbox":[58,220,260,32]}
+{"kind":"textbox","id":"sh/i10j6pcn","slide":1,"name":"title.Multimodal RAG","text":"Multimodal RAG","textPreview":"Multimodal RAG","textChars":14,"textLines":1,"bbox":[58,508,250,32]}
+{"kind":"textbox","id":"sh/j290zut8","slide":1,"name":"title.Knowledge Graph","text":"Knowledge Graph","textPreview":"Knowledge Graph","textChars":15,"textLines":1,"bbox":[58,696,250,32]}
+{"kind":"textbox","id":"sh/fahobi58","slide":1,"name":"title.Model & Knowledge Editing","text":"Model & Knowledge Editing","textPreview":"Model & Knowledge Editing","textChars":25,"textLines":1,"bbox":[58,875,330,32]}
+{"kind":"textbox","id":"sh/u98n2xon","slide":1,"name":"title.KV Reuse/Compression","text":"KV Reuse/Compression","textPreview":"KV Reuse/Compression","textChars":20,"textLines":1,"bbox":[1510,194,310,32]}
+{"kind":"textbox","id":"sh/hcj6dsne","slide":1,"name":"title.Latent Memory Generation","text":"Latent Memory Generation","textPreview":"Latent Memory Generation","textChars":24,"textLines":1,"bbox":[1538,383,330,32]}
+{"kind":"textbox","id":"sh/gbq54n6t","slide":1,"name":"title.Latent Repository","text":"Latent Repository","textPreview":"Latent Repository","textChars":17,"textLines":1,"bbox":[1594,895,260,32]}
+{"kind":"shape","id":"sh/3y1of25k","slide":1,"name":"memory-plane.cell.0.0","bbox":[704.67,603,352.67,130.33]}
+{"kind":"shape","id":"sh/2xs76xoz","slide":1,"name":"memory-plane.cell.0.1","bbox":[930.67,603,355,130.33]}
+{"kind":"shape","id":"sh/p0j6hcna","slide":1,"name":"memory-plane.cell.0.2","bbox":[1156.67,603,357.33,130.33]}
+{"kind":"shape","id":"sh/4zap876p","slide":1,"name":"memory-plane.cell.1.0","bbox":[580.33,733.33,350.33,130.33]}
+{"kind":"shape","id":"sh/r21oj25g","slide":1,"name":"memory-plane.cell.1.1","bbox":[804,733.33,352.67,130.33]}
+{"kind":"shape","id":"sh/q1s7ahov","slide":1,"name":"memory-plane.cell.1.2","bbox":[1027.67,733.33,355,130.33]}
+{"kind":"shape","id":"sh/o7u50r29","slide":1,"name":"memory-plane.cell.2.0","bbox":[456,863.67,348,130.33]}
+{"kind":"shape","id":"sh/9836tc3u","slide":1,"name":"memory-plane.cell.2.1","bbox":[677.33,863.67,350.33,130.33]}
+{"kind":"shape","id":"sh/m5cnyhk3","slide":1,"name":"memory-plane.cell.2.2","bbox":[898.67,863.67,352.67,130.33]}
+{"kind":"shape","id":"sh/n6l4rmlo","slide":1,"name":"memory-plane.border.0","bbox":[829,603,685,0]}
+{"kind":"shape","id":"sh/03u5w72x","slide":1,"name":"memory-plane.border.1","bbox":[1039.46,798.5,555.08,0]}
+{"kind":"shape","id":"sh/143mpc3i","slide":1,"name":"memory-plane.border.2","bbox":[456,994,664,0]}
+{"kind":"shape","id":"sh/e1snuxk7","slide":1,"name":"memory-plane.border.3","bbox":[372.31,798.5,540.38,0]}
+{"kind":"shape","id":"sh/z214n2lc","slide":1,"name":"memory-plane.front.token","bbox":[456,994,229,44]}
+{"kind":"shape","id":"sh/cza5sn21","slide":1,"name":"memory-plane.front.parametric","bbox":[685,994,228,44]}
+{"kind":"shape","id":"sh/d0jmls3m","slide":1,"name":"memory-plane.front.latent","bbox":[913,994,207,44]}
+{"kind":"shape","id":"sh/hkz2toje","slide":1,"name":"memory-plane.front.bottom","bbox":[456,1038,664,0]}
+{"kind":"shape","id":"sh/gj6l03it","slide":1,"name":"projection.0","bbox":[165.94,604,778.12,0]}
+{"kind":"shape","id":"sh/fixkry18","slide":1,"name":"projection.1","bbox":[389.24,512,612.51,0]}
+{"kind":"shape","id":"sh/uhojyt0n","slide":1,"name":"projection.2","bbox":[615.49,441,512.02,0]}
+{"kind":"shape","id":"sh/p8z2x8ja","slide":1,"name":"projection.3","bbox":[606.56,518,663.87,0]}
+{"kind":"shape","id":"sh/47ql43ip","slide":1,"name":"projection.4","bbox":[825.65,435.5,513.69,0]}
+{"kind":"shape","id":"sh/36hkvy14","slide":1,"name":"projection.5","bbox":[810.01,498.5,633.99,0]}
+{"kind":"shape","id":"sh/25832t0z","slide":1,"name":"projection.6","bbox":[985.85,465.5,558.3,0]}
+{"kind":"shape","id":"sh/5cf2l4j6","slide":1,"name":"projection.7","bbox":[403.85,658,327.3,0]}
+{"kind":"shape","id":"sh/kbm1sj2l","slide":1,"name":"projection.8","bbox":[468,516.5,624,0]}
+{"kind":"shape","id":"sh/ahkz25gj","slide":1,"name":"projection.9","bbox":[853.9,423,394.2,0]}
+{"kind":"shape","id":"sh/vit0vah4","slide":1,"name":"projection.10","bbox":[1163.22,470,185.56,0]}
+{"kind":"shape","id":"sh/wj2h4fy9","slide":1,"name":"flow.condensation.segment.0","bbox":[476.28,227.5,41.44,0]}
+{"kind":"shape","id":"sh/xkvixkzu","slide":1,"name":"flow.condensation.segment.1","bbox":[495.7,263,56.6,0]}
+{"kind":"shape","id":"sh/il4z6pgf","slide":1,"name":"flow.condensation.segment.2","bbox":[544.75,296.5,108.5,0]}
+{"kind":"shape","id":"sh/jmd0zuh0","slide":1,"name":"flow.condensation.end.shaft","bbox":[632.49,346.16,72.96,0]}
+{"kind":"shape","id":"sh/knmh8zyl","slide":1,"name":"flow.condensation.end.head","bbox":[683.5,375.5,17,17]}
+{"kind":"shape","id":"sh/5ovi14z6","slide":1,"name":"flow.insights.segment.0","bbox":[448.42,310,63.15,0]}
+{"kind":"shape","id":"sh/ep0zul0b","slide":1,"name":"flow.insights.segment.1","bbox":[501.89,338,62.23,0]}
+{"kind":"shape","id":"sh/zq9gnqhw","slide":1,"name":"flow.insights.end.shaft","bbox":[547.57,379.94,60.95,0]}
+{"kind":"shape","id":"sh/3upwvmxo","slide":1,"name":"flow.insights.end.head","bbox":[598.5,396.5,17,17]}
+{"kind":"shape","id":"sh/2twfmhg3","slide":1,"name":"flow.multimodal.segment.0","bbox":[445,510,29,0]}
+{"kind":"shape","id":"sh/pw7exwfe","slide":1,"name":"flow.multimodal.segment.1","bbox":[429.79,514,29.41,0]}
+{"kind":"shape","id":"sh/4vyxoryt","slide":1,"name":"flow.multimodal.end.shaft","bbox":[437.11,515.75,54.79,0]}
+{"kind":"shape","id":"sh/fq5wrmxc","slide":1,"name":"flow.multimodal.end.head","bbox":[487.5,491.5,17,17]}
+{"kind":"shape","id":"sh/u5wvihgr","slide":1,"name":"flow.knowledge.segment.0","bbox":[431.79,782,33.42,0]}
+{"kind":"shape","id":"sh/hsnetwfi","slide":1,"name":"flow.knowledge.segment.1","bbox":[447.44,785.5,35.11,0]}
+{"kind":"shape","id":"sh/gredkryx","slide":1,"name":"flow.knowledge.end.shaft","bbox":[464.53,787.97,36.87,0]}
+{"kind":"shape","id":"sh/zm9w36xw","slide":1,"name":"flow.knowledge.end.head","bbox":[491.5,759.5,17,17]}
+{"kind":"shape","id":"sh/el0fulwb","slide":1,"name":"flow.editing.segment.0","bbox":[599.6,950,160.8,0]}
+{"kind":"shape","id":"sh/wvql8jah","slide":1,"name":"flow.editing.segment.1","bbox":[464.99,957,135.01,0]}
+{"kind":"shape","id":"sh/xwz21or2","slide":1,"name":"flow.editing.end.shaft","bbox":[356.59,951.34,108.61,0]}
+{"kind":"shape","id":"sh/at8j69sb","slide":1,"name":"flow.editing.end.head","bbox":[340.5,937.5,17,17]}
+{"kind":"shape","id":"sh/buhkze9w","slide":1,"name":"flow.branching.segment.0","bbox":[723.95,158.5,41.11,0]}
+{"kind":"shape","id":"sh/kzalcjad","slide":1,"name":"flow.branching.segment.1","bbox":[713.95,216,88.09,0]}
+{"kind":"shape","id":"sh/lkj25ory","slide":1,"name":"flow.branching.end.shaft","bbox":[690.61,344.21,173.84,0]}
+{"kind":"shape","id":"sh/yxs3atsn","slide":1,"name":"flow.branching.end.head","bbox":[792.5,427.5,17,17]}
+{"kind":"shape","id":"sh/jy1k3e9s","slide":1,"name":"flow.experience.segment.0","bbox":[846.02,522.5,169.96,0]}
+{"kind":"shape","id":"sh/8nalg3qp","slide":1,"name":"flow.experience.segment.1","bbox":[842.96,356.5,163.08,0]}
+{"kind":"shape","id":"sh/toj298ra","slide":1,"name":"flow.experience.end.shaft","bbox":[879.63,237.8,76.58,0]}
+{"kind":"shape","id":"sh/h0b6dcjy","slide":1,"name":"flow.experience.end.head","bbox":[898.5,184.5,17,17]}
+{"kind":"shape","id":"sh/gzipkr2d","slide":1,"name":"flow.kv-generation.segment.0","bbox":[1363.82,232,65.37,0]}
+{"kind":"shape","id":"sh/fy9obm18","slide":1,"name":"flow.kv-generation.segment.1","bbox":[1419.41,202.5,38.18,0]}
+{"kind":"shape","id":"sh/ux07ihkn","slide":1,"name":"flow.kv-generation.end.shaft","bbox":[1451.99,188.61,26.19,0]}
+{"kind":"shape","id":"sh/twr69cj2","slide":1,"name":"flow.kv-generation.end.head","bbox":[1477.5,179.5,17,17]}
+{"kind":"shape","id":"sh/8vi5g72h","slide":1,"name":"flow.kv-reuse.segment.0","bbox":[1265.5,476,70.01,0]}
+{"kind":"shape","id":"sh/7u9o721w","slide":1,"name":"flow.kv-reuse.segment.1","bbox":[1284.06,391,128.88,0]}
+{"kind":"shape","id":"sh/6t0nexkb","slide":1,"name":"flow.kv-reuse.end.shaft","bbox":[1370.75,319.33,109.87,0]}
+{"kind":"shape","id":"sh/lsr65sjq","slide":1,"name":"flow.kv-reuse.end.head","bbox":[1478.5,297.5,17,17]}
+{"kind":"shape","id":"sh/kry5c725","slide":1,"name":"flow.latent-generation.segment.0","bbox":[1159.95,627.5,122.1,0]}
+{"kind":"shape","id":"sh/alcvq9wr","slide":1,"name":"flow.latent-generation.segment.1","bbox":[1261.65,572,185.69,0]}
+{"kind":"shape","id":"sh/bmlczedc","slide":1,"name":"flow.latent-generation.end.shaft","bbox":[1420.07,485.28,125.9,0]}
+{"kind":"shape","id":"sh/cnedsjex","slide":1,"name":"flow.latent-generation.end.head","bbox":[1537.5,444.5,17,17]}
+{"kind":"shape","id":"sh/xonu1ovi","slide":1,"name":"flow.latent-repository.segment.0","bbox":[1008,934,182,0]}
+{"kind":"shape","id":"sh/2xcvmpwv","slide":1,"name":"flow.latent-repository.segment.1","bbox":[1126.46,1049,135.07,0]}
+{"kind":"shape","id":"sh/nylcvudg","slide":1,"name":"flow.latent-repository.end.shaft","bbox":[1243.53,1030.59,243.78,0]}
+{"kind":"shape","id":"sh/ozudoze1","slide":1,"name":"flow.latent-repository.end.head","bbox":[1475.5,969.5,17,17]}
+{"kind":"shape","id":"sh/pk3ux4vm","slide":1,"name":"oval.brain","bbox":[602,381,112,68]}
+{"kind":"textbox","id":"sh/etsbipwz","slide":1,"name":"oval.brain.icon","text":"💭","textPreview":"💭","textChars":2,"textLines":1,"bbox":[631,392,48,43]}
+{"kind":"shape","id":"sh/fu1crud4","slide":1,"name":"oval.image","bbox":[490,476,104,54]}
+{"kind":"textbox","id":"sh/cnutczuh","slide":1,"name":"oval.image.icon","text":"🖼","textPreview":"🖼","textChars":2,"textLines":1,"bbox":[525,484,48,43]}
+{"kind":"shape","id":"sh/do3ul4bm","slide":1,"name":"oval.previous","bbox":[636,541,121,76]}
+{"kind":"textbox","id":"sh/qlcbapcb","slide":1,"name":"oval.previous.icon","text":"↪","textPreview":"↪","textChars":1,"textLines":1,"bbox":[681,554,48,43]}
+{"kind":"shape","id":"sh/rmlcjutw","slide":1,"name":"oval.graph","bbox":[487,682,178,112]}
+{"kind":"textbox","id":"sh/4jut8fu5","slide":1,"name":"oval.graph.icon","text":"🕸","textPreview":"🕸","textChars":2,"textLines":1,"bbox":[546,715,48,43]}
+{"kind":"shape","id":"sh/pk3uhkbq","slide":1,"name":"oval.database","bbox":[516,813,132,83]}
+{"kind":"textbox","id":"sh/2hsb6pcz","slide":1,"name":"oval.database.icon","text":"🗄","textPreview":"🗄","textChars":2,"textLines":1,"bbox":[558,831,48,43]}
+{"kind":"shape","id":"sh/3ilcfutk","slide":1,"name":"oval.editing","bbox":[748,802,197,114]}
+{"kind":"textbox","id":"sh/gvat4fu9","slide":1,"name":"oval.editing.icon","text":"📖","textPreview":"📖","textChars":2,"textLines":1,"bbox":[807,826,48,43]}
+{"kind":"shape","id":"sh/hgjudkbu","slide":1,"name":"oval.experience","bbox":[846,606,158,93]}
+{"kind":"textbox","id":"sh/jqhcnaxg","slide":1,"name":"oval.experience.icon","text":"🏅","textPreview":"🏅","textChars":2,"textLines":1,"bbox":[899,628,48,43]}
+{"kind":"shape","id":"sh/ip8vu5wv","slide":1,"name":"oval.central-small","bbox":[774,695,107,56]}
+{"kind":"shape","id":"sh/5sjupkfm","slide":1,"name":"oval.latent-books","bbox":[997,819,121,74]}
+{"kind":"textbox","id":"sh/kradwfe1","slide":1,"name":"oval.latent-books.icon","text":"📚","textPreview":"📚","textChars":2,"textLines":1,"bbox":[1034,833,48,43]}
+{"kind":"shape","id":"sh/7e1craxs","slide":1,"name":"oval.latent-center","bbox":[961,681,162,85]}
+{"kind":"shape","id":"sh/6tsvy5w7","slide":1,"name":"oval.repository","bbox":[1065,559,181,102]}
+{"kind":"textbox","id":"sh/tgjetkfi","slide":1,"name":"oval.repository.icon","text":"🗄","textPreview":"🗄","textChars":2,"textLines":1,"bbox":[1127,577,48,43]}
+{"kind":"shape","id":"sh/sfad0fex","slide":1,"name":"oval.kv-memory","bbox":[1030,466,138,78]}
+{"kind":"shape","id":"sh/fi1wvuxo","slide":1,"name":"oval.robot","bbox":[802,428,110,57]}
+{"kind":"textbox","id":"sh/uhsv2pw3","slide":1,"name":"oval.robot.icon","text":"🤖","textPreview":"🤖","textChars":2,"textLines":1,"bbox":[838,437,48,43]}
+{"kind":"shape","id":"sh/qdwfutgb","slide":1,"name":"oval.green-small","bbox":[899,417,106,55]}
+{"kind":"shape","id":"sh/re5gnyhw","slide":1,"name":"oval.bunny","bbox":[777,244,104,54]}
+{"kind":"textbox","id":"sh/cfexw3yh","slide":1,"name":"oval.bunny.icon","text":"🐇","textPreview":"🐇","textChars":2,"textLines":1,"bbox":[810,252,48,43]}
+{"kind":"shape","id":"sh/dgnyp8z2","slide":1,"name":"oval.green-top","bbox":[973,229,172,90]}
+{"kind":"shape","id":"sh/29cfq9gf","slide":1,"name":"oval.gears","bbox":[1210,315,143,88]}
+{"kind":"textbox","id":"sh/3a5gjeh0","slide":1,"name":"oval.gears.icon","text":"⚙","textPreview":"⚙","textChars":1,"textLines":1,"bbox":[1257,337,48,43]}
+{"kind":"shape","id":"sh/4bexsjy5","slide":1,"name":"oval.kv-chip","bbox":[1239,452,168,88]}
+{"kind":"textbox","id":"sh/pcnylozq","slide":1,"name":"oval.kv-chip.icon","text":"🧩","textPreview":"🧩","textChars":2,"textLines":1,"bbox":[1296,471,48,43]}
+{"kind":"textbox","id":"sh/m5gz2dgj","slide":1,"name":"label.previous","text":"Previous\nTraj.","textPreview":"Previous | Traj.","textChars":14,"textLines":2,"bbox":[586,628,140,58]}
+{"kind":"textbox","id":"sh/n6pgvih4","slide":1,"name":"label.database","text":"Vector\nDatabase","textPreview":"Vector | Database","textChars":15,"textLines":2,"bbox":[425,858,140,62]}
+{"kind":"textbox","id":"sh/x0rilcj6","slide":1,"name":"label.editing","text":"Model & Knowledge\nEditing","textPreview":"Model & Knowledge | Editing","textChars":25,"textLines":2,"bbox":[639,916,250,66]}
+{"kind":"textbox","id":"sh/wzi1s7il","slide":1,"name":"label.repository","text":"Latent\nRepository","textPreview":"Latent | Repository","textChars":17,"textLines":2,"bbox":[923,888,180,65]}
+{"kind":"textbox","id":"sh/vy90j210","slide":1,"name":"label.kvgen","text":"KV Generation","textPreview":"KV Generation","textChars":13,"textLines":1,"bbox":[1287,260,190,36]}
+{"kind":"textbox","id":"sh/ax0jqx0v","slide":1,"name":"label.kvreuse","text":"KV Reuse/\nCompression","textPreview":"KV Reuse/ | Compression","textChars":21,"textLines":2,"bbox":[1161,403,170,70]}
+{"kind":"textbox","id":"sh/9crihsja","slide":1,"name":"form.Token-level\nMemory","text":"Token-level\nMemory","textPreview":"Token-level | Memory","textChars":18,"textLines":2,"bbox":[468,1044,190,72]}
+{"kind":"textbox","id":"sh/8bi1o7ip","slide":1,"name":"form.Parametric\nMemory","text":"Parametric\nMemory","textPreview":"Parametric | Memory","textChars":17,"textLines":2,"bbox":[689,1044,190,72]}
+{"kind":"textbox","id":"sh/na90f214","slide":1,"name":"form.Latent\nMemory","text":"Latent\nMemory","textPreview":"Latent | Memory","textChars":13,"textLines":2,"bbox":[911,1044,190,72]}
+{"kind":"shape","id":"sh/m9gjmx0j","slide":1,"name":"form.bracket.left","bbox":[460.5,1135.5,15,0]}
+{"kind":"shape","id":"sh/t8v2twze","slide":1,"name":"form.bracket.right","bbox":[1056.5,1135.5,15,0]}
+{"kind":"shape","id":"sh/s7210rit","slide":1,"name":"form.bracket.horizontal","bbox":[468,1143,596,0]}
+{"kind":"textbox","id":"sh/0bq9krip","slide":1,"name":"form.bracket.label","text":"Diverse Memory Forms","textPreview":"Diverse Memory Forms","textChars":20,"textLines":1,"bbox":[520,1148,500,45]}
+{"kind":"textbox","id":"sh/1czatwja","slide":1,"name":"dynamic.Working\nMemory","text":"Working\nMemory","textPreview":"Working | Memory","textChars":14,"textLines":2,"bbox":[1392,642,180,76]}
+{"kind":"textbox","id":"sh/e98rih0j","slide":1,"name":"dynamic.Short-term","text":"Short-term","textPreview":"Short-term","textChars":10,"textLines":1,"bbox":[1457,738,180,76]}
+{"kind":"textbox","id":"sh/zah8rm14","slide":1,"name":"dynamic.Experiential\nMemory","text":"Experiential\nMemory","textPreview":"Experiential | Memory","textChars":19,"textLines":2,"bbox":[1270,760,180,76]}
+{"kind":"textbox","id":"sh/ofa9obil","slide":1,"name":"dynamic.Long-term","text":"Long-term","textPreview":"Long-term","textChars":9,"textLines":1,"bbox":[1307,898,180,76]}
+{"kind":"textbox","id":"sh/9gjaxgj6","slide":1,"name":"dynamic.Factual\nMemory","text":"Factual\nMemory","textPreview":"Factual | Memory","textChars":14,"textLines":2,"bbox":[1160,900,180,76]}
+{"kind":"textbox","id":"sh/mdsrm10f","slide":1,"name":"caption.figure","text":"Figure 1","textPreview":"Figure 1","textChars":8,"textLines":1,"bbox":[45,1200,165,44]}
+{"kind":"textbox","id":"sh/ne1sv610","slide":1,"name":"caption.body","text":"Overview of agent memory organized by the unified taxonomy of forms (Section 3), functions (Section 4), and dynamics (Section 5). The diagram positions memory artifacts by their dominant form and primary function. It further maps representative systems into this taxonomy to provide a consolidated landscape.","textPreview":"Overview of agent memory organized by the unified taxonomy of forms (Section 3), functions (Section 4), and dynamics (Section 5). The dia...","textChars":308,"textLines":1,"bbox":[184,1191,1680,154]}
+{"kind":"image","id":"im/9gbmx4b2","slide":1,"name":"","alt":"context-condensation systems","bbox":[54,73,439,146]}
+{"kind":"image","id":"im/mdk32psb","slide":1,"name":"","alt":"context-branching systems","bbox":[526,73,202,139]}
+{"kind":"image","id":"im/net4vutw","slide":1,"name":"","alt":"internalizing-experiences systems","bbox":[807,76,658,116]}
+{"kind":"image","id":"im/w3258zat","slide":1,"name":"","alt":"kv-generation systems","bbox":[1486,78,339,113]}
+{"kind":"image","id":"im/x4vm14ry","slide":1,"name":"","alt":"extract-insights systems","bbox":[57,249,391,253]}
+{"kind":"image","id":"im/a1kn69sn","slide":1,"name":"","alt":"multimodal-rag systems","bbox":[55,542,416,138]}
+{"kind":"image","id":"im/v2t4zet8","slide":1,"name":"","alt":"knowledge-graph systems","bbox":[56,725,382,141]}
+{"kind":"image","id":"im/k7m5cjap","slide":1,"name":"","alt":"model-editing systems","bbox":[55,906,294,160]}
+{"kind":"image","id":"im/58vm5ora","slide":1,"name":"","alt":"kv-reuse systems","bbox":[1487,230,340,149]}
+{"kind":"image","id":"im/ds729cbu","slide":1,"name":"","alt":"latent-generation systems","bbox":[1546,417,283,155]}
+{"kind":"image","id":"im/srylg7up","slide":1,"name":"","alt":"legend systems","bbox":[1607,602,224,279]}
+{"kind":"image","id":"im/rqpk72t4","slide":1,"name":"","alt":"latent-repository systems","bbox":[1484,928,341,131]}
+{"kind":"notes","id":"nt/5tjebt","slide":1,"text":"[Sources]\n- User-provided screenshot: 截屏2026-07-31 13.46.26.png\n[/Sources]"}
