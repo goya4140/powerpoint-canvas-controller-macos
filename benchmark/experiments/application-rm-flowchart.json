@@ -1,0 +1,31 @@
+{
+  "id": "application-rm-flowchart",
+  "paper": "Application of Reward Models",
+  "figure": "Application flowchart",
+  "reference": "../../docs/benchmark/references/application-rm-flowchart.png",
+  "recreation": "../../docs/strict-experiments/application-rm-flowchart/editable.pptx",
+  "render_width": 5760,
+  "white_threshold": 0.97,
+  "edge_threshold": 0.08,
+  "expected_texts": [
+    "Application",
+    "RM for Data Processing",
+    "Data Selection",
+    "Data Labeling",
+    "Active Data Sampling",
+    "RM for RL Training",
+    "Single-modal Reward Signals",
+    "Multi-modal Reward Signals",
+    "RM for Test-time Scaling",
+    "Post-Generation Selection",
+    "Process-Level Guidance"
+  ],
+  "thresholds": {
+    "max_mae": 0.02,
+    "min_foreground_iou": 0.97,
+    "min_edge_iou": 0.70,
+    "min_text_coverage": 1,
+    "min_object_count": 35,
+    "expected_line_object_count": 3
+  }
+}

@@ -1,0 +1,40 @@
+{"kind":"deck","id":"pr/agt5ky","name":"Deck"}
+{"kind":"layout","layoutId":"8ff4380d-a9ff-48aa-bd63-a38a9ca3a6e2","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"0d3fae1d-dc95-4392-9944-78e863046b32","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/7d46q7","slide":1,"title":"Application","textShapes":11}
+{"kind":"shape","id":"sh/pg72lgfy","slide":1,"name":"panel.data-processing","bbox":[51,302,2059,1097]}
+{"kind":"shape","id":"sh/itgja1g7","slide":1,"name":"panel.data-processing.divider","bbox":[72,541,2038,0]}
+{"kind":"shape","id":"sh/3up0j6hs","slide":1,"name":"panel.rl-training","bbox":[2174,302,1783,1101]}
+{"kind":"shape","id":"sh/cjy1gby9","slide":1,"name":"panel.rl-training.divider","bbox":[2180,553,1776,0]}
+{"kind":"shape","id":"sh/dkr2pgfu","slide":1,"name":"panel.test-time-scaling","bbox":[4022,292,1680,1107]}
+{"kind":"shape","id":"sh/qhgjelgj","slide":1,"name":"panel.test-time-scaling.divider","bbox":[4025,556,1675,0]}
+{"kind":"textbox","id":"sh/ripkn6x4","slide":1,"name":"title","text":"Application","textPreview":"Application","textChars":11,"textLines":1,"bbox":[2200,16,1360,210]}
+{"kind":"textbox","id":"sh/0ni1kvyl","slide":1,"name":"panel.data-processing.title","text":"RM for Data Processing","textPreview":"RM for Data Processing","textChars":22,"textLines":1,"bbox":[340,354,1480,145]}
+{"kind":"textbox","id":"sh/1or2t0f6","slide":1,"name":"panel.rl-training.title","text":"RM for RL Training","textPreview":"RM for RL Training","textChars":18,"textLines":1,"bbox":[2460,358,1200,145]}
+{"kind":"textbox","id":"sh/x0fy1wv2","slide":1,"name":"panel.test-time-scaling.title","text":"RM for Test-time Scaling","textPreview":"RM for Test-time Scaling","textChars":24,"textLines":1,"bbox":[4145,350,1435,150]}
+{"kind":"textbox","id":"sh/wz6xsreh","slide":1,"name":"data-selection.title","text":"Data\nSelection","textPreview":"Data | Selection","textChars":14,"textLines":2,"bbox":[145,574,610,250]}
+{"kind":"textbox","id":"sh/vyxgzmdw","slide":1,"name":"data-labeling.title","text":"Data\nLabeling","textPreview":"Data | Labeling","textChars":13,"textLines":2,"bbox":[780,574,560,250]}
+{"kind":"textbox","id":"sh/axofqhwr","slide":1,"name":"active-data-sampling.title","text":"Active\nData Sampling","textPreview":"Active | Data Sampling","textChars":20,"textLines":2,"bbox":[1380,572,660,250]}
+{"kind":"textbox","id":"sh/5ozy5wve","slide":1,"name":"single-modal.title","text":"Single-modal\nReward Signals","textPreview":"Single-modal | Reward Signals","textChars":27,"textLines":2,"bbox":[2290,578,720,255]}
+{"kind":"textbox","id":"sh/knqxwret","slide":1,"name":"multi-modal.title","text":"Multi-modal\nReward Signals","textPreview":"Multi-modal | Reward Signals","textChars":26,"textLines":2,"bbox":[3170,578,720,255]}
+{"kind":"textbox","id":"sh/j2hg3md8","slide":1,"name":"post-generation.title","text":"Post-Generation\nSelection","textPreview":"Post-Generation | Selection","textChars":25,"textLines":2,"bbox":[4065,590,750,250]}
+{"kind":"textbox","id":"sh/i1ofuhwn","slide":1,"name":"process-level.title","text":"Process-Level\nGuidance","textPreview":"Process-Level | Guidance","textChars":22,"textLines":2,"bbox":[4930,590,700,250]}
+{"kind":"image","id":"im/qt8vi1sf","slide":1,"name":"","alt":"Application title glyph","bbox":[2200,0,1360,240]}
+{"kind":"image","id":"im/ruhwb690","slide":1,"name":"","alt":"RM for Data Processing glyph","bbox":[270,345,1660,180]}
+{"kind":"image","id":"im/nyts3y9c","slide":1,"name":"","alt":"RM for RL Training glyph","bbox":[2370,345,1390,180]}
+{"kind":"image","id":"im/mx0rut8r","slide":1,"name":"","alt":"RM for Test-time Scaling glyph","bbox":[4130,340,1470,185]}
+{"kind":"image","id":"im/90ba58ri","slide":1,"name":"","alt":"Data Selection glyph","bbox":[125,570,660,285]}
+{"kind":"image","id":"im/oz2tw3qx","slide":1,"name":"","alt":"Data Labeling glyph","bbox":[750,570,620,285]}
+{"kind":"image","id":"im/b2ts7ipo","slide":1,"name":"","alt":"Active Data Sampling glyph","bbox":[1350,570,700,285]}
+{"kind":"image","id":"im/a1kbyd83","slide":1,"name":"","alt":"Single-modal Reward Signals glyph","bbox":[2260,570,790,290]}
+{"kind":"image","id":"im/x4ba987e","slide":1,"name":"","alt":"Multi-modal Reward Signals glyph","bbox":[3135,570,790,290]}
+{"kind":"image","id":"im/w32t03qt","slide":1,"name":"","alt":"Post-Generation Selection glyph","bbox":[4050,580,800,290]}
+{"kind":"image","id":"im/j6dsbipk","slide":1,"name":"","alt":"Process-Level Guidance glyph","bbox":[4890,580,740,290]}
+{"kind":"image","id":"im/i5kb2d8z","slide":1,"name":"","alt":"Data selection illustration","bbox":[139,879,510,459]}
+{"kind":"image","id":"im/gvm9sn6d","slide":1,"name":"","alt":"Data labeling illustration","bbox":[758,875,530,477]}
+{"kind":"image","id":"im/hwva1sni","slide":1,"name":"","alt":"Active data sampling illustration","bbox":[1430,875,575,481]}
+{"kind":"image","id":"im/ut4rqdo7","slide":1,"name":"","alt":"Single-modal reward signals illustration","bbox":[2360,875,585,486]}
+{"kind":"image","id":"im/fudszi5s","slide":1,"name":"","alt":"Multi-modal reward signals illustration","bbox":[3246,874,510,493]}
+{"kind":"image","id":"im/s7m9on61","slide":1,"name":"","alt":"Post-generation selection illustration","bbox":[4215,875,510,489]}
+{"kind":"image","id":"im/t8vqx8nm","slide":1,"name":"","alt":"Process-level guidance illustration","bbox":[5018,875,535,489]}
+{"kind":"notes","id":"nt/7d46q7","slide":1,"text":"[Sources]\n- User-provided reference image: Flowchart_Applciation_01.png\n[/Sources]"}

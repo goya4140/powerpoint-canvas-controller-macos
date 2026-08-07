@@ -279,7 +279,7 @@ flowchart LR
 
 ## 用户指定复刻实验
 
-以下两项用于验证 pipeline 对超密集 taxonomy 图和完整竖版学术 poster 的适应性，不计入上方 20 条顶会严格 benchmark。
+以下三项用于验证 pipeline 对超密集 taxonomy 图、完整竖版学术 poster 和超宽流程图的适应性，不计入上方 20 条顶会严格 benchmark。
 
 ### Agent Memory Taxonomy Figure 1
 
@@ -296,6 +296,14 @@ flowchart LR
 复刻逻辑：标题、作者、单位、六个章节标题和四段正文均保留为原生文本；ACL/CQU 标识、概念图、方法图、实验表格和案例图作为六个独立局部资产。最终像素相似度 93.96%，前景 IoU 78.60%，边缘 IoU 65.19%，共 19 个对象。
 
 [叠加图](docs/strict-experiments/acl2026-mhl-poster/acl2026-mhl-poster-overlay.png) · [差异图](docs/strict-experiments/acl2026-mhl-poster/acl2026-mhl-poster-diff.png) · [报告](docs/strict-experiments/acl2026-mhl-poster/report.json) · [PPTX](docs/strict-experiments/acl2026-mhl-poster/editable.pptx)
+
+### Application of Reward Models Flowchart
+
+![Application Flowchart 参考图与复刻图](docs/strict-experiments/application-rm-flowchart/application-rm-flowchart-comparison.png)
+
+复刻逻辑：保留 5760 × 1462 原始画布；三个圆角分区、三条水平虚线和全部文字镜像使用原生对象重建。由于原图手写字体在跨渲染器时字形指标不稳定，11 段可见字形使用独立小区域资产叠加，底层仍保留可编辑文本；Data Selection、Data Labeling、Active Data Sampling、两类 Reward Signals、Post-Generation Selection 和 Process-Level Guidance 七组复杂插画分别裁成局部资产，不使用整张参考图铺底。最终像素相似度 98.63%，前景 IoU 98.29%，边缘 IoU 72.79%，共 35 个对象。
+
+[叠加图](docs/strict-experiments/application-rm-flowchart/application-rm-flowchart-overlay.png) · [差异图](docs/strict-experiments/application-rm-flowchart/application-rm-flowchart-diff.png) · [报告](docs/strict-experiments/application-rm-flowchart/report.json) · [PPTX](docs/strict-experiments/application-rm-flowchart/editable.pptx)
 
 ## 严格 1 → 1 门禁
 

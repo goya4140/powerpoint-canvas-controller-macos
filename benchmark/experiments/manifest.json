@@ -2,6 +2,7 @@
   "name": "User-requested strict recreation experiments",
   "cases": [
     "agent-memory-taxonomy-fig1.json",
-    "acl2026-mhl-poster.json"
+    "acl2026-mhl-poster.json",
+    "application-rm-flowchart.json"
   ]
 }
